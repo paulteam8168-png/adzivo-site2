@@ -70,8 +70,7 @@ export async function onRequestPost({ request, env }) {
     body: JSON.stringify({ from: env.CONTACT_FROM_EMAIL, to: [env.CONTACT_TO_EMAIL], reply_to: f.email, subject: `New enquiry from ${f.name}`, text }),
   }).catch(() => null);
 
-  if (!res || !res.ok) return json({ ok: false, error: "We couldn't send your message. Please try again or contact us another way." }, 502);
-  return json({ ok: true });
+    if (!res || !res.ok) return json({ ok: false, error: "DEBUG: " + (res ? res.status + " " + (await res.text()) : "no response") }, 502);
 }
 
 export const onRequest = () => json({ ok: false, error: "Method not allowed." }, 405);
