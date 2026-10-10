@@ -15,7 +15,17 @@ export function pages(c, base) {
     c.contact.location && `<li>${esc(c.contact.location)}</li>`,
   ].filter(Boolean);
 
-  const layout = ({ path, title, desc, body, noindex = false, form = false }) => {
+  const org = { "@type": "Organization", "@id": base + "/#org", name: c.name, url: base + "/", logo: base + "/favicon.svg", description: c.support,
+    ...(c.contact.email && { email: c.contact.email }), ...(c.contact.phone && { telephone: c.contact.phone }) };
+  const site = { "@type": "WebSite", "@id": base + "/#website", url: base + "/", name: c.name, publisher: { "@id": base + "/#org" } };
+  const ldJson = (path, title, extra) => {
+    const crumbs = path === "/" ? [] : [{ "@type": "BreadcrumbList", itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: base + "/" },
+      { "@type": "ListItem", position: 2, name: title, item: base + path }] }];
+    return JSON.stringify({ "@context": "https://schema.org", "@graph": [org, site, ...crumbs, ...extra] }).replace(/</g, "\\u003c");
+  };
+
+  const layout = ({ path, title, desc, body, noindex = false, form = false, schema = [] }) => {
     const full = path === "/" ? title : `${title} | ${c.name}`;
     const url = base + path;
     return `<!doctype html>
@@ -32,6 +42,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/styles.css">
 ${form && c.turnstileSiteKey ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : ""}
+${noindex ? "" : `<script type="application/ld+json">${ldJson(path, title, schema)}</script>`}
 </head><body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="hdr"><div class="wrap hdr-in">
@@ -79,7 +90,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     ? `<section class="sec"><div class="wrap">${head("Testimonials", "What clients say")}<div class="grid g3">${c.testimonials.map((t) => `<figure class="card reveal"><blockquote>“${esc(t.quote)}”</blockquote><figcaption>${esc(t.name)}${t.role ? `, ${esc(t.role)}` : ""}</figcaption></figure>`).join("")}</div></div></section>`
     : `<section class="sec alt"><div class="wrap">${head("Our Approach", "Clear thinking before ad spend", "We keep things simple: understand the business, test with discipline, report honestly and invest more only where the data supports it.")}</div></section>`;
 
-  add({ path: "/", title: `${c.name} — ${c.tagline}`, desc: "ADZIVO helps ambitious businesses build smarter paid social campaigns, generate qualified leads and make better decisions with performance-focused advertising.", body: `
+  add({ schema: [{ "@type": "FAQPage", mainEntity: faqs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }], path: "/", title: `${c.name} — ${c.tagline}`, desc: "ADZIVO helps ambitious businesses build smarter paid social campaigns, generate qualified leads and make better decisions with performance-focused advertising.", body: `
 <section class="hero"><div class="wrap hero-in">
 <div class="hero-copy"><span class="eyebrow">Paid Social Advertising Agency</span>
 <h1>Turn Ad Spend Into <span class="grad">Scalable Growth.</span></h1>
@@ -118,7 +129,7 @@ ${approach}
 ${cta()}` });
 
   /* ---------- SERVICES ---------- */
-  add({ path: "/services/", title: "Services", desc: "Meta Ads management, Facebook and Instagram campaigns, creative testing, lead generation, retargeting and analytics from ADZIVO.", body: `
+  add({ schema: [{ "@type": "ItemList", itemListElement: c.services.map((s, i) => ({ "@type": "ListItem", position: i + 1, item: { "@type": "Service", name: s.title, description: s.short, url: `${base}/services/#${s.slug}`, provider: { "@id": base + "/#org" } } })) }], path: "/services/", title: "Services", desc: "Meta Ads management, Facebook and Instagram campaigns, creative testing, lead generation, retargeting and analytics from ADZIVO.", body: `
 <section class="page-hero"><div class="wrap"><span class="eyebrow">Services</span><h1>Paid social services built around your goals</h1><p class="lead">Every engagement starts with understanding your business. We don't promise specific sales, leads or return on ad spend, because results depend on your offer, market and budget.</p></div></section>
 <section class="sec"><div class="wrap"><div class="note">Our management fee and your advertising spend are separate. Ad spend is paid to the advertising platform from your own ad account; our fee covers strategy, management and reporting.</div>
 ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}"><h2>${s.title}</h2><p class="muted">${s.short}</p>
@@ -140,7 +151,7 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
 
   /* ---------- CONTACT ---------- */
   const opt = (a) => a.map((o) => `<option>${o}</option>`).join("");
-  add({ path: "/contact/", form: true, title: "Contact", desc: "Contact ADZIVO to discuss your paid social advertising goals or book a strategy call.", body: `
+  add({ schema: [{ "@type": "ContactPage", url: base + "/contact/", name: "Contact " + c.name }], path: "/contact/", form: true, title: "Contact", desc: "Contact ADZIVO to discuss your paid social advertising goals or book a strategy call.", body: `
 <section class="page-hero"><div class="wrap"><span class="eyebrow">Contact</span><h1>Let's talk about your goals</h1><p class="lead">Send us a message or book a strategy call directly.</p><div class="actions">${bookBtn()}</div></div></section>
 <section class="sec" id="form"><div class="wrap grid g2c">
 <form id="contact-form" class="card" novalidate>
