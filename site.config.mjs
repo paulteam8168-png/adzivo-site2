@@ -3,7 +3,7 @@ export default {
   name: "ADZIVO",
   tagline: "Turn Ad Spend Into Scalable Growth.",
   support: "Performance marketing built around your business goals.",
-  siteUrl: "https://www.example.com", // override with SITE_URL env var on Cloudflare
+  siteUrl: "https://adzivo.online", // override with SITE_URL env var on Cloudflare
 
   // Leave blank to hide. Nothing is invented: fill in only real details.
   contact: { email: "", phone: "", location: "", bookingUrl: "" }, // bookingUrl e.g. Calendly link
