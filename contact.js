@@ -23,7 +23,7 @@ async function rateLimited(env, ip) {
   return false;
 }
 
-export async function onRequestPost({ request, env }) {
+async function handle({ request, env }) {
   // Basic cross-site protection
   const origin = request.headers.get("origin");
   if (origin && new URL(origin).host !== new URL(request.url).host) return json({ ok: false, error: "Request blocked." }, 403);
@@ -70,7 +70,20 @@ export async function onRequestPost({ request, env }) {
     body: JSON.stringify({ from: env.CONTACT_FROM_EMAIL, to: [env.CONTACT_TO_EMAIL], reply_to: f.email, subject: `New enquiry from ${f.name}`, text }),
   }).catch(() => null);
 
-    if (!res || !res.ok) return json({ ok: false, error: "DEBUG: " + (res ? res.status + " " + (await res.text()) : "no response") }, 502);
+  if (!res) return json({ ok: false, error: "We couldn't reach the email service. Please try again." }, 502);
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    console.error("Resend error", res.status, body);
+    let msg = "";
+    try { msg = JSON.parse(body).message || ""; } catch {}
+    return json({ ok: false, error: `We couldn't send your message (email service error ${res.status}${msg ? ": " + msg.slice(0, 160) : ""}).` }, 502);
+  }
+  return json({ ok: true });
+}
+
+export async function onRequestPost(ctx) {
+  try { return await handle(ctx); }
+  catch (e) { console.error("contact handler crashed", e); return json({ ok: false, error: "Server error. Please try again later." }, 500); }
 }
 
 export const onRequest = () => json({ ok: false, error: "Method not allowed." }, 405);
