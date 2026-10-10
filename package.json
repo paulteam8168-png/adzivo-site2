@@ -1,0 +1,12 @@
+{
+  "name": "adzivo-site2",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "ADZIVO marketing site - zero-dependency static build for Cloudflare Pages",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx wrangler dev",
+    "preview": "node build.mjs && npx serve dist"
+  }
+}
