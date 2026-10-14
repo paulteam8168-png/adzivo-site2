@@ -1,4 +1,4 @@
-import { rm, mkdir, writeFile, cp } from "node:fs/promises";
+import { rm, mkdir, writeFile, cp, readdir } from "node:fs/promises";
 import { dirname } from "node:path";
 import cfg from "./site.config.mjs";
 import { pages } from "./pages.mjs";
@@ -6,7 +6,8 @@ import { pages } from "./pages.mjs";
 const base = (process.env.SITE_URL || cfg.siteUrl).replace(/\/$/, "");
 await rm("dist", { recursive: true, force: true });
 await mkdir("dist", { recursive: true });
-for (const f of ["styles.css", "main.js", "favicon.svg", "og.png"]) await cp(f, `dist/${f}`);
+for (const f of ["styles.css", "main.js"]) await cp(f, `dist/${f}`);
+for (const f of await readdir(".")) if (/\.(png|jpe?g|webp|avif|gif|svg)$/i.test(f)) await cp(f, `dist/${f}`); // images in this folder are published as /filename
 
 const list = pages(cfg, base);
 for (const p of list) {
