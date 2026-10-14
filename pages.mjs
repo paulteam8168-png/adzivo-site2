@@ -65,7 +65,7 @@ ${noindex ? "" : `<script type="application/ld+json">${ldJson(path, title, schem
 
   const head = (eyebrow, h, p = "") => `<div class="sec-head reveal"><span class="eyebrow">${eyebrow}</span><h2>${h}</h2>${p ? `<p class="muted">${p}</p>` : ""}</div>`;
 
-  const caseCards = (list) => list.map((s) => `<article class="card case reveal">
+  const caseCards = (list) => list.filter((s) => !s.demo).map((s) => `<article class="card case reveal">
 ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>' : ""}
 <h3>${esc(s.client)}</h3><p class="tag">${esc(s.industry)} · ${esc(s.timeframe)}</p>
 <dl><dt>Challenge</dt><dd>${esc(s.challenge)}</dd><dt>Strategy</dt><dd>${esc(s.strategy)}</dd><dt>Results</dt><dd>${esc(s.results)}</dd></dl></article>`).join("");
@@ -111,8 +111,8 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <section class="sec"><div class="wrap">${head("Services", "Everything paid social needs, in one team", "From strategy and creative to tracking and reporting.")}
 <div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
-<section class="sec alt"><div class="wrap">${head("Case Studies", "Results, told honestly", "Client stories will appear here once approved for publication.")}
-<div class="grid g3">${caseCards(c.caseStudies)}</div><p class="center">${btn("/case-studies/", "View Case Studies", "btn-ghost")}</p></div></section>
+${c.showCaseStudies && c.caseStudies.some((s) => !s.demo) ? `<section class="sec alt"><div class="wrap">${head("Case Studies", "Results, told honestly", "Verified client stories, shared with permission.")}
+<div class="grid g3">${caseCards(c.caseStudies)}</div><p class="center">${btn("/case-studies/", "View Case Studies", "btn-ghost")}</p></div></section>` : ""}
 
 <section class="sec"><div class="wrap">${head("Our Process", "Four stages from idea to scale")}
 <ol class="steps">${[["Discover", "Understand business goals, audience, offer, and economics."], ["Strategize", "Build campaign strategy, creative direction, and tracking plans."], ["Launch & Optimize", "Test, monitor, and improve campaigns."], ["Scale", "Expand what works with transparent reporting."]].map(([t, d], i) => `<li class="card reveal"><span class="num">0${i + 1}</span><h3>${t}</h3><p class="muted">${d}</p></li>`).join("")}</ol></div></section>
@@ -139,8 +139,8 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
 
   /* ---------- CASE STUDIES ---------- */
   add({ path: "/case-studies/", title: "Case Studies", desc: "Case studies from ADZIVO paid social campaigns.", body: `
-<section class="page-hero"><div class="wrap"><span class="eyebrow">Case Studies</span><h1>Client stories</h1><p class="lead">The examples below are templates. Replace them with verified, client-approved results before publishing.</p></div></section>
-<section class="sec"><div class="wrap"><div class="grid g3">${caseCards(c.caseStudies)}</div></div></section>${cta()}` });
+<section class="page-hero"><div class="wrap"><span class="eyebrow">Case Studies</span><h1>Client stories</h1><p class="lead">We publish client stories only when the work and results are verified and approved for sharing.</p></div></section>
+<section class="sec"><div class="wrap">${c.showCaseStudies && c.caseStudies.some((s) => !s.demo) ? `<div class="grid g3">${caseCards(c.caseStudies)}</div>` : `<div class="card center"><h2>Case studies coming soon</h2><p class="muted">We're preparing verified client stories. In the meantime, contact us to discuss your goals and our process.</p>${btn("/contact/", "Discuss Your Goals")}</div>`}</div></section>${cta()}` });
 
   /* ---------- ABOUT ---------- */
   const team = c.team.length ? `<section class="sec alt"><div class="wrap">${head("Team", "The people behind the campaigns")}<div class="grid g3">${c.team.map((m) => `<div class="card reveal"><h3>${esc(m.name)}</h3><p class="tag">${esc(m.role)}</p><p class="muted">${esc(m.bio || "")}</p></div>`).join("")}</div></div></section>` : "";
