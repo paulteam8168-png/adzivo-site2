@@ -13,6 +13,20 @@
     items.forEach((i) => io.observe(i));
   } else items.forEach((i) => i.classList.add("in"));
 
+  // 3D tilt (desktop mouse only, skipped for reduced motion)
+  if (matchMedia("(hover:hover) and (pointer:fine)").matches && !matchMedia("(prefers-reduced-motion:reduce)").matches) {
+    const rel = (e, el) => { const r = el.getBoundingClientRect(); return [(e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5]; };
+    const hero = document.querySelector(".hero"), viz = document.querySelector(".viz");
+    if (hero && viz) {
+      hero.addEventListener("pointermove", (e) => { const [x, y] = rel(e, hero); viz.style.setProperty("--ry", -12 + x * 20 + "deg"); viz.style.setProperty("--rx", 6 - y * 14 + "deg"); });
+      hero.addEventListener("pointerleave", () => { viz.style.removeProperty("--ry"); viz.style.removeProperty("--rx"); });
+    }
+    document.querySelectorAll(".svc, .steps li").forEach((el) => {
+      el.addEventListener("pointermove", (e) => { const [x, y] = rel(e, el); el.style.transform = `perspective(800px) rotateX(${-y * 8}deg) rotateY(${x * 10}deg) translateY(-4px)`; });
+      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+    });
+  }
+
   const form = document.getElementById("contact-form");
   if (!form) return;
   const status = document.getElementById("status"), submit = document.getElementById("submit");
