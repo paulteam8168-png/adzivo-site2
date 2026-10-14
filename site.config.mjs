@@ -7,7 +7,7 @@ export default {
 
   // Leave blank to hide. Nothing is invented: fill in only real details.
   contact: { email: "contact@adzivo.online", phone: "", location: "", bookingUrl: "" }, // bookingUrl: paste your Calendly / Cal.com link
-  showCaseStudies: false, // set true once you have REAL, client-approved case studies (then also set demo:false on each)
+  showCaseStudies: True, // set true once you have REAL, client-approved case studies (then also set demo:false on each)
   googleVerification: "", // Google Search Console HTML-tag code (only the content value)
   legal: { legalName: "", jurisdiction: "", lastUpdated: "October 14, 2026" }, // legalName / jurisdiction: fill only when known; blank = line is omitted
   turnstileSiteKey: "", // optional Cloudflare Turnstile PUBLIC site key
