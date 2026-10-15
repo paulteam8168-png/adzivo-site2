@@ -455,7 +455,7 @@ input:focus,select:focus,textarea:focus{border-color:#7895ee;outline:3px solid r
   overflow-wrap:normal;
   word-break:normal;
 }
-.hero-copy h1 .grad{display:inline;color:#5b6fe4;background:linear-gradient(110deg,#4778ef 0%,#7967ed 65%,#9b8bf5 100%);-webkit-background-clip:text;background-clip:text}
+.hero-copy h1 .grad{display:inline;color:transparent;background:linear-gradient(115deg,#a58a5c 0%,#e0d0ab 52%,#b59a68 100%);-webkit-background-clip:text;background-clip:text}
 .hero-copy .lead{max-width:530px}
 @media(min-width:961px){
   .hero-in{grid-template-columns:minmax(0,1.02fr) minmax(0,1fr);gap:36px}
