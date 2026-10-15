@@ -178,6 +178,12 @@ ${c.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${esc(c.turnstil
 <div id="status" role="status" aria-live="polite"></div></form>
 <aside class="card"><h2>Other ways to reach us</h2>${contactLines.length ? `<ul class="plain">${contactLines.join("")}</ul>` : '<p class="muted">Use the form or book a strategy call. We\'ll reply to the email address you provide.</p>'}<p class="muted">We don't make guarantees about specific results, and we'll always be upfront about whether we're a good fit.</p></aside></div></section>` });
 
+
+  /* ---------- BOOK A CALL ---------- */
+  add({ path: "/book-a-call/", title: "Book a Strategy Call", desc: "Schedule a strategy call with ADZIVO to discuss your business and paid social growth goals.", body: `
+<section class="page-hero"><div class="wrap"><span class="eyebrow">Book a Call</span><h1>Plan your next stage of <span class="grad">growth.</span></h1><p class="lead">Choose a time that works for you. We will discuss your goals, current campaigns and practical next steps.</p></div></section>
+<section class="sec"><div class="wrap"><div class="booking-embed card" style="padding:clamp(8px,2vw,24px);border:1px solid rgba(216,196,155,.25);border-radius:18px;background:#0b0b0a;"><div class="calendly-inline-widget" data-url="${esc(c.contact.bookingUrl || "https://calendly.com/paulteam8168/30min")}" style="min-width:320px;height:760px;"></div></div></div></section>` });
+
   /* ---------- LEGAL ---------- */
   const legal = (path, title, intro, secs) => add({ path, title, desc: `${title} for ${c.name}.`, body: `
 <section class="page-hero"><div class="wrap"><h1>${title}</h1></div></section>
