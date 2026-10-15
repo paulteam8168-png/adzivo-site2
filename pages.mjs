@@ -41,7 +41,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/styles.css">
-${c.contact.bookingUrl ? '<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">\n<script src="https://assets.calendly.com/assets/external/widget.js" async></script>' : ""}
+${c.contact.bookingUrl ? '<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">' : ""}
 ${form && c.turnstileSiteKey ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : ""}
 ${noindex ? "" : `<script type="application/ld+json">${ldJson(path, title, schema)}</script>`}
 </head><body>
@@ -55,9 +55,10 @@ ${noindex ? "" : `<script type="application/ld+json">${ldJson(path, title, schem
 <footer class="ftr"><div class="wrap ftr-grid">
 <div><a class="brand" href="/">${logo}<span>${c.name}</span></a><p class="muted">Performance marketing built around your business goals. ${c.name} is an independent agency and is not affiliated with or endorsed by Meta.</p>${contactLines.length ? `<ul class="plain">${contactLines.join("")}</ul>` : ""}</div>
 <div><h3>Services</h3><ul class="plain">${c.services.map((s) => `<li><a href="/services/#${s.slug}">${s.title}</a></li>`).join("")}</ul></div>
-<div><h3>Company</h3><ul class="plain"><li><a href="/">Home</a></li>${nav.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join("")}<li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li></ul></div>
+<div><h3>Company</h3><ul class="plain"><li><a href="/">Home</a></li>${nav.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join("")}<li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/book-a-call/">Booking Page</a></li></ul></div>
 </div><div class="wrap copy">© <span data-year>${new Date().getFullYear()}</span> ${c.name}. All rights reserved.</div></footer>
 <script src="/main.js" defer></script>
+${c.contact.bookingUrl ? '<script src="https://assets.calendly.com/assets/external/widget.js" async></script>' : ""}
 </body></html>`;
   };
 
