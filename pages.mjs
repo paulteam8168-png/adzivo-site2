@@ -98,7 +98,14 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <h1>Turn Ad Spend Into <span class="grad">Scalable Growth.</span></h1>
 <p class="lead">We help ambitious businesses build smarter paid social campaigns, generate qualified leads, and make better decisions with performance-focused advertising.</p>
 <div class="actions">${bookBtn()}${btn("/services/", "Explore Our Services", "btn-ghost")}</div></div>
-<div class="viz" role="img" aria-label="Illustration of campaign creative testing, lead acquisition and analytics. Illustrative only, not real data.">
+<div class="viz hero-3d-scene" role="img" aria-label="Abstract champagne-gold 3D sculpture with floating campaign analytics panels. Illustrative only, not real data.">
+<div class="hero-3d-stage" aria-hidden="true">
+  <div class="hero-orbit orbit-one"></div>
+  <div class="hero-orbit orbit-two"></div>
+  <div class="hero-orbit orbit-three"></div>
+  <div class="hero-core"><div class="hero-core-shine"></div></div>
+  <span class="hero-particle particle-one"></span><span class="hero-particle particle-two"></span><span class="hero-particle particle-three"></span><span class="hero-particle particle-four"></span>
+</div>
 <div class="vcard main"><div class="vhead"><i></i><i></i><i></i><span>Campaign overview</span></div>
 <div class="bars">${[40, 62, 48, 78, 58, 90, 70].map((h, i) => `<b style="--h:${h}%;--d:${i * 0.12}s"></b>`).join("")}</div>
 <svg class="line" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 C40 45 60 30 100 34 S170 14 210 20 270 4 300 6" /></svg></div>
