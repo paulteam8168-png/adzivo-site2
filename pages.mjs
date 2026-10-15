@@ -3,9 +3,9 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&
 export function pages(c, base) {
   const book = c.contact.bookingUrl || "/contact/#form";
   const bookExt = c.contact.bookingUrl ? ' target="_blank" rel="noopener noreferrer"' : "";
-  const nav = [["/services/", "Services"], ["/case-studies/", "Case Studies"], ["/about/", "About"], ["/contact/", "Contact"]];
+  const nav = [["/services/", "Services"], ["/case-studies/", "Portfolio"], ["/about/", "About"], ["/contact/", "Contact"]];
 
-  const logo = `<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4778ef"/><stop offset="1" stop-color="#8064e8"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M8 23 16 8l8 15h-4.2L16 15.6 12.2 23z" fill="#fff"/></svg>`;
+  const logo = `<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a98c5b"/><stop offset="1" stop-color="#d8c49b"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M8 23 16 8l8 15h-4.2L16 15.6 12.2 23z" fill="#fff"/></svg>`;
   const btn = (href, text, cls = "btn-primary", extra = "") => `<a class="btn ${cls}" href="${href}"${extra}>${text}</a>`;
   const bookBtn = (text = "Book a Strategy Call", cls = "btn-primary") => btn(book, text, cls, bookExt);
 
@@ -111,8 +111,8 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <section class="sec"><div class="wrap">${head("Services", "Everything paid social needs, in one team", "From strategy and creative to tracking and reporting.")}
 <div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
-${c.showCaseStudies && c.caseStudies.some((s) => !s.demo) ? `<section class="sec alt"><div class="wrap">${head("Case Studies", "Results, told honestly", "Verified client stories, shared with permission.")}
-<div class="grid g3">${caseCards(c.caseStudies)}</div><p class="center">${btn("/case-studies/", "View Case Studies", "btn-ghost")}</p></div></section>` : ""}
+${c.showCaseStudies && c.caseStudies.some((s) => !s.demo) ? `<section class="sec alt"><div class="wrap">${head("Portfolio", "Results, told honestly", "Verified client stories, shared with permission.")}
+<div class="grid g3">${caseCards(c.caseStudies)}</div><p class="center">${btn("/case-studies/", "View Portfolio", "btn-ghost")}</p></div></section>` : ""}
 
 <section class="sec"><div class="wrap">${head("Our Process", "Four stages from idea to scale")}
 <ol class="steps">${[["Discover", "Understand business goals, audience, offer, and economics."], ["Strategize", "Build campaign strategy, creative direction, and tracking plans."], ["Launch & Optimize", "Test, monitor, and improve campaigns."], ["Scale", "Expand what works with transparent reporting."]].map(([t, d], i) => `<li class="card reveal"><span class="num">0${i + 1}</span><h3>${t}</h3><p class="muted">${d}</p></li>`).join("")}</ol></div></section>
@@ -144,7 +144,7 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
     <div class="portfolio-info"><div class="portfolio-meta"><span>${esc(s.industry)}</span><span>${s.demo?"Concept preview":esc(s.timeframe)}</span></div><h2>${esc(s.client)}</h2><p>${esc(s.summary || s.challenge)}</p>
     <div class="portfolio-tags">${(s.services||[]).slice(0,3).map(v=>`<span>${esc(v)}</span>`).join("")}</div>
     <details class="portfolio-details"><summary>Explore project approach <span>↗</span></summary><div class="portfolio-detail-body"><h3>Challenge</h3><p>${esc(s.challenge)}</p><h3>Strategy</h3><p>${esc(s.strategy)}</p>${s.demo?'<p class="concept-note">Illustrative concept only — not a real client result.</p>':`<h3>Results</h3><p>${esc(s.results)}</p>`}${btn("/contact/","Discuss a Similar Project","btn-ghost btn-sm")}</div></details></div></article>`).join("");
-  add({ path: "/case-studies/", title: "Case Studies", desc: "Explore ADZIVO campaign concepts, strategy and project approach.", body: `
+  add({ path: "/case-studies/", title: "Portfolio", desc: "Explore ADZIVO campaign concepts, strategy and project approach.", body: `
 <section class="portfolio-hero"><div class="wrap portfolio-hero-grid"><div><span class="eyebrow">Selected Work · ADZIVO</span><h1>Strategy that makes <span class="grad">every campaign</span> count.</h1><p class="lead">Explore our approach to creative testing, lead generation and paid social growth. Concept previews are clearly labelled; verified client results are shared transparently.</p><div class="portfolio-hero-pills"><span>Meta Ads</span><span>Creative Strategy</span><span>Lead Generation</span><span>Measurement</span></div></div>
 <div class="portfolio-hero-visual" aria-hidden="true"><div class="hero-ring"></div><div class="hero-dashboard"><span>CAMPAIGN SYSTEM / 01</span><strong>Clarity.<br>Creative.<br><em>Conversion.</em></strong><div class="hero-sparkline"></div><small>Illustrative visual · not live data</small></div><div class="hero-floating float-a">Creative testing <b>↗</b></div><div class="hero-floating float-b">Signal over noise <b>✦</b></div></div></div></section>
 <section class="portfolio-controls"><div class="wrap portfolio-controls-in"><div><span class="eyebrow">The portfolio</span><h2>Ideas built around business goals</h2></div><div class="portfolio-filters" role="group" aria-label="Filter portfolio projects"><button class="portfolio-filter active" data-filter="all" aria-pressed="true">All work</button><button class="portfolio-filter" data-filter="E-commerce" aria-pressed="false">E-commerce</button><button class="portfolio-filter" data-filter="Local services" aria-pressed="false">Local services</button><button class="portfolio-filter" data-filter="B2B" aria-pressed="false">B2B</button></div></div></section>
