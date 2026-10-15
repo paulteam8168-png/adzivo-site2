@@ -1,5 +1,11 @@
 (() => {
   document.querySelectorAll("[data-year]").forEach((e) => (e.textContent = new Date().getFullYear()));
+  document.querySelectorAll("[data-calendly-popup]").forEach((link) => link.addEventListener("click", (e) => {
+    if (window.Calendly) {
+      e.preventDefault();
+      window.Calendly.initPopupWidget({ url: link.href });
+    }
+  }));
   const btn = document.querySelector(".menu-btn"), nav = document.getElementById("nav");
   if (btn) {
     const set = (o) => { nav.classList.toggle("open", o); btn.setAttribute("aria-expanded", o); };
