@@ -6,7 +6,7 @@ export default {
   siteUrl: "https://adzivo.online", // override with SITE_URL build variable if needed
 
   // Leave blank to hide. Nothing is invented: fill in only real details.
-  contact: { email: "contact@adzivo.online", phone: "", location: "", bookingUrl: "" }, // bookingUrl: paste your Calendly / Cal.com link
+  contact: { email: "contact@adzivo.online", phone: "", location: "", bookingUrl: "https://calendly.com/paulteam8168/30min" }, // bookingUrl: paste your Calendly / Cal.com link
   showCaseStudies: false, // enable only when real, client-approved case studies are ready
   googleVerification: "", // Google Search Console HTML-tag code (only the content value)
   legal: { legalName: "", jurisdiction: "", lastUpdated: "October 14, 2026" }, // legalName / jurisdiction: fill only when known; blank = line is omitted
