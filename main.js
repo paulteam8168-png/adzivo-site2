@@ -21,9 +21,14 @@
       hero.addEventListener("pointermove", (e) => { const [x, y] = rel(e, hero); viz.style.setProperty("--ry", -12 + x * 20 + "deg"); viz.style.setProperty("--rx", 6 - y * 14 + "deg"); });
       hero.addEventListener("pointerleave", () => { viz.style.removeProperty("--ry"); viz.style.removeProperty("--rx"); });
     }
-    document.querySelectorAll(".svc, .steps li").forEach((el) => {
-      el.addEventListener("pointermove", (e) => { const [x, y] = rel(e, el); el.style.transform = `perspective(800px) rotateX(${-y * 8}deg) rotateY(${x * 10}deg) translateY(-4px)`; });
-      el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+    document.querySelectorAll(".svc, .steps li, .grid .card, .cta-box").forEach((el) => {
+      el.addEventListener("pointermove", (e) => {
+        const [x, y] = rel(e, el);
+        el.style.setProperty("--mx", ((x + .5) * 100) + "%");
+        el.style.setProperty("--my", ((y + .5) * 100) + "%");
+        if (el.matches(".svc, .steps li")) el.style.transform = `perspective(900px) rotateX(${-y * 7}deg) rotateY(${x * 9}deg) translateY(-5px)`;
+      });
+      el.addEventListener("pointerleave", () => { el.style.transform = ""; el.style.removeProperty("--mx"); el.style.removeProperty("--my"); });
     });
   }
 
