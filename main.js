@@ -32,6 +32,16 @@
     });
   }
 
+
+  // Portfolio category filters
+  const portfolioFilters = document.querySelectorAll(".portfolio-filter");
+  const portfolioCards = document.querySelectorAll(".portfolio-card");
+  portfolioFilters.forEach((button) => button.addEventListener("click", () => {
+    const category = button.dataset.filter;
+    portfolioFilters.forEach((item) => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
+    portfolioCards.forEach((card) => { card.hidden = category !== "all" && card.dataset.category !== category; });
+  }));
+
   const form = document.getElementById("contact-form");
   if (!form) return;
   const status = document.getElementById("status"), submit = document.getElementById("submit");
