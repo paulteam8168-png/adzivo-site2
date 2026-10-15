@@ -659,3 +659,65 @@ input:focus,select:focus,textarea:focus{border-color:#b89a64;outline:3px solid r
 @media(max-width:960px){.hero-3d-scene{min-height:430px}.hero-core{width:clamp(125px,28vw,195px)}}
 @media(max-width:760px){.hero-3d-scene{min-height:350px;transform:none!important}.hero-3d-stage{transform:scale(.88)}.hero-3d-scene .vcard.main{inset:20px 8px 42px 0;transform:none}.hero-3d-scene .fl{transform:none}.hero-3d-scene .f1{right:0;top:0}.hero-3d-scene .f2{right:0;bottom:12%}.hero-3d-scene .f3{left:0;bottom:0}.hero-orbit{opacity:.7}}
 @media(prefers-reduced-motion:reduce){.hero-core,.orbit-one,.orbit-two{animation:none!important}}
+
+
+/* ADZIVO hero foreground depth pass — keep the sculpture visible behind the interface */
+.hero{position:relative;overflow:hidden}
+.hero-in{position:relative;z-index:1;align-items:center}
+.hero-copy{position:relative;z-index:4;transform-style:preserve-3d}
+.hero-copy h1{
+  position:relative;isolation:isolate;
+  text-shadow:0 2px 0 #242018,0 4px 0 #1a1711,0 7px 0 rgba(0,0,0,.42),0 16px 28px rgba(0,0,0,.6);
+  transform:perspective(900px) rotateX(2deg);
+  letter-spacing:-.045em;
+}
+.hero-copy h1 .grad{
+  display:inline-block;
+  filter:drop-shadow(0 2px 0 #5d4728) drop-shadow(0 5px 0 rgba(70,51,23,.8)) drop-shadow(0 12px 22px rgba(202,166,99,.2));
+  animation:adzivoGoldTitle 5s ease-in-out infinite;
+}
+.hero-copy .eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:9px 13px;border:1px solid rgba(213,184,125,.28);border-radius:999px;
+  background:linear-gradient(145deg,rgba(37,32,23,.88),rgba(16,15,13,.8));
+  box-shadow:0 10px 28px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,244,213,.08);
+  backdrop-filter:blur(12px);
+}
+.hero-copy .eyebrow:before{content:"";width:6px;height:6px;border-radius:50%;background:#e7cb8d;box-shadow:0 0 12px #c6a366}
+.hero-copy .lead{color:#c9c0b0;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+.hero-copy .actions{position:relative;z-index:5;gap:14px}
+.hero-copy .actions .btn{transform:translateZ(28px);box-shadow:0 12px 0 rgba(53,40,21,.28),0 18px 32px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,248,224,.38);transition:transform .25s,box-shadow .25s}
+.hero-copy .actions .btn:hover{transform:translateY(-4px) translateZ(34px);box-shadow:0 15px 0 rgba(53,40,21,.22),0 25px 38px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,248,224,.45)}
+.hero-3d-scene{position:relative;z-index:2;isolation:isolate;overflow:visible}
+.hero-3d-stage{z-index:0;inset:-4% -5% 0;overflow:visible}
+.hero-3d-stage:before{width:96%;background:radial-gradient(circle,rgba(220,185,111,.25),rgba(164,125,56,.1) 36%,transparent 72%);filter:blur(18px)}
+.hero-core{z-index:2;width:clamp(165px,23vw,270px);filter:drop-shadow(0 28px 36px rgba(0,0,0,.42))}
+.hero-orbit{z-index:1}
+.hero-3d-scene .vcard.main{
+  z-index:3;inset:26% 4% 19% 2%;opacity:.76;
+  background:linear-gradient(145deg,rgba(35,32,26,.58),rgba(10,10,9,.48));
+  backdrop-filter:blur(5px);
+  transform:translateZ(28px) rotateY(-9deg) rotateX(3deg);
+  box-shadow:0 32px 64px -34px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,239,200,.12);
+}
+.hero-3d-scene .fl{z-index:4;background:rgba(29,26,21,.78);backdrop-filter:blur(16px)}
+.hero-3d-scene .viz-note{position:absolute;z-index:5;bottom:-5px;left:8px}
+@keyframes adzivoGoldTitle{
+  0%,100%{filter:drop-shadow(0 2px 0 #5d4728) drop-shadow(0 5px 0 rgba(70,51,23,.8)) drop-shadow(0 12px 22px rgba(202,166,99,.18))}
+  50%{filter:drop-shadow(0 2px 0 #6d542e) drop-shadow(0 6px 0 rgba(70,51,23,.86)) drop-shadow(0 15px 30px rgba(202,166,99,.32))}
+}
+@media(max-width:960px){
+ .hero-copy h1{transform:none}
+ .hero-core{width:clamp(150px,29vw,225px)}
+ .hero-3d-scene .vcard.main{inset:25% 3% 20% 2%}
+}
+@media(max-width:760px){
+ .hero-copy h1{text-shadow:0 2px 0 #211b12,0 4px 0 rgba(0,0,0,.5),0 10px 24px rgba(0,0,0,.55)}
+ .hero-copy h1 .grad{filter:drop-shadow(0 2px 0 #5d4728) drop-shadow(0 7px 15px rgba(202,166,99,.24))}
+ .hero-3d-scene{margin-top:22px;min-height:365px}
+ .hero-3d-stage{inset:0 -4%}
+ .hero-core{width:clamp(145px,43vw,195px)}
+ .hero-3d-scene .vcard.main{inset:25% 2% 21% 0;opacity:.65;transform:none}
+ .hero-3d-scene .viz-note{bottom:-2px;left:3px}
+}
+@media(prefers-reduced-motion:reduce){.hero-copy h1 .grad{animation:none}}
