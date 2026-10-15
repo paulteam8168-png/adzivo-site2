@@ -101,7 +101,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <h1>Turn Ad Spend Into <span class="grad">Scalable Growth.</span></h1>
 <p class="lead">We help ambitious businesses build smarter paid social campaigns, generate qualified leads, and make better decisions with performance-focused advertising.</p>
 <div class="actions">${bookBtn()}${btn("/services/", "Explore Our Services", "btn-ghost")}</div></div>
-<div class="viz hero-3d-scene" role="img" aria-label="Abstract champagne-gold 3D sculpture with floating campaign analytics panels. Illustrative only, not real data.">
+<div class="viz hero-3d-scene" role="img" aria-label="Abstract champagne-gold 3D sculpture with floating strategy panels.">
 <div class="hero-3d-stage" aria-hidden="true">
   <div class="hero-orbit orbit-one"></div>
   <div class="hero-orbit orbit-two"></div>
@@ -112,10 +112,10 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <div class="vcard main"><div class="vhead"><i></i><i></i><i></i><span>Campaign overview</span></div>
 <div class="bars">${[40, 62, 48, 78, 58, 90, 70].map((h, i) => `<b style="--h:${h}%;--d:${i * 0.12}s"></b>`).join("")}</div>
 <svg class="line" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 C40 45 60 30 100 34 S170 14 210 20 270 4 300 6" /></svg></div>
-<div class="vcard fl f1"><small>Creative test</small><div class="pills"><span></span><span class="on"></span><span></span></div></div>
-<div class="vcard fl f2"><small>New lead</small><div class="dotline"><u></u><em></em></div></div>
-<div class="vcard fl f3"><small>Tracking active</small><div class="check">✓</div></div>
-<p class="viz-note">Illustrative visual — not real data</p></div>
+<div class="vcard fl f1"><small>Creative strategy</small><div class="pills"><span></span><span class="on"></span><span></span></div></div>
+<div class="vcard fl f2"><small>Lead quality</small><div class="dotline"><u></u><em></em></div></div>
+<div class="vcard fl f3"><small>Performance insights</small><div class="check">✓</div></div>
+</div>
 </div></section>
 
 <section class="strip"><div class="wrap strip-in"><span>Independent agency</span><span>Transparent reporting</span><span>No guaranteed-result promises</span><span>You keep control of your ad account</span></div></section>
@@ -158,7 +158,7 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
     <details class="portfolio-details"><summary>Explore project approach <span>↗</span></summary><div class="portfolio-detail-body"><h3>Challenge</h3><p>${esc(s.challenge)}</p><h3>Strategy</h3><p>${esc(s.strategy)}</p>${s.demo?'<p class="concept-note">Illustrative concept only — not a real client result.</p>':`<h3>Results</h3><p>${esc(s.results)}</p>`}${btn("/contact/","Discuss a Similar Project","btn-ghost btn-sm")}</div></details></div></article>`).join("");
   add({ path: "/case-studies/", title: "Portfolio", desc: "Explore ADZIVO campaign concepts, strategy and project approach.", body: `
 <section class="portfolio-hero"><div class="wrap portfolio-hero-grid"><div><span class="eyebrow">Selected Work · ADZIVO</span><h1>Strategy that makes <span class="grad">every campaign</span> count.</h1><p class="lead">Explore our approach to creative testing, lead generation and paid social growth. Concept previews are clearly labelled; verified client results are shared transparently.</p><div class="portfolio-hero-pills"><span>Meta Ads</span><span>Creative Strategy</span><span>Lead Generation</span><span>Measurement</span></div></div>
-<div class="portfolio-hero-visual" aria-hidden="true"><div class="hero-ring"></div><div class="hero-dashboard"><span>CAMPAIGN SYSTEM / 01</span><strong>Clarity.<br>Creative.<br><em>Conversion.</em></strong><div class="hero-sparkline"></div><small>Illustrative visual · not live data</small></div><div class="hero-floating float-a">Creative testing <b>↗</b></div><div class="hero-floating float-b">Signal over noise <b>✦</b></div></div></div></section>
+<div class="portfolio-hero-visual" aria-hidden="true"><div class="hero-ring"></div><div class="hero-dashboard"><span>PAID SOCIAL / CREATIVE SYSTEM</span><strong>Clarity.<br>Creative.<br><em>Conversion.</em></strong><div class="hero-sparkline"></div><small>PAID SOCIAL · CREATIVE · STRATEGY</small></div><div class="hero-floating float-a">Creative testing <b>↗</b></div><div class="hero-floating float-b">Signal over noise <b>✦</b></div></div></div></section>
 <section class="portfolio-controls"><div class="wrap portfolio-controls-in"><div><span class="eyebrow">The portfolio</span><h2>Ideas built around business goals</h2></div><div class="portfolio-filters" role="group" aria-label="Filter portfolio projects"><button class="portfolio-filter active" data-filter="all" aria-pressed="true">All work</button><button class="portfolio-filter" data-filter="E-commerce" aria-pressed="false">E-commerce</button><button class="portfolio-filter" data-filter="Local services" aria-pressed="false">Local services</button><button class="portfolio-filter" data-filter="B2B" aria-pressed="false">B2B</button></div></div></section>
 <section class="sec portfolio-section"><div class="wrap"><div class="portfolio-grid">${portfolioCases}</div><p class="portfolio-footnote muted">Sample concepts are illustrative design and strategy examples, not claims about completed client campaigns.</p></div></section>
 <section class="sec"><div class="wrap"><div class="portfolio-bottom reveal"><span class="eyebrow">Have a project in mind?</span><h2>Let's build your next growth story.</h2><p class="muted">Tell us about your goals and we'll help map out a practical paid social strategy.</p>${bookBtn("Start a Conversation")}</div></div></section>` });
