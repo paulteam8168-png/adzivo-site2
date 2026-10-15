@@ -721,3 +721,128 @@ input:focus,select:focus,textarea:focus{border-color:#b89a64;outline:3px solid r
  .hero-3d-scene .viz-note{bottom:-2px;left:3px}
 }
 @media(prefers-reduced-motion:reduce){.hero-copy h1 .grad{animation:none}}
+
+
+/* ===== ADZIVO all-pages cinematic 3D polish ===== */
+:root{--adzivo-gold-hi:#f4e4bf;--adzivo-gold:#c9ad78;--adzivo-gold-shadow:rgba(201,173,120,.18)}
+/* Shared depth and lighting for every interior-page hero */
+.page-hero,.portfolio-hero{
+ position:relative;isolation:isolate;overflow:hidden;
+}
+.page-hero:before,.portfolio-hero:before{
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ width:min(58vw,700px);aspect-ratio:1;right:-12%;top:-48%;
+ border-radius:50%;
+ background:radial-gradient(circle,rgba(201,173,120,.16),rgba(151,117,62,.055) 40%,transparent 70%);
+ filter:blur(10px);
+}
+.page-hero:after,.portfolio-hero:after{
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ width:44%;height:1px;right:5%;top:34%;
+ background:linear-gradient(90deg,transparent,rgba(218,191,142,.35),transparent);
+ box-shadow:0 0 34px 2px rgba(201,173,120,.12);
+}
+.page-hero .wrap,.portfolio-hero .wrap{position:relative;z-index:1}
+.page-hero h1,.portfolio-hero h1{
+ text-shadow:0 2px 0 #292319,0 5px 0 rgba(0,0,0,.28),0 16px 34px rgba(0,0,0,.4);
+ letter-spacing:-.045em;
+}
+.page-hero h1 .grad,.portfolio-hero h1 .grad{
+ filter:drop-shadow(0 3px 0 rgba(99,73,35,.65)) drop-shadow(0 10px 20px rgba(201,173,120,.16));
+}
+/* Section headings get a subtle dimensional lift */
+.sec-head h2,.portfolio-controls h2{
+ text-shadow:0 2px 0 rgba(0,0,0,.24),0 10px 28px rgba(0,0,0,.22);
+}
+.sec-head .eyebrow{ text-shadow:0 0 20px rgba(201,173,120,.15) }
+/* Cards feel like physical, softly-lit glass objects */
+.card,.svc,.steps li,.portfolio-card,.cta-box,.portfolio-bottom,.note{
+ transform-style:preserve-3d;
+ backface-visibility:hidden;
+}
+.card,.steps li,.svc-detail,.portfolio-info{
+ position:relative;
+}
+.card:focus-within,.svc:focus-within{
+ border-color:rgba(218,191,142,.46);
+ box-shadow:0 26px 54px -28px rgba(0,0,0,.82),0 0 30px rgba(201,173,120,.07),inset 0 1px 0 rgba(255,248,226,.08);
+}
+.card h2,.card h3,.svc-detail h2,.svc-detail h3{
+ text-shadow:0 2px 14px rgba(201,173,120,.07);
+}
+.svc,.portfolio-card,.steps li,.card{
+ will-change:transform;
+}
+.svc:hover,.card:hover,.steps li:hover{
+ transform:translateY(-7px) perspective(900px) rotateX(1.4deg);
+}
+/* Portfolio artwork: richer layered depth and metallic light */
+.portfolio-art{
+ position:relative;isolation:isolate;overflow:hidden;
+ transform-style:preserve-3d;
+ box-shadow:inset 0 1px 0 rgba(255,241,211,.1),inset 0 -35px 70px rgba(0,0,0,.24);
+}
+.portfolio-art:before{
+ content:"";position:absolute;inset:-30%;z-index:0;pointer-events:none;
+ background:conic-gradient(from 15deg at 50% 50%,transparent 0deg,rgba(219,190,137,.11) 42deg,transparent 92deg,rgba(255,244,216,.055) 150deg,transparent 210deg);
+ animation:adzivoArtworkGlow 24s linear infinite;
+}
+.portfolio-art:after{
+ content:"";position:absolute;left:-20%;right:-20%;bottom:-45%;height:80%;z-index:0;pointer-events:none;
+ background:radial-gradient(ellipse,rgba(201,173,120,.16),transparent 68%);
+ filter:blur(14px);
+}
+.art-top,.art-orbit,.art-window,.art-index{position:relative;z-index:1}
+.art-orbit{box-shadow:0 0 24px rgba(201,173,120,.09),inset 0 0 20px rgba(201,173,120,.05)}
+.art-window{
+ transform:perspective(900px) rotateY(-9deg) rotateX(4deg) translateZ(24px);
+ transition:transform .55s cubic-bezier(.2,.75,.2,1),box-shadow .55s;
+}
+.portfolio-card:hover .art-window{
+ transform:perspective(900px) rotateY(-3deg) rotateX(1deg) translateZ(42px) translateY(-3px);
+ box-shadow:0 38px 68px -28px rgba(0,0,0,.9),0 0 32px rgba(201,173,120,.08);
+}
+.art-index{text-shadow:0 3px 22px rgba(201,173,120,.2)}
+@keyframes adzivoArtworkGlow{to{transform:rotate(360deg)}}
+/* Process and content elements: dimensional accent without reducing readability */
+.num{filter:drop-shadow(0 4px 12px rgba(201,173,120,.13))}
+.steps li .num{display:inline-block;transform:translateZ(18px)}
+.faq{transition:border-color .25s,box-shadow .25s,transform .25s}
+.faq:hover{border-color:rgba(201,173,120,.34);box-shadow:0 12px 30px rgba(0,0,0,.16)}
+.faq[open]{border-color:rgba(201,173,120,.36)}
+/* Contact forms and info panels share the site's premium glass treatment */
+form.card,.g2c>.card,.svc-detail{
+ background:linear-gradient(145deg,rgba(35,31,24,.97),rgba(17,17,16,.99));
+ border-color:rgba(201,173,120,.23);
+ box-shadow:0 28px 70px -42px rgba(0,0,0,.92),inset 0 1px 0 rgba(255,244,217,.065);
+}
+input:not([type=checkbox]),select,textarea{
+ transition:border-color .25s,box-shadow .25s,transform .25s;
+}
+input:not([type=checkbox]):focus,select:focus,textarea:focus{
+ box-shadow:0 0 0 4px rgba(201,173,120,.07),0 8px 24px rgba(0,0,0,.18),inset 0 2px 7px rgba(0,0,0,.25);
+}
+/* CTA becomes a softly floating focal point */
+.cta-box,.portfolio-bottom{
+ position:relative;isolation:isolate;overflow:hidden;
+}
+.cta-box:before,.portfolio-bottom:before{
+ content:"";position:absolute;z-index:-1;pointer-events:none;
+ width:55%;aspect-ratio:1;left:50%;top:-90%;transform:translateX(-50%);
+ background:radial-gradient(circle,rgba(216,190,139,.17),transparent 68%);
+ filter:blur(8px);
+}
+.cta-box h2,.portfolio-bottom h2{ text-shadow:0 3px 24px rgba(201,173,120,.12) }
+/* Preserve touch usability and reduce motion when requested */
+@media(max-width:760px){
+ .page-hero:before,.portfolio-hero:before{width:100%;right:-35%;top:-25%;opacity:.75}
+ .page-hero h1,.portfolio-hero h1{ text-shadow:0 2px 0 rgba(0,0,0,.3),0 9px 22px rgba(0,0,0,.35) }
+ .art-window{transform:none}
+ .portfolio-card:hover .art-window{transform:translateY(-2px)}
+ .svc:hover,.card:hover,.steps li:hover{transform:translateY(-3px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .portfolio-art:before{animation:none}
+ .art-window,.portfolio-card:hover .art-window{transition:none;transform:none}
+ .faq{transition:none}
+}
