@@ -67,6 +67,9 @@ ${c.contact.bookingUrl ? '<script src="https://assets.calendly.com/assets/extern
 
   const head = (eyebrow, h, p = "") => `<div class="sec-head reveal"><span class="eyebrow">${eyebrow}</span><h2>${h}</h2>${p ? `<p class="muted">${p}</p>` : ""}</div>`;
 
+  // Shared visible 3D artwork for interior page heroes.
+  const pageHeroVisual = (label = "GROWTH SYSTEM / ADZIVO") => `<div class="page-hero-visual" aria-hidden="true"><div class="phv-aura"></div><div class="phv-grid"></div><div class="phv-orbit phv-orbit-a"></div><div class="phv-orbit phv-orbit-b"></div><div class="phv-object"><div class="phv-object-face"></div><div class="phv-object-glint"></div></div><div class="phv-panel phv-panel-main"><span>${label}</span><strong>ADZIVO <i>✳</i></strong><div class="phv-chart"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><small>STRATEGY · CREATIVE · GROWTH</small></div><div class="phv-float phv-float-top"><i>✦</i> Precision targeting</div><div class="phv-float phv-float-bottom"><i>↗</i> Better decisions</div></div>`;
+
   const caseCards = (list) => list.filter((s) => !s.demo).map((s) => `<article class="card case reveal">
 ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>' : ""}
 <h3>${esc(s.client)}</h3><p class="tag">${esc(s.industry)} · ${esc(s.timeframe)}</p>
@@ -139,7 +142,7 @@ ${cta()}` });
 
   /* ---------- SERVICES ---------- */
   add({ schema: [{ "@type": "ItemList", itemListElement: c.services.map((s, i) => ({ "@type": "ListItem", position: i + 1, item: { "@type": "Service", name: s.title, description: s.short, url: `${base}/services/#${s.slug}`, provider: { "@id": base + "/#org" } } })) }], path: "/services/", title: "Services", desc: "Meta Ads management, Facebook and Instagram campaigns, creative testing, lead generation, retargeting and analytics from ADZIVO.", body: `
-<section class="page-hero"><div class="wrap"><span class="eyebrow">Services</span><h1>Paid social services built around your goals</h1><p class="lead">Every engagement starts with understanding your business. We don't promise specific sales, leads or return on ad spend, because results depend on your offer, market and budget.</p></div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Services</span><h1>Paid social services built around your goals</h1><p class="lead">Every engagement starts with understanding your business. We don't promise specific sales, leads or return on ad spend, because results depend on your offer, market and budget.</p></div>${pageHeroVisual("PAID SOCIAL / SYSTEM 01")}</div></section>
 <section class="sec"><div class="wrap"><div class="note">Our management fee and your advertising spend are separate. Ad spend is paid to the advertising platform from your own ad account; our fee covers strategy, management and reporting.</div>
 ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}"><h2>${s.title}</h2><p class="muted">${s.short}</p>
 <div class="cols"><div><h3>Deliverables</h3><ul>${s.deliverables.map((d) => `<li>${d}</li>`).join("")}</ul></div>
@@ -163,14 +166,14 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
   /* ---------- ABOUT ---------- */
   const team = c.team.length ? `<section class="sec alt"><div class="wrap">${head("Team", "The people behind the campaigns")}<div class="grid g3">${c.team.map((m) => `<div class="card reveal"><h3>${esc(m.name)}</h3><p class="tag">${esc(m.role)}</p><p class="muted">${esc(m.bio || "")}</p></div>`).join("")}</div></div></section>` : "";
   add({ path: "/about/", title: "About Us", desc: "ADZIVO is a performance-focused paid social agency helping businesses make smarter advertising decisions.", body: `
-<section class="page-hero"><div class="wrap"><span class="eyebrow">About ${c.name}</span><h1>A performance-focused agency, built on clarity</h1><p class="lead">${c.name} is an independent digital marketing agency specializing in paid social advertising.</p></div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">About ${c.name}</span><h1>A performance-focused agency, built on clarity</h1><p class="lead">${c.name} is an independent digital marketing agency specializing in paid social advertising.</p></div>${pageHeroVisual("THE ADZIVO APPROACH")}</div></section>
 <section class="sec"><div class="wrap grid g2"><div class="card reveal"><h2>Our mission</h2><p class="muted">To help businesses turn advertising spend into sustainable growth through thoughtful strategy, disciplined testing and honest reporting.</p></div>
 <div class="card reveal"><h2>How we work</h2><ul><li>Start from business goals, not platform features</li><li>Test creative and audiences with discipline</li><li>Report openly, including what didn't work</li><li>Scale only what the data supports</li></ul></div></div></section>${team}${cta()}` });
 
   /* ---------- CONTACT ---------- */
   const opt = (a) => a.map((o) => `<option>${o}</option>`).join("");
   add({ schema: [{ "@type": "ContactPage", url: base + "/contact/", name: "Contact " + c.name }], path: "/contact/", form: true, title: "Contact", desc: "Contact ADZIVO to discuss your paid social advertising goals or book a strategy call.", body: `
-<section class="page-hero"><div class="wrap"><span class="eyebrow">Contact</span><h1>Let's talk about your goals</h1><p class="lead">Send us a message or book a strategy call directly.</p><div class="actions">${bookBtn()}</div></div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Contact</span><h1>Let's talk about your goals</h1><p class="lead">Send us a message or book a strategy call directly.</p><div class="actions">${bookBtn()}</div></div>${pageHeroVisual("LET’S PLAN YOUR NEXT MOVE")}</div></section>
 <section class="sec" id="form"><div class="wrap grid g2c">
 <form id="contact-form" class="card" novalidate>
 <div class="f"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required maxlength="100"><p class="err" id="e-name"></p></div>
@@ -189,12 +192,12 @@ ${c.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${esc(c.turnstil
 
   /* ---------- BOOK A CALL ---------- */
   add({ path: "/book-a-call/", title: "Book a Strategy Call", desc: "Schedule a strategy call with ADZIVO to discuss your business and paid social growth goals.", body: `
-<section class="page-hero"><div class="wrap"><span class="eyebrow">Book a Call</span><h1>Plan your next stage of <span class="grad">growth.</span></h1><p class="lead">Choose a time that works for you. We will discuss your goals, current campaigns and practical next steps.</p></div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Book a Call</span><h1>Plan your next stage of <span class="grad">growth.</span></h1><p class="lead">Choose a time that works for you. We will discuss your goals, current campaigns and practical next steps.</p></div>${pageHeroVisual("STRATEGY SESSION / 30 MIN")}</div></section>
 <section class="sec"><div class="wrap"><div class="booking-embed card" style="padding:clamp(8px,2vw,24px);border:1px solid rgba(216,196,155,.25);border-radius:18px;background:#0b0b0a;"><div class="calendly-inline-widget" data-url="${esc(c.contact.bookingUrl || "https://calendly.com/paulteam8168/30min")}" style="min-width:320px;height:760px;"></div></div></div></section>` });
 
   /* ---------- LEGAL ---------- */
   const legal = (path, title, intro, secs) => add({ path, title, desc: `${title} for ${c.name}.`, body: `
-<section class="page-hero"><div class="wrap"><h1>${title}</h1></div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">ADZIVO · INFORMATION</span><h1>${title}</h1></div>${pageHeroVisual("TRUST & TRANSPARENCY")}</div></section>
 <section class="sec"><div class="wrap narrow prose"><div class="note">Template for review. Have this document reviewed by a qualified legal professional and complete the bracketed details before relying on it.</div><p>${intro}</p>${secs.map(([h, t]) => `<h2>${h}</h2><p>${t}</p>`).join("")}<p class="muted">Last updated: [add date]</p></div></section>` });
   legal("/privacy/", "Privacy Policy", `This policy explains how ${c.name} handles personal information collected through this website.`, [
     ["Information we collect", "When you use our contact form we collect your name, business email, company or website, budget range, services of interest and message."],
@@ -211,7 +214,7 @@ ${c.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${esc(c.turnstil
 
   /* ---------- 404 ---------- */
   add({ path: "/404", noindex: true, title: "Page Not Found", desc: "The page you were looking for could not be found.", body: `
-<section class="page-hero center"><div class="wrap"><span class="eyebrow">404</span><h1>Page not found</h1><p class="lead">That page doesn't exist or has moved.</p><div class="actions" style="justify-content:center">${btn("/", "Back to Home")}${btn("/contact/", "Contact Us", "btn-ghost")}</div></div></section>` });
+<section class="page-hero center"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">404</span><h1>Page not found</h1><p class="lead">That page doesn't exist or has moved.</p><div class="actions">${btn("/", "Back to Home")}${btn("/contact/", "Contact Us", "btn-ghost")}</div></div>${pageHeroVisual("ROUTE NOT FOUND")}</div></section>` });
 
   return out;
 }
