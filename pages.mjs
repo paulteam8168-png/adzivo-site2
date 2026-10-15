@@ -2,7 +2,7 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&
 
 export function pages(c, base) {
   const book = c.contact.bookingUrl || "/contact/#form";
-  const bookExt = c.contact.bookingUrl ? ' target="_blank" rel="noopener noreferrer"' : "";
+  const bookExt = c.contact.bookingUrl ? ' target="_blank" rel="noopener noreferrer" data-calendly-popup="true"' : "";
   const nav = [["/services/", "Services"], ["/case-studies/", "Portfolio"], ["/about/", "About"], ["/contact/", "Contact"]];
 
   const logo = `<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a98c5b"/><stop offset="1" stop-color="#d8c49b"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M8 23 16 8l8 15h-4.2L16 15.6 12.2 23z" fill="#fff"/></svg>`;
@@ -41,6 +41,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/styles.css">
+${c.contact.bookingUrl ? '<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">\n<script src="https://assets.calendly.com/assets/external/widget.js" async></script>' : ""}
 ${form && c.turnstileSiteKey ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : ""}
 ${noindex ? "" : `<script type="application/ld+json">${ldJson(path, title, schema)}</script>`}
 </head><body>
