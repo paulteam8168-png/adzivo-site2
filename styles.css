@@ -1087,3 +1087,89 @@ a{transition:color .22s ease}
 :where(.ftr a,.footer a){color:#bfc7d0}
 :where(.ftr a:hover,.footer a:hover){color:#fff}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+
+/* ===== FINAL SITE-WIDE DESIGN SYSTEM: BLACK / CHROME / SILVER ===== */
+:root{
+ --bg:#050607!important;--bg2:#0a0b0d!important;--card:#101215!important;
+ --line:rgba(213,221,229,.20)!important;--tx:#f4f6f8!important;
+ --mu:#b7bec6!important;--b:#d9dfe5!important;--v:#f6f8fa!important;
+ --g:linear-gradient(125deg,#ffffff 0%,#dce1e6 34%,#9ca5ae 68%,#f8fafc 100%)!important;
+}
+html{background:#050607!important;color-scheme:dark}
+body{
+ background-color:#050607!important;color:#f4f6f8!important;
+ background-image:radial-gradient(ellipse at 76% 0%,rgba(216,225,234,.095),transparent 36%),radial-gradient(ellipse at 4% 32%,rgba(175,187,199,.045),transparent 35%),linear-gradient(180deg,#050607 0%,#0a0b0d 52%,#050607 100%)!important
+}
+a{color:#dce2e8}
+a:hover{color:#fff}
+:focus-visible{outline-color:#e8edf2!important}
+.grad,.gradient-text,.text-gradient,.hero-copy h1 .grad{
+ background:linear-gradient(105deg,#fff 0%,#e1e6eb 38%,#9da6af 68%,#fff 90%)!important;
+ -webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important
+}
+.eyebrow,.page-hero .eyebrow,.portfolio-hero .eyebrow{color:#c5ccd3!important}
+.hdr,.site-header,.navbar{background:rgba(5,6,7,.88)!important;border-color:rgba(213,221,229,.19)!important}
+.nav a:not(.btn){color:#c2c9d0!important}
+.nav a:not(.btn):hover,.nav a[aria-current]{color:#fff!important}
+.brand{color:#fff!important}
+.brand svg rect{fill:url(#lg)}
+.card,.svc,.service-card,.portfolio-card,.portfolio-teaser,.faq,.step,.testimonial,.quote-card,.contact-card,.cta-box,.art-window{
+ border-color:rgba(210,220,229,.20)!important;
+ background-color:#101215;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.045),0 20px 58px -44px rgba(0,0,0,.95)
+}
+.card,.svc,.service-card,.portfolio-card,.portfolio-teaser,.faq,.step,.testimonial,.quote-card,.contact-card{
+ background-image:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.006) 48%,rgba(176,188,200,.018))!important
+}
+.card:hover,.svc:hover,.service-card:hover,.portfolio-card:hover,.portfolio-teaser:hover{
+ border-color:rgba(232,238,244,.40)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 26px 70px -42px rgba(0,0,0,.95),0 0 30px rgba(220,230,240,.06)!important
+}
+.btn-primary,.button-primary,button[type=submit],.cta-box .btn-primary{
+ color:#101214!important;background:linear-gradient(120deg,#fff 0%,#dce2e8 38%,#9ca5ae 72%,#f7f9fb 100%)!important;
+ border:1px solid #e1e6eb!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 28px rgba(210,221,231,.12)!important
+}
+.btn-primary:hover,.button-primary:hover,button[type=submit]:hover{
+ background:linear-gradient(120deg,#fff,#e8edf2 48%,#b7c0c9)!important;color:#050607!important
+}
+.btn-ghost,.button-secondary,.btn-secondary{
+ color:#e8edf2!important;border-color:rgba(213,223,232,.43)!important;
+ background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.005))!important
+}
+.btn-ghost:hover,.button-secondary:hover,.btn-secondary:hover{color:#fff!important;border-color:#e8edf2!important;background:rgba(220,230,240,.075)!important}
+.hero:before,.page-hero:before,.portfolio-hero:before{
+ background:radial-gradient(ellipse at 70% 42%,rgba(220,229,238,.12),transparent 48%),radial-gradient(ellipse at 18% 12%,rgba(160,172,185,.065),transparent 44%)!important
+}
+.hero:after,.page-hero:after,.portfolio-hero:after{opacity:.55}
+.phv-aura{background:radial-gradient(ellipse,rgba(224,230,236,.18),rgba(155,164,174,.06) 42%,transparent 72%)!important}
+.phv-grid{background-image:linear-gradient(rgba(220,228,236,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(220,228,236,.18) 1px,transparent 1px)!important}
+.phv-orbit,.phv-orbit-a{border-color:rgba(226,232,238,.42)!important;box-shadow:0 0 26px rgba(220,228,236,.08),inset 0 0 18px rgba(220,228,236,.04)!important}
+.phv-orbit-b{border-color:rgba(190,198,207,.3)!important}
+.phv-object{
+ background:radial-gradient(ellipse at 28% 19%,#fff 0,#e8ebef 7%,#b6bdc5 22%,#5b6067 43%,#171819 60%,#b0b6bd 76%,#f0f2f4 81%,#41454a 100%)!important;
+ box-shadow:inset -18px -22px 34px rgba(0,0,0,.72),inset 9px 8px 18px rgba(255,255,255,.34),0 35px 55px rgba(0,0,0,.56),0 0 48px rgba(220,228,236,.12)!important
+}
+.phv-object:before,.phv-object-face{border-color:rgba(255,255,255,.42)!important}
+.phv-object-glint{background:rgba(255,255,255,.9)!important}
+.phv-panel,.phv-float{border-color:rgba(220,228,236,.26)!important;background:linear-gradient(145deg,rgba(40,42,44,.96),rgba(12,12,13,.94))!important;color:#f0f2f4!important}
+.phv-panel-main strong{color:#f0f2f4!important}
+.phv-panel-main strong i,.phv-float i{color:#dce2e8!important}
+.phv-panel-main>span,.phv-panel-main small{color:#aeb6be!important}
+.phv-chart b{background:linear-gradient(180deg,#f2f4f6,#777f88)!important}
+.portfolio-teaser:before{background:linear-gradient(90deg,transparent,#dce1e6,transparent)!important}
+.portfolio-teaser .eyebrow,.portfolio-teaser .tag,.portfolio-teaser .more,.portfolio-info a,.portfolio-bottom{color:#d4dbe2!important}
+.portfolio-bottom{border-color:rgba(220,228,236,.26)!important}
+.sec:not(.alt) .sec-head:after,.sec-head h2:after{background:linear-gradient(90deg,#e3e9ef,rgba(150,161,172,.15),transparent)!important}
+input:not([type=checkbox]),select,textarea{
+ color:#f3f5f7!important;background:#0c0e10!important;border-color:rgba(205,216,227,.26)!important;color-scheme:dark
+}
+input::placeholder,textarea::placeholder{color:#929aa3!important}
+input:focus,select:focus,textarea:focus{border-color:#dce3e9!important;outline-color:rgba(232,239,246,.55)!important}
+.ftr,.footer{background:linear-gradient(180deg,#090a0b,#030405)!important;border-color:rgba(220,230,240,.14)!important}
+.ftr a,.footer a{color:#c2cad2!important}
+.ftr a:hover,.footer a:hover{color:#fff!important}
+#status.ok{border-color:#59645e!important;background:#171b19!important;color:#e0e9e3!important}
+#status.bad{border-color:#6d5b5b!important;background:#211a1a!important;color:#f2e7e7!important}
+/* Remove leftover warm/gold accents and any decorative underline beneath the hero title */
+.hero-copy h1:after,.hero-copy h1 .grad:after{content:none!important;display:none!important}
