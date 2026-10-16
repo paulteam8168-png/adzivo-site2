@@ -155,14 +155,14 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 
   // Cropped directly from the approved reference preview: visual concepts, not real client work.
   const photoConcepts = [
-    {src:"/visuals/skincare-concept.webp",srcHd:"/visuals/skincare-concept-hd.webp",title:"Skincare Creative",type:"E-commerce",alt:"Emerald-lit skincare product creative concept",svg:"/visuals/creative-skincare.svg",key:"skincare"},
-    {src:"/visuals/furniture-concept.webp",srcHd:"/visuals/furniture-concept-hd.webp",title:"Furniture Creative",type:"Home & Living",alt:"Premium furniture advertising creative concept",svg:"/visuals/creative-furniture.svg",key:"furniture"},
-    {src:"/visuals/shoe-concept.webp",srcHd:"/visuals/shoe-concept-hd.webp",title:"Footwear Creative",type:"Fashion",alt:"Sneaker and footwear advertising creative concept",svg:"/visuals/creative-footwear.svg",key:"footwear"},
+    {src:"/visuals/skincare-concept.webp",srcHd:"/visuals/skincare-concept-hd.webp",title:"Skincare Creative",type:"E-commerce",alt:"Emerald-lit skincare product creative concept",svg:"/visuals/creative-skincare.svg",key:"skincare",segment:"E-COMMERCE"},
+    {src:"/visuals/furniture-concept.webp",srcHd:"/visuals/furniture-concept-hd.webp",title:"Furniture Creative",type:"Home & Living",alt:"Premium furniture advertising creative concept",svg:"/visuals/creative-furniture.svg",key:"furniture",segment:"DTC"},
+    {src:"/visuals/shoe-concept.webp",srcHd:"/visuals/shoe-concept-hd.webp",title:"Footwear Creative",type:"Fashion",alt:"Sneaker and footwear advertising creative concept",svg:"/visuals/creative-footwear.svg",key:"footwear",segment:"LIFESTYLE"},
   ];
   const channelMark = (type) => ({
-    meta:'<span class="platform-icon platform-meta" aria-hidden="true">∞</span>',
+    meta:'<img class="platform-mark-logo platform-mark-meta" src="/visuals/logo-meta.svg" width="29" height="22" alt="" aria-hidden="true">',
     google:'<img class="platform-mark-logo platform-mark-google" src="/visuals/logo-google.svg" width="26" height="26" alt="" aria-hidden="true">',
-    instagram:'<img class="platform-mark-logo platform-mark-instagram" src="/visuals/logo-instagram.svg" width="26" height="26" alt="" aria-hidden="true">',
+    instagram:'<img class="platform-mark-logo platform-mark-instagram" src="/visuals/logo-instagram.svg" width="24" height="24" alt="" aria-hidden="true">',
     tiktok:'<span class="platform-icon platform-tiktok" aria-hidden="true">♪</span>',
     linkedin:'<span class="platform-icon platform-linkedin" aria-hidden="true">in</span>',
   }[type]||"");
@@ -177,7 +177,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     <div class="hero-rail-projects">${photoConcepts.map((p,i)=>`
       <a class="hero-rail-card" href="/case-studies/#creative-showcase" aria-label="${p.title} visual concept">
         <img src="${p.srcHd}" srcset="${p.src} 600w, ${p.srcHd} 1200w" sizes="(max-width:470px) 92vw, (max-width:1180px) 31vw, 400px" alt="${p.alt}" loading="lazy" decoding="async">
-        <span class="hero-rail-meta"><strong>${p.title}</strong><small>${p.type} · Visual concept</small></span>
+        <span class="hero-rail-category">${esc(p.segment)}</span><span class="hero-rail-meta"><strong>${p.title}</strong><small>${p.type} · Visual concept</small></span>
         <span class="hero-rail-arrow" aria-hidden="true">↗</span>
       </a>`).join("")}</div>
   </aside>`;
@@ -192,7 +192,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
       <div class="clear-panel-foot"><b>↗</b><span>STRATEGY / MEASUREMENT</span></div>
     </div>
     <div class="reference-clear-platforms" aria-hidden="true">
-      <div class="clear-platform clear-meta"><span class="platform-emblem">∞</span><small>Meta</small></div>
+      <div class="clear-platform clear-meta"><img class="hero-logo-img hero-meta-logo" src="/visuals/logo-meta.svg" width="72" height="48" alt=""><small>Meta</small></div>
       <div class="clear-platform clear-google"><img class="hero-logo-img" src="/visuals/logo-google.svg" width="52" height="52" alt=""><small>Google</small></div>
       <div class="clear-platform clear-instagram"><img class="hero-logo-img" src="/visuals/logo-instagram.svg" width="52" height="52" alt=""><small>Instagram</small></div>
       <div class="clear-platform clear-tiktok"><span class="platform-emblem">♪</span><small>TikTok</small></div>
@@ -215,9 +215,9 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
       <path d="M376 42 388 54 377 139 366 126Z" fill="url(#pmArrowSide)"/>
     </svg>
     <a class="pm-show-card pm-show-skin" href="#creative-showcase" aria-label="Explore skincare visual concept"><img src="/visuals/skincare-concept-hd.webp" width="1200" height="700" alt="" loading="eager" decoding="async"><span class="pm-show-label"><small>01 / E-COMMERCE</small><strong>Skincare creative</strong></span></a>
-    <a class="pm-show-card pm-show-furniture" href="#creative-showcase" aria-label="Explore furniture visual concept"><img src="/visuals/furniture-concept-hd.webp" width="1200" height="700" alt="" loading="eager" decoding="async"><span class="pm-show-label"><small>02 / HOME & LIVING</small><strong>Furniture creative</strong></span></a>
-    <a class="pm-show-card pm-show-shoe" href="#creative-showcase" aria-label="Explore sneaker visual concept"><img src="/visuals/shoe-concept-hd.webp" width="1200" height="700" alt="" loading="eager" decoding="async"><span class="pm-show-label"><small>03 / FASHION</small><strong>Footwear creative</strong></span></a>
-    <div class="pm-show-console" aria-hidden="true"><div class="pm-channel-icons"><img src="/visuals/logo-google.svg" alt="" width="25" height="25"><img src="/visuals/logo-instagram.svg" alt="" width="25" height="25"><span>∞</span></div><span class="pm-console-eyebrow">ADZIVO / CAMPAIGN STUDIO</span><div class="pm-console-line"><b>Creative ↗</b><i></i></div><div class="pm-console-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="pm-console-foot">META / GOOGLE / PERFORMANCE</span></div>
+    <a class="pm-show-card pm-show-furniture" href="#creative-showcase" aria-label="Explore furniture visual concept"><img src="/visuals/furniture-concept-hd.webp" width="1200" height="700" alt="" loading="eager" decoding="async"><span class="pm-show-label"><small>02 / DTC</small><strong>Furniture creative</strong></span></a>
+    <a class="pm-show-card pm-show-shoe" href="#creative-showcase" aria-label="Explore sneaker visual concept"><img src="/visuals/shoe-concept-hd.webp" width="1200" height="700" alt="" loading="eager" decoding="async"><span class="pm-show-label"><small>03 / LIFESTYLE</small><strong>Footwear creative</strong></span></a>
+    <div class="pm-show-console" aria-hidden="true"><div class="pm-channel-icons"><img src="/visuals/logo-google.svg" alt="" width="25" height="25"><img src="/visuals/logo-instagram.svg" alt="" width="25" height="25"><img src="/visuals/logo-meta.svg" alt="" width="25" height="25"></div><span class="pm-console-eyebrow">ADZIVO / CAMPAIGN STUDIO</span><div class="pm-console-line"><b>Creative ↗</b><i></i></div><div class="pm-console-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="pm-console-foot">META / GOOGLE / PERFORMANCE</span></div>
   </div>`;
 
   const performanceSpotlight = `<section class="sec performance-spotlight" id="performance-marketing">
@@ -374,8 +374,8 @@ ${portfolioShowroom}</div></section>
 <section class="sec portfolio-creative-showcase" id="creative-showcase"><div class="wrap">
   <div class="sec-head reveal"><span class="eyebrow">ADZIVO / Design concepts</span><h2>Product creatives with a premium 3D perspective.</h2><p class="muted">Skincare, interiors and sneaker concepts with sharper product framing, emerald-chrome surfaces and attention-grabbing detail.</p></div>
   <div class="reference-creative-grid">${photoConcepts.map((p,i)=>`<article class="reference-creative-card concept-creative-${p.key} reveal">
-    <div class="reference-creative-media"><img src="${p.svg}" width="1200" height="760" sizes="(max-width:470px) 92vw, (max-width:1180px) 31vw, 400px" alt="${p.alt}" loading="lazy" decoding="async"><span>CREATIVE / 0${i+1}</span></div>
-    <div class="reference-creative-detail"><span class="eyebrow">${p.type}</span><h3>${p.title}</h3><p>${["Botanical textures, reflective glass and premium beauty storytelling.","Architectural interiors, tactile materials and warm editorial styling.","Dynamic motion, chrome detailing and energetic sport-inspired design."][i]}</p><div class="concept-art-direction"><span>ART DIRECTION</span><strong>${["BOTANICAL LUXURY","SCULPTURAL LIVING","SPORT / MOTION"][i]}</strong></div></div>
+    <div class="reference-creative-media"><img src="${p.svg}" width="1200" height="760" sizes="(max-width:470px) 92vw, (max-width:1180px) 31vw, 400px" alt="${p.alt}" loading="lazy" decoding="async"><span>CREATIVE / 0${i+1}</span><span class="reference-category-chip">${esc(p.segment)}</span></div>
+    <div class="reference-creative-detail"><span class="eyebrow">${p.segment} / ${p.type}</span><h3>${p.title}</h3><p>${["Botanical textures, reflective glass and premium beauty storytelling.","Architectural interiors, tactile materials and warm editorial styling.","Dynamic motion, chrome detailing and energetic sport-inspired design."][i]}</p><div class="concept-art-direction"><span>ART DIRECTION</span><strong>${["BOTANICAL LUXURY","SCULPTURAL LIVING","SPORT / MOTION"][i]}</strong></div></div>
   </article>`).join("")}</div></div></section>
 <section class="portfolio-controls"><div class="wrap portfolio-controls-in"><div><span class="eyebrow">Campaign concepts</span><h2>Explore by industry and channel</h2></div><div class="portfolio-filters" role="group" aria-label="Filter portfolio projects"><button class="portfolio-filter active" data-filter="all" aria-pressed="true">All work</button><button class="portfolio-filter" data-filter="E-commerce" aria-pressed="false">E-commerce</button><button class="portfolio-filter" data-filter="Local services" aria-pressed="false">Local services</button><button class="portfolio-filter" data-filter="B2B" aria-pressed="false">B2B</button><button class="portfolio-filter" data-filter="Meta Ads" aria-pressed="false">Meta Ads</button><button class="portfolio-filter" data-filter="Google Ads" aria-pressed="false">Google Ads</button><button class="portfolio-filter" data-filter="Performance Marketing" aria-pressed="false">Performance Marketing</button><span class="pm-filter-count" role="status" aria-live="polite">Showing all creative concepts</span></div></div></section>
 <section class="sec portfolio-section"><div class="wrap"><div class="portfolio-grid" id="portfolio-projects">${portfolioCases}</div></div></section>
