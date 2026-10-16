@@ -1,0 +1,174 @@
+/* ADZIVO unified chrome design system.
+   Loaded after styles.css on every route to keep the full site visually consistent. */
+:root {
+  --bg:#050607;--bg2:#0a0c0e;--card:#111418;
+  --line:rgba(218,228,237,.24);--tx:#f5f7f9;--mu:#b2bdc7;
+  --b:#dce4eb;--v:#dce4eb;
+  --g:linear-gradient(115deg,#fff 0%,#e7edf3 28%,#929ca7 66%,#f6f9fc 100%);
+  --chrome-white:#f8fafc;--chrome-silver:#d7e0e8;
+  --chrome-steel:#87939e;--chrome-border:rgba(222,233,243,.25);
+  --chrome-glow:rgba(205,221,235,.14);
+}
+html{background:#050607;color-scheme:dark}
+body {
+  overflow-x:hidden;
+  background:radial-gradient(ellipse at 82% 3%,rgba(191,208,222,.11),transparent 32%),
+    radial-gradient(ellipse at 1% 47%,rgba(156,174,192,.055),transparent 35%),
+    linear-gradient(180deg,#050607,#0b0d0f 53%,#050607)!important;
+  color:#f5f7f9!important;
+}
+a{color:#d9e2eb}a:hover{color:#fff}
+.muted,.lead,.portfolio-info>p,.portfolio-detail-body p,.case dd{color:#b2bdc7!important}
+.eyebrow,.tag,.case dt,.portfolio-meta,.portfolio-teaser .eyebrow,.portfolio-teaser .tag {color:#cbd4dd!important}
+h1,h2,h3,h4,.card h2,.card h3,.svc-detail h2,.svc-detail h3,.portfolio-info h2 {color:#f5f7fa!important}
+.grad,.hero-copy h1 .grad,.page-hero h1 .grad,.portfolio-hero h1 .grad {
+  background:linear-gradient(105deg,#fff 0%,#e6edf3 22%,#a3aeba 50%,#fafcfd 72%,#b2bdc8 100%)!important;
+  background-size:200% auto!important;
+  -webkit-background-clip:text!important;background-clip:text!important;
+  -webkit-text-fill-color:transparent!important;
+}
+.hero-copy h1::after,.hero-copy h1 .grad::after{display:none!important;content:none!important}
+.hdr{background:rgba(5,7,9,.9)!important;border-bottom:1px solid rgba(218,228,237,.17)!important}
+.brand,.nav a[aria-current]{color:#fff!important}
+.nav a:not(.btn){color:#c4cdd6!important}.nav a:not(.btn):hover{color:#fff!important}
+.menu-btn{border-color:var(--chrome-border)!important}.menu-btn span{background:#eef4f8!important}
+.btn-primary,.btn-pri,.portfolio-filter.active,.portfolio-filter:hover,button[type="submit"] {
+  background:linear-gradient(120deg,#fefefe 0%,#dfe7ee 36%,#929daa 72%,#f4f8fa 100%)!important;
+  color:#101317!important;border:1px solid rgba(248,251,253,.8)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 12px 34px rgba(204,221,236,.12)!important;
+}
+.btn-ghost{color:#eaf0f5!important;background:linear-gradient(150deg,rgba(239,245,250,.075),rgba(12,15,18,.66))!important;border:1px solid rgba(218,230,241,.4)!important}
+.btn-ghost:hover{color:#fff!important;border-color:rgba(246,249,252,.72)!important;background:rgba(213,227,239,.12)!important}
+.strip,.sec.alt,.portfolio-controls{
+  background:linear-gradient(160deg,rgba(23,27,31,.94),rgba(8,10,12,.96))!important;
+  border-color:rgba(217,229,240,.16)!important;
+}
+.strip-in span::before,.faq summary::after {color:#dbe5ec!important}
+.sec{color:#f5f7fa!important}
+.card,.svc,.steps li,.svc-detail,.portfolio-card,.cta-box,.portfolio-bottom,.note,.faq,.booking-embed{
+  color:#f5f7fa!important;
+  background:linear-gradient(145deg,rgba(29,35,40,.95),rgba(11,14,17,.98) 60%,rgba(21,25,29,.97))!important;
+  border:1px solid rgba(215,229,242,.23)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 26px 60px -42px rgba(0,0,0,.95)!important;
+}
+.card,.svc,.portfolio-card,.svc-detail,.portfolio-bottom,.cta-box{
+  position:relative;transform-style:preserve-3d;
+}
+.card::before,.svc::before,.portfolio-bottom::before,.cta-box::before{
+  background:linear-gradient(120deg,rgba(241,247,252,.07),transparent 33%,transparent 65%,rgba(185,203,218,.03))!important;
+}
+.card:hover,.svc:hover,.portfolio-card:hover {
+  border-color:rgba(244,248,251,.45)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 30px 65px -38px rgba(0,0,0,.98),0 0 32px rgba(220,235,248,.075)!important;
+}
+.num{background:linear-gradient(110deg,#fff,#8795a2,#f6f8fa)!important;-webkit-background-clip:text!important;background-clip:text!important;-webkit-text-fill-color:transparent!important}
+.more,.portfolio-teaser .more,.portfolio-details summary,.portfolio-detail-body h3,.portfolio-info a {color:#e4ebf1!important}
+.note,.concept-note{color:#c8d2dc!important;border-color:var(--chrome-border)!important;background:rgba(29,35,40,.72)!important}
+.faq{background:linear-gradient(145deg,rgba(25,30,35,.95),rgba(11,14,17,.98))!important}
+input:not([type="checkbox"]),select,textarea{
+  background:#0b0f13!important;color:#f5f7fa!important;
+  border:1px solid rgba(206,224,239,.29)!important;color-scheme:dark;
+}
+input:focus,select:focus,textarea:focus{border-color:#e3ecf4!important;outline-color:rgba(218,231,243,.4)!important}
+.ftr{background:linear-gradient(160deg,#101317,#030405)!important;border-color:rgba(218,229,239,.16)!important}
+.ftr h3,.ftr a,.copy{color:#bec9d3!important}.ftr a:hover{color:#fff!important}
+
+/* Hero treatment is intentionally shared across home, services, portfolio, about, contact and booking. */
+.hero,.page-hero,.portfolio-hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  color:#f6f8fa!important;
+  background:radial-gradient(ellipse at 76% 46%,rgba(211,225,237,.14),transparent 37%),
+    radial-gradient(ellipse at 14% 5%,rgba(156,172,189,.045),transparent 42%),
+    linear-gradient(135deg,#090c0f,#050607 65%)!important;
+}
+.hero::before,.page-hero::before,.portfolio-hero::before{
+  background:radial-gradient(ellipse at 72% 42%,rgba(233,241,247,.14),transparent 24%),
+    repeating-linear-gradient(125deg,transparent 0 80px,rgba(209,227,243,.028) 81px,transparent 82px 160px)!important;
+}
+.hero::after,.page-hero::after,.portfolio-hero::after{
+  background:linear-gradient(118deg,transparent 30%,rgba(242,248,252,.065) 49%,transparent 65%)!important;
+}
+.hero-in,.page-hero-grid,.portfolio-hero-grid{position:relative;z-index:1}
+.hero-copy h1,.page-hero-copy h1,.portfolio-hero h1{
+  letter-spacing:-.052em!important;line-height:1.05!important;
+  text-shadow:0 12px 28px rgba(0,0,0,.5),0 0 42px rgba(218,234,247,.06)!important;
+}
+.hero-3d-scene,.page-hero-visual,.portfolio-hero-visual{
+  filter:drop-shadow(0 32px 36px rgba(0,0,0,.65)) drop-shadow(0 0 28px rgba(218,232,244,.1))!important;
+}
+.hero-3d-stage,.page-hero-visual,.portfolio-hero-visual{transform-style:preserve-3d}
+.hero-core,.phv-object {
+  background:radial-gradient(ellipse at 23% 16%,#fff 0%,#e6edf3 10%,#9daab6 24%,#4b5660 44%,#15191e 61%,#aab6c0 76%,#eff4f8 83%,#424a53 100%)!important;
+  box-shadow:inset -22px -27px 36px rgba(0,0,0,.72),inset 12px 10px 20px rgba(255,255,255,.32),0 38px 62px rgba(0,0,0,.66),0 0 44px rgba(217,232,244,.14)!important;
+}
+.hero-core-shine,.phv-object-glint{background:rgba(255,255,255,.85)!important}
+.hero-orbit,.phv-orbit,.hero-ring,.art-orbit{border-color:rgba(218,232,243,.38)!important;box-shadow:0 0 26px rgba(208,228,244,.1)!important}
+.hero-particle{background:#dce6ee!important;box-shadow:0 0 16px rgba(231,241,248,.35)!important}
+.viz::before{background:linear-gradient(155deg,#1f272f,#090c0f)!important;border-color:var(--chrome-border)!important}
+.viz::after{border-color:rgba(215,230,243,.32)!important}
+.vcard,.phv-panel,.phv-float,.hero-dashboard,.hero-floating,.art-window{
+  color:#edf3f7!important;
+  background:linear-gradient(145deg,rgba(38,45,52,.97),rgba(9,12,15,.97) 65%,rgba(25,31,37,.96))!important;
+  border:1px solid rgba(219,232,243,.29)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 27px 54px rgba(0,0,0,.68)!important;
+  backdrop-filter:blur(14px);
+}
+.vhead,.vhead span,.vcard small,.phv-panel-main>span,.phv-panel-main small,.hero-dashboard>span,.hero-dashboard small,.art-window-head{color:#abb9c5!important}
+.vhead i,.art-window-head i{background:#697682!important}
+.bars b,.phv-chart b,.art-metrics b{
+  background:linear-gradient(180deg,#f7fafc,#b3c0cc 48%,#65727e)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.32),0 0 14px rgba(219,233,244,.14)!important;
+}
+.line path,.hero-sparkline{stroke:#e4eef6!important;filter:drop-shadow(0 0 7px rgba(223,236,247,.22))!important}
+.phv-aura{background:radial-gradient(ellipse,rgba(234,242,249,.2),rgba(167,185,201,.075) 42%,transparent 72%)!important}
+.phv-grid{background-image:linear-gradient(rgba(223,236,246,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(223,236,246,.2) 1px,transparent 1px)!important}
+.phv-object::before,.phv-object-face{border-color:rgba(244,248,251,.46)!important;box-shadow:inset 0 0 19px rgba(236,244,250,.12)!important}
+.phv-panel-main strong,.hero-dashboard strong{color:#f5f8fa!important}
+.phv-panel-main strong i,.phv-float i,.hero-dashboard em,.hero-floating b{color:#e5edf4!important}
+.phv-chart{border-color:rgba(222,234,244,.22)!important;background:repeating-linear-gradient(to bottom,transparent 0 19px,rgba(222,234,244,.065) 20px)!important}
+.phv-float{color:#e0e8ef!important}
+.pills span,.dotline em{background:#3a4651!important}.pills .on{background:#dce6ef!important}
+.dotline u{background:#eff7fc!important;box-shadow:0 0 12px rgba(217,233,245,.4)!important}
+.check{color:#eff7fc!important}
+
+/* Portfolio keeps its distinctive 3D dashboard but uses the exact shared chrome materials. */
+.portfolio-hero{border-bottom-color:rgba(220,233,244,.17)!important}
+.portfolio-hero-pills span,.portfolio-tags span,.portfolio-filter{
+  border:1px solid rgba(218,232,243,.27)!important;
+  color:#cdd8e2!important;background:rgba(221,233,243,.035)!important;
+}
+.portfolio-filter.active,.portfolio-filter:hover{color:#101317!important;background:linear-gradient(125deg,#fff,#d5e0e9 48%,#9ba8b4)!important;border-color:#dce6ee!important}
+.portfolio-controls{background:linear-gradient(100deg,#0e1216,#171c21,#080a0d)!important}
+.portfolio-card{background:linear-gradient(145deg,#1a2025,#090c0e)!important}
+.portfolio-art,.portfolio-art.art-local,.portfolio-art.art-b2b{
+  background:radial-gradient(ellipse at 57% 45%,rgba(193,213,230,.21),transparent 43%),linear-gradient(140deg,#242b31,#07090c 78%)!important;
+  box-shadow:inset 0 1px 0 rgba(246,251,253,.11),inset 0 -45px 75px rgba(0,0,0,.32)!important;
+}
+.portfolio-art::before{background:conic-gradient(from 15deg,transparent,rgba(210,227,241,.13),transparent,rgba(247,250,252,.045),transparent)!important}
+.portfolio-art::after{background:radial-gradient(ellipse,rgba(204,224,241,.14),transparent 70%)!important}
+.art-top,.art-top span,.art-index{color:#dce6ee!important}
+.art-window{background:linear-gradient(150deg,#303b45,#0a0e12 75%)!important}
+.art-window-head{color:#afbdc8!important}
+.art-line i{background:rgba(219,234,246,.2)!important}.art-line i:nth-child(2){background:#d9e5ee!important}
+.portfolio-meta span,.portfolio-meta span+span,.portfolio-info>p{color:#bbc7d2!important}
+.portfolio-details{border-top-color:rgba(219,233,245,.18)!important}
+.portfolio-details summary{color:#e5edf4!important}
+.hero-dashboard{background:linear-gradient(150deg,#29323b,#090c0f)!important}
+.hero-sparkline{
+  border-bottom:1px solid rgba(217,232,245,.28)!important;
+  background:linear-gradient(160deg,transparent 47%,#dbe7ef 48%,#dbe7ef 49%,transparent 50%)!important;
+}
+.hero-floating{color:#e5edf3!important}
+.portfolio-bottom,.cta-box{
+  background:radial-gradient(ellipse at 50% 0%,rgba(218,232,244,.15),transparent 62%),linear-gradient(145deg,#1b2228,#090c0f)!important;
+}
+.portfolio-teaser::before{background:linear-gradient(90deg,transparent,#e0eaf2,transparent)!important}
+@media(max-width:760px){
+  .nav{background:#0b0e12!important;border-color:rgba(219,233,244,.18)!important}
+  .portfolio-hero-visual,.page-hero-visual{min-height:305px}
+  .hero-3d-scene{min-height:340px}
+  .phv-float{font-size:10px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-core,.phv-object,.phv-orbit,.hero-ring,.hero-dashboard,.hero-floating{animation:none!important}
+}
