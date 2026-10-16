@@ -45,7 +45,7 @@
   portfolioFilters.forEach((button) => button.addEventListener("click", () => {
     const category = button.dataset.filter;
     portfolioFilters.forEach((item) => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
-    portfolioCards.forEach((card) => { const industry = card.dataset.category || ""; const services = (card.dataset.services || "").toLowerCase(); card.hidden = category !== "all" && industry !== category && !services.includes(category.toLowerCase()); });
+    let visible = 0; portfolioCards.forEach((card) => { const industry = card.dataset.category || ""; const services = (card.dataset.services || "").toLowerCase(); card.hidden = category !== "all" && industry !== category && !services.includes(category.toLowerCase()); if (!card.hidden) visible++; }); const status = document.querySelector(".pm-filter-count"); if (status) status.textContent = category === "all" ? `Showing ${visible} creative concepts` : `${visible} ${visible === 1 ? "concept" : "concepts"} for ${category}`;
   }));
 
 
