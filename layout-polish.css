@@ -1,0 +1,268 @@
+/* ADZIVO FINAL LAYOUT & DEPTH PASS
+   Loaded last; makes the 3-column emerald reference responsive without
+   overlapping headings, repeated metrics or floating card collisions. */
+
+/* The reference image retains the chrome sculpture. Fade its low-resolution
+   right-hand labels beneath crisp native HTML/CSS icon cards. */
+.hero .hero-reference-visual{
+  position:relative!important;
+  transform:perspective(1250px) rotateY(-3deg) rotateX(1.5deg)!important;
+  transform-origin:center!important;
+  transform-style:preserve-3d!important;
+  isolation:isolate!important;
+  overflow:visible!important;
+  z-index:2;
+}
+.hero .hero-reference-visual::before{
+  content:""!important;display:block!important;
+  position:absolute;z-index:-1;pointer-events:none;
+  top:18%;left:13%;width:78%;height:67%;
+  border:2px solid rgba(143,255,210,.35);
+  border-radius:50%;
+  background:transparent!important;
+  transform:perspective(720px) rotateX(72deg) rotate(-13deg);
+  box-shadow:0 0 30px rgba(46,235,151,.16),inset 0 0 40px rgba(60,240,157,.08);
+}
+.hero .hero-reference-visual::after{
+  content:"GROWTH / CREATIVE / STRATEGY ↗"!important;
+  display:block!important;
+  position:absolute;z-index:4;right:6.5%;top:10%;
+  padding:10px 12px;max-width:42%;
+  border-radius:12px;
+  border:1px solid rgba(175,255,222,.45);
+  color:#dbfff0;
+  font-size:clamp(.49rem,.73vw,.7rem);
+  letter-spacing:.08em;font-weight:750;line-height:1.3;
+  background:linear-gradient(139deg,rgba(19,78,56,.98),rgba(2,27,19,.98));
+  box-shadow:inset 0 1px 0 rgba(229,255,233,.16),0 21px 33px rgba(0,0,0,.5),0 0 28px rgba(55,245,174,.12);
+  transform:perspective(600px) rotateY(-8deg) translateZ(35px);
+  pointer-events:none;
+}
+.hero .reference-hero-art{
+  /* Original tiny icon copies disappear into the vignette. The native cards
+     layered above remain sharp at all device pixel ratios. */
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 67%,rgba(0,0,0,.58) 71%,rgba(0,0,0,.03) 80%,transparent 88%)!important;
+  mask-image:linear-gradient(90deg,#000 0%,#000 67%,rgba(0,0,0,.58) 71%,rgba(0,0,0,.03) 80%,transparent 88%)!important;
+  will-change:auto;
+  transform:translateZ(3px)!important;
+}
+.hero .reference-art-glow{
+  background:radial-gradient(ellipse at 58% 47%,rgba(44,248,163,.26),rgba(15,127,83,.10) 44%,transparent 72%)!important;
+}
+
+/* Completely mask the raster's fictitious ROAS/revenue panels with an opaque,
+   readable, strategy-focused card. This also prevents two sets of text
+   appearing on top of each other. */
+.hero .reference-clear-dashboard{
+  left:18%;top:15%;width:37%;height:43%;min-height:0!important;
+  padding:clamp(12px,1.35vw,19px);
+  overflow:hidden;
+  display:flex;flex-direction:column;gap:6px;
+  border-radius:18px;
+  border:1px solid rgba(211,255,236,.59);
+  background:linear-gradient(145deg,#164c3e 0%,#051c18 36%,#03130f 73%,#175642 100%)!important;
+  -webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+  box-shadow:
+     inset 0 1px 0 rgba(231,255,246,.25),
+     inset 5px 0 15px rgba(97,245,171,.05),
+     0 27px 40px rgba(0,0,0,.64),
+     0 0 38px rgba(67,239,167,.13)!important;
+  transform:perspective(780px) rotateY(-9deg) rotateX(4deg) translateZ(44px)!important;
+  z-index:5;
+}
+.hero .reference-clear-dashboard::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(115deg,rgba(210,255,228,.14),transparent 34%,transparent 66%,rgba(90,255,184,.055));
+}
+.hero .reference-clear-dashboard>*{position:relative;z-index:1}
+.hero .clear-kicker{
+  color:#b9ffe3!important;
+  font-size:clamp(.48rem,.7vw,.68rem)!important;
+  letter-spacing:.08em;
+  line-height:1.25;white-space:normal;
+}
+.hero .clear-statline{margin:clamp(5px,1vw,12px) 0 0;gap:9px;min-width:0}
+.hero .clear-statline strong{
+  font-size:clamp(1.5rem,2.55vw,2.8rem)!important;
+  font-weight:850;line-height:1.1;letter-spacing:-.07em!important;
+  white-space:nowrap;max-width:100%;
+}
+.hero .clear-statline strong span{font-size:.62em;margin-left:3px;color:#81ffcd}
+.hero .clear-statline>span{
+  font-size:clamp(.45rem,.66vw,.68rem)!important;
+  overflow-wrap:normal;white-space:normal;
+}
+.hero .clear-spark-bars{
+  flex:1 1 auto;min-height:25px;max-height:83px;
+  gap:clamp(3px,.65vw,10px);margin:8px 0 5px;
+}
+.hero .clear-panel-foot{font-size:clamp(.4rem,.56vw,.58rem)!important;white-space:normal;gap:8px}
+.hero .clear-panel-foot b{font-size:1.15rem}
+.hero .reference-clear-platforms{
+  z-index:6;right:2%;top:37%;width:25%;
+  gap:clamp(5px,.65vw,9px);
+  transform:perspective(1050px) rotateY(-11deg) rotateX(5deg) translateZ(45px)!important;
+}
+.hero .reference-clear-platforms .clear-platform{
+  border-radius:13px;
+  border-color:rgba(212,255,237,.59);
+  background:linear-gradient(139deg,#155844 0%,#041b17 60%,#0b4132 100%)!important;
+  transform:translateZ(9px)!important;
+  box-shadow:inset 0 1px 0 rgba(245,255,248,.24),0 16px 26px rgba(0,0,0,.6),0 0 23px rgba(47,240,158,.12)!important;
+}
+.hero .reference-clear-platforms .clear-platform:nth-child(2){transform:translate3d(2px,10px,19px)!important}
+.hero .reference-clear-platforms .clear-platform:nth-child(3){transform:translate3d(-3px,-2px,16px)!important}
+.hero .reference-clear-platforms .clear-platform:nth-child(4){transform:translate3d(3px,6px,23px)!important}
+
+/* Make the 3-column desktop hero breathe instead of squeezing the headline. */
+.hero .hero-in{align-items:center!important;column-gap:clamp(23px,2.5vw,42px)!important;row-gap:26px!important}
+.hero .hero-in>*{min-width:0;max-width:100%}
+.hero .hero-copy{z-index:7}
+.hero .hero-copy h1{
+  margin:13px 0 23px!important;
+  line-height:1.09!important;
+  letter-spacing:-.046em!important;
+  overflow-wrap:normal;
+  word-break:normal;
+  text-wrap:balance;
+  max-width:100%;
+}
+.hero .hero-copy .lead{line-height:1.65!important}
+.hero .hero-reference-rail{min-width:0}
+.hero .hero-reference-rail h2{line-height:1.17!important;margin-bottom:12px}
+.hero .hero-reference-rail>p{line-height:1.65!important}
+.hero .hero-rail-projects{min-width:0}
+.hero .hero-rail-card{min-width:0}
+.hero .hero-rail-meta{min-width:0;overflow:hidden}
+.hero .hero-rail-meta strong{overflow-wrap:break-word;line-height:1.3}
+.hero .hero-rail-meta small{overflow-wrap:break-word}
+.hero .hero-rail-card .hero-rail-arrow{z-index:3}
+.hero .hero-rail-card .hero-rail-demo{display:none!important}
+.hero .hero-rail-note{display:none!important}
+
+/* Shared typography / spacing fixes for services, portfolio, mission and forms. */
+.page-hero-grid>*,.portfolio-hero-grid>*,.campaign-lab-grid>*,.grid>*{min-width:0}
+.page-hero h1,.portfolio-hero h1{
+  max-width:100%;overflow-wrap:break-word;
+  line-height:1.13!important;letter-spacing:-.045em!important;
+}
+.sec-head h2,.portfolio-info h2,.portfolio-bottom h2,.cta-box h2,.svc-detail h2,.card h2,.card h3{
+  overflow-wrap:break-word;line-height:1.22!important;
+  max-width:100%;
+}
+.card p,.svc-detail p,.portfolio-info p,.faq p{line-height:1.65!important}
+.card,.svc,.portfolio-card,.portfolio-teaser,.svc-detail,.cta-box{min-width:0}
+.card h2,.card h3,.portfolio-card h2,.portfolio-card h3{word-break:normal}
+.services-overview .svc .service-index{display:block;line-height:1.3;margin:14px 0 8px}
+.services-overview .svc .service-symbol{flex:none}
+.portfolio-art{isolation:isolate}
+.portfolio-section .portfolio-card .portfolio-info{position:relative!important;z-index:2}
+.portfolio-section .portfolio-art .art-window{padding:12px!important}
+.portfolio-section .portfolio-art .art-window-head{font-size:clamp(.52rem,.68vw,.72rem);line-height:1.3}
+.portfolio-section .portfolio-info .portfolio-meta{line-height:1.4}
+.portfolio-section .portfolio-info h2{line-height:1.18!important;word-break:normal}
+.concept-metric-strip{gap:3px}
+.concept-metric-strip>div{min-width:0;overflow:hidden}
+.concept-metric-strip strong{
+  font-size:clamp(.91rem,1.2vw,1.25rem)!important;
+  overflow-wrap:break-word;
+  word-break:normal;white-space:normal;line-height:1.18!important;
+}
+.concept-metric-strip span{line-height:1.35!important}
+.lab-dashboard{min-width:0;overflow:hidden}
+.lab-dashboard .lab-dashboard-title h3{line-height:1.15!important;overflow-wrap:break-word}
+.lab-dashboard .lab-stat-grid{gap:clamp(7px,1vw,13px)}
+.lab-dashboard .lab-stat-grid>div{min-width:0;overflow:hidden}
+.lab-dashboard .lab-stat-grid strong{
+  font-size:clamp(1.25rem,2vw,1.8rem)!important;
+  white-space:normal;overflow-wrap:break-word;line-height:1.15!important;
+}
+.lab-dashboard .lab-stat-grid small{min-height:0;line-height:1.4}
+.lab-dashboard .lab-chart-top{flex-wrap:wrap}
+.lab-dashboard .lab-chart-top small{max-width:100%}
+.ftr a{overflow-wrap:anywhere}
+input,select,textarea{max-width:100%;box-sizing:border-box}
+
+/* Large laptops: two clear hero columns and a separate product gallery row. */
+@media(max-width:1390px){
+  .hero .hero-in{
+    grid-template-columns:minmax(0,1fr) minmax(0,1.17fr)!important;
+    gap:clamp(19px,3.5vw,48px)!important;
+    align-items:center!important;
+  }
+  .hero .hero-copy h1{font-size:clamp(2.65rem,4.85vw,4.3rem)!important}
+  .hero .hero-reference-rail{
+    grid-column:1/-1!important;
+    display:grid!important;
+    grid-template-columns:minmax(220px,.65fr) minmax(0,1.9fr)!important;
+    gap:7px 26px!important;
+    align-items:start!important;
+  }
+  .hero .hero-reference-rail .eyebrow,.hero .hero-reference-rail h2,.hero .hero-reference-rail>p{
+    grid-column:1!important;
+  }
+  .hero .hero-rail-projects{
+    grid-column:2!important;grid-row:1/span 3!important;
+    display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:12px!important;
+  }
+  .hero .hero-rail-card{height:auto;min-height:170px}
+}
+@media(max-width:1050px){
+  .hero .hero-in{grid-template-columns:minmax(0,1fr)!important}
+  .hero .hero-copy{max-width:830px}
+  .hero .hero-reference-visual{width:min(100%,790px)!important;margin:5px auto!important}
+  .hero .hero-reference-rail{grid-column:1/-1!important}
+}
+@media(max-width:780px){
+  .hero .hero-reference-rail{
+    grid-template-columns:1fr!important;
+    gap:10px!important;
+  }
+  .hero .hero-reference-rail .eyebrow,.hero .hero-reference-rail h2,.hero .hero-reference-rail>p,.hero .hero-rail-projects{
+    grid-column:1!important;grid-row:auto!important;
+  }
+  .hero .hero-reference-rail h2{font-size:clamp(1.75rem,5.6vw,2.3rem)!important}
+  .hero .hero-rail-projects{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .hero .hero-rail-card{min-height:150px}
+  .lab-dashboard .lab-stat-grid strong{font-size:clamp(1rem,3.7vw,1.7rem)!important}
+  .concept-metric-strip strong{font-size:clamp(.88rem,2.4vw,1.1rem)!important}
+}
+@media(max-width:550px){
+  .hero .hero-reference-visual{transform:none!important;overflow:visible!important}
+  .hero .hero-reference-visual::after{top:4%;right:3%;font-size:.49rem;padding:7px 8px}
+  .hero .reference-clear-dashboard{
+    left:17.5%;top:16%;width:39%;height:44%;
+    padding:8px!important;border-radius:10px;gap:3px;
+    transform:perspective(700px) rotateY(-6deg) translateZ(18px)!important;
+  }
+  .hero .clear-kicker{font-size:.43rem!important;letter-spacing:0}
+  .hero .clear-statline strong{font-size:clamp(1.35rem,5.3vw,1.9rem)!important}
+  .hero .clear-statline>span{display:none}
+  .hero .clear-spark-bars{max-height:48px;min-height:24px;margin:5px 0 2px}
+  .hero .clear-panel-foot{font-size:.38rem!important}
+  .hero .reference-clear-platforms{right:3%;top:40%;width:29%;gap:4px}
+  .hero .reference-clear-platforms .clear-platform{min-height:46px;border-radius:8px}
+  .hero .hero-rail-projects{grid-template-columns:1fr!important;gap:13px!important}
+  .hero .hero-rail-card{min-height:178px!important}
+  .hero .hero-rail-meta{padding-top:80px!important}
+  .hero .hero-rail-meta strong{font-size:.96rem}
+  .hero .hero-rail-meta small{font-size:.75rem}
+  .hero .hero-rail-arrow{width:30px;height:30px;font-size:.86rem}
+  .lab-dashboard .lab-stat-grid strong{font-size:clamp(.95rem,4.4vw,1.25rem)!important}
+}
+@media(max-width:390px){
+  .hero .hero-reference-visual::after{font-size:.39rem;max-width:43%}
+  .hero .clear-kicker{font-size:.35rem!important}
+  .hero .clear-statline strong{font-size:1.18rem!important}
+  .hero .reference-clear-dashboard{left:18%;top:18%;height:42%;padding:6px!important}
+  .hero .reference-clear-platforms{right:3%;width:29%;top:42%}
+  .hero .reference-clear-platforms .clear-platform{min-height:37px}
+  .hero .clear-panel-foot{display:none}
+  .lab-dashboard .lab-stat-grid strong{font-size:.93rem!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero .hero-reference-visual,.hero .hero-reference-visual::before,.hero .hero-reference-visual::after{
+    animation:none!important;transition:none!important
+  }
+}
