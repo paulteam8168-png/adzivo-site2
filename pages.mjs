@@ -138,6 +138,16 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
   const out = [];
   const add = (p) => out.push({ index: !p.noindex, file: p.path === "/" ? "index.html" : p.path === "/404" ? "404.html" : `${p.path.slice(1)}/index.html`, path: p.path, html: layout(p) });
 
+  // These are fictional values shown only on clearly labelled concept demos.
+  const conceptDemoMetrics = [
+    [["5.8×", "Demo ROAS"], ["3.2%", "Demo CVR"], ["12", "Test concepts"]],
+    [["64", "Demo enquiries"], ["74%", "Demo fit rate"], ["8", "Ad variants"]],
+    [["27", "Demo meetings"], ["61%", "Demo fit rate"], ["6", "Message angles"]],
+  ];
+  const conceptMetricStrip = (i) => '<div class="concept-metric-strip" aria-label="Fictional sample campaign data">'
+    + (conceptDemoMetrics[i % conceptDemoMetrics.length]).map(([value, name]) => '<div><strong>'+value+'</strong><span>'+name+'</span></div>').join('')
+    + '</div><p class="concept-metric-note">Sample data · Not actual client performance</p>';
+
   /* ---------- HOME ---------- */
   const approach = c.testimonials.length
     ? `<section class="sec"><div class="wrap">${head("Testimonials", "What clients say")}<div class="grid g3">${c.testimonials.map((t) => `<figure class="card reveal"><blockquote>“${esc(t.quote)}”</blockquote><figcaption>${esc(t.name || "ADZIVO Client")}${t.role ? `, ${esc(t.role)}` : ""}</figcaption></figure>`).join("")}</div></div></section>`
@@ -187,7 +197,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
 ${c.showCaseStudies ? `<section class="sec alt"><div class="wrap">${head("Portfolio", "Strategy before spend", "Explore illustrative campaign concepts showing how ADZIVO approaches creative testing, lead generation and measurement. These are concept previews, not client case studies or performance claims.")}
-<div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><span>CONCEPT / 0${i + 1}</span><div class="mini-sculpture"><i></i></div></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${esc(s.client)}</h3><p class="tag">${esc(s.industry)} · Illustrative strategy</p><p class="muted">${esc(s.summary || s.challenge)}</p><a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
+<div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><span>CONCEPT / 0${i + 1}</span><div class="mini-sculpture"><i></i></div></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${esc(s.client)}</h3><p class="tag">${esc(s.industry)} · Illustrative strategy</p><p class="muted">${esc(s.summary || s.challenge)}</p>${s.demo ? conceptMetricStrip(i) : ""}<a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
 
 <section class="sec"><div class="wrap">${head("Our Process", "Four stages from idea to scale")}
 <ol class="steps">${[["Discover", "Understand business goals, audience, offer, and economics."], ["Strategize", "Build campaign strategy, creative direction, and tracking plans."], ["Launch & Optimize", "Test, monitor, and improve campaigns."], ["Scale", "Expand what works with transparent reporting."]].map(([t, d], i) => `<li class="card reveal"><span class="num">0${i + 1}</span><h3>${t}</h3><p class="muted">${d}</p></li>`).join("")}</ol></div></section>
@@ -221,6 +231,7 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
       <div class="art-window"><span class="art-demo-stamp">Visual example</span><div class="art-window-head"><i></i><i></i><i></i><span>${esc(s.cover==="local"?"Lead overview":s.cover==="b2b"?"Pipeline analytics":"Campaign performance")}</span></div><div class="art-metrics"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="art-line"><i></i><i></i><i></i></div></div><strong class="art-index">0${i+1}</strong></div>
     <div class="portfolio-info"><div class="portfolio-meta"><span>${esc(s.industry)}</span><span>${s.demo?"Concept preview":esc(s.timeframe)}</span></div><h2>${esc(s.client)}</h2><p>${esc(s.summary || s.challenge)}</p>
     <div class="portfolio-tags">${(s.services||[]).slice(0,3).map(v=>`<span>${esc(v)}</span>`).join("")}</div>
+    ${s.demo ? conceptMetricStrip(i) : ""}
     <details class="portfolio-details"><summary>Explore project approach <span>↗</span></summary><div class="portfolio-detail-body"><h3>Challenge</h3><p>${esc(s.challenge)}</p><h3>Strategy</h3><p>${esc(s.strategy)}</p>${s.demo?'<p class="concept-note">Illustrative concept only — not a real client result.</p>':`<h3>Results</h3><p>${esc(s.results)}</p>`}${btn("/contact/","Discuss a Similar Project","btn-ghost btn-sm")}</div></details></div></article>`).join("");
   add({ path: "/case-studies/", title: "Portfolio", desc: "Explore ADZIVO campaign concepts, strategy and project approach.", body: `
 <section class="portfolio-hero"><div class="wrap portfolio-hero-grid"><div><span class="eyebrow">Selected Work · ADZIVO</span><h1>Strategy that makes <span class="grad">every campaign</span> count.</h1><p class="lead">Explore our approach to creative testing, lead generation and paid social growth. Concept previews are clearly labelled; verified client results are shared transparently.</p><div class="portfolio-hero-pills"><span>Meta Ads</span><span>Creative Strategy</span><span>Lead Generation</span><span>Measurement</span></div></div>
