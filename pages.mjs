@@ -1,3 +1,4 @@
+import { sceneVisual } from "./scenes.mjs";
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 export function pages(c, base) {
@@ -5,7 +6,7 @@ export function pages(c, base) {
   const bookExt = c.contact.bookingUrl ? ' target="_blank" rel="noopener noreferrer" data-calendly-popup="true"' : "";
   const nav = [["/services/", "Services"], ["/case-studies/", "Portfolio"], ["/about/", "About"], ["/contact/", "Contact"]];
 
-  const logo = `<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#8995a2"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M8 23 16 8l8 15h-4.2L16 15.6 12.2 23z" fill="#fff"/></svg>`;
+  const logo = `<svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><linearGradient id="adz-mark" x1="3" y1="3" x2="36" y2="37" gradientUnits="userSpaceOnUse"><stop stop-color="#d9fff2"/><stop offset=".28" stop-color="#47ffc4"/><stop offset=".52" stop-color="#ebfffa"/><stop offset=".74" stop-color="#168765"/><stop offset="1" stop-color="#92ffdc"/></linearGradient></defs><path d="M4 33 16.7 6.7C17.9 4.1 21.7 4.1 23 6.7L36 33h-7.7L19.8 15.3 11.7 33H4Z" fill="url(#adz-mark)" stroke="#9effd9" stroke-width=".7"/><path d="m15.4 25.2 4.6-9.5 5 9.5h-9.6Z" fill="#02251a"/><path d="M16 30.5h11.8" stroke="#dafff2" stroke-width="2.8" stroke-linecap="round"/></svg>`;
   const btn = (href, text, cls = "btn-primary", extra = "") => `<a class="btn ${cls}" href="${href}"${extra}>${text}</a>`;
   const bookBtn = (text = "Book a Strategy Call", cls = "btn-primary") => btn(book, text, cls, bookExt);
 
@@ -34,7 +35,7 @@ export function pages(c, base) {
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(desc)}">
 ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
-<meta name="theme-color" content="#041714">
+<meta name="theme-color" content="#03170f">
 <meta property="og:type" content="website"><meta property="og:site_name" content="${c.name}">
 <meta property="og:title" content="${esc(full)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}"><meta property="og:image" content="${base}/og.png">
@@ -113,7 +114,7 @@ ${c.contact.bookingUrl ? '<script src="https://assets.calendly.com/assets/extern
   </div>`;
 
   // Identical sculptural language is shared by interior pages, not substituted with a different theme.
-  const pageHeroVisual = (label = "GROWTH / ADZIVO") => `<div class="page-hero-visual" role="img" aria-label="Decorative chrome three-dimensional growth chart with emerald lighting">${chromeScene(label)}</div>`;
+  const pageHeroVisual = (label = "GROWTH / ADZIVO", kind = "services") => `<div class="page-hero-visual" role="img" aria-label="Decorative emerald chrome three-dimensional ${esc(kind)} artwork">${sceneVisual(kind, label)}</div>`;
 
   const caseCards = (list) => list.filter((s) => !s.demo).map((s) => `<article class="card case reveal">
 ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>' : ""}
@@ -155,7 +156,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
 ${c.showCaseStudies ? `<section class="sec alt"><div class="wrap">${head("Portfolio", "Strategy before spend", "Explore illustrative campaign concepts showing how ADZIVO approaches creative testing, lead generation and measurement. These are concept previews, not client case studies or performance claims.")}
-<div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${esc(s.client)}</h3><p class="tag">${esc(s.industry)} · Illustrative strategy</p><p class="muted">${esc(s.summary || s.challenge)}</p><a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
+<div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><span>CONCEPT / 0${i + 1}</span><div class="mini-sculpture"><i></i></div></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${esc(s.client)}</h3><p class="tag">${esc(s.industry)} · Illustrative strategy</p><p class="muted">${esc(s.summary || s.challenge)}</p><a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
 
 <section class="sec"><div class="wrap">${head("Our Process", "Four stages from idea to scale")}
 <ol class="steps">${[["Discover", "Understand business goals, audience, offer, and economics."], ["Strategize", "Build campaign strategy, creative direction, and tracking plans."], ["Launch & Optimize", "Test, monitor, and improve campaigns."], ["Scale", "Expand what works with transparent reporting."]].map(([t, d], i) => `<li class="card reveal"><span class="num">0${i + 1}</span><h3>${t}</h3><p class="muted">${d}</p></li>`).join("")}</ol></div></section>
@@ -173,7 +174,7 @@ ${cta()}` });
 
   /* ---------- SERVICES ---------- */
   add({ schema: [{ "@type": "ItemList", itemListElement: c.services.map((s, i) => ({ "@type": "ListItem", position: i + 1, item: { "@type": "Service", name: s.title, description: s.short, url: `${base}/services/#${s.slug}`, provider: { "@id": base + "/#org" } } })) }], path: "/services/", title: "Services", desc: "Meta Ads management, Facebook and Instagram campaigns, creative testing, lead generation, retargeting and analytics from ADZIVO.", body: `
-<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Services</span><h1>Paid social services built around your goals</h1><p class="lead">Every engagement starts with understanding your business. We don't promise specific sales, leads or return on ad spend, because results depend on your offer, market and budget.</p></div>${pageHeroVisual("PAID SOCIAL / SYSTEM 01")}</div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Services</span><h1>Paid social services built around your goals</h1><p class="lead">Every engagement starts with understanding your business. We don't promise specific sales, leads or return on ad spend, because results depend on your offer, market and budget.</p></div>${pageHeroVisual("PAID SOCIAL / SYSTEM 01", "services")}</div></section>
 <section class="sec"><div class="wrap"><div class="note">Our management fee and your advertising spend are separate. Ad spend is paid to the advertising platform from your own ad account; our fee covers strategy, management and reporting.</div>
 ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}"><h2>${s.title}</h2><p class="muted">${s.short}</p>
 <div class="cols"><div><h3>Deliverables</h3><ul>${s.deliverables.map((d) => `<li>${d}</li>`).join("")}</ul></div>
@@ -183,13 +184,13 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
   /* ---------- CASE STUDIES / PORTFOLIO ---------- */
   const portfolioCases = c.caseStudies.map((s, i) => `<article class="portfolio-card reveal" data-category="${esc(s.industry)}">
     <div class="portfolio-art art-${esc(s.cover || "ecom")}"><div class="art-top">ADZIVO / PROJECT ${String(i+1).padStart(2,"0")} <span>✳</span></div><div class="art-orbit"></div>
-      <div class="art-window"><div class="art-window-head"><i></i><i></i><i></i><span>${esc(s.cover==="local"?"Lead overview":s.cover==="b2b"?"Pipeline analytics":"Campaign performance")}</span></div><div class="art-metrics"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="art-line"><i></i><i></i><i></i></div></div><strong class="art-index">0${i+1}</strong></div>
+      <div class="art-window"><span class="art-demo-stamp">Visual example</span><div class="art-window-head"><i></i><i></i><i></i><span>${esc(s.cover==="local"?"Lead overview":s.cover==="b2b"?"Pipeline analytics":"Campaign performance")}</span></div><div class="art-metrics"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="art-line"><i></i><i></i><i></i></div></div><strong class="art-index">0${i+1}</strong></div>
     <div class="portfolio-info"><div class="portfolio-meta"><span>${esc(s.industry)}</span><span>${s.demo?"Concept preview":esc(s.timeframe)}</span></div><h2>${esc(s.client)}</h2><p>${esc(s.summary || s.challenge)}</p>
     <div class="portfolio-tags">${(s.services||[]).slice(0,3).map(v=>`<span>${esc(v)}</span>`).join("")}</div>
     <details class="portfolio-details"><summary>Explore project approach <span>↗</span></summary><div class="portfolio-detail-body"><h3>Challenge</h3><p>${esc(s.challenge)}</p><h3>Strategy</h3><p>${esc(s.strategy)}</p>${s.demo?'<p class="concept-note">Illustrative concept only — not a real client result.</p>':`<h3>Results</h3><p>${esc(s.results)}</p>`}${btn("/contact/","Discuss a Similar Project","btn-ghost btn-sm")}</div></details></div></article>`).join("");
   add({ path: "/case-studies/", title: "Portfolio", desc: "Explore ADZIVO campaign concepts, strategy and project approach.", body: `
 <section class="portfolio-hero"><div class="wrap portfolio-hero-grid"><div><span class="eyebrow">Selected Work · ADZIVO</span><h1>Strategy that makes <span class="grad">every campaign</span> count.</h1><p class="lead">Explore our approach to creative testing, lead generation and paid social growth. Concept previews are clearly labelled; verified client results are shared transparently.</p><div class="portfolio-hero-pills"><span>Meta Ads</span><span>Creative Strategy</span><span>Lead Generation</span><span>Measurement</span></div></div>
-${pageHeroVisual("CREATIVE / PERFORMANCE")}</div></section>
+${pageHeroVisual("CREATIVE / PERFORMANCE", "portfolio")}</div></section>
 <section class="portfolio-controls"><div class="wrap portfolio-controls-in"><div><span class="eyebrow">The portfolio</span><h2>Ideas built around business goals</h2></div><div class="portfolio-filters" role="group" aria-label="Filter portfolio projects"><button class="portfolio-filter active" data-filter="all" aria-pressed="true">All work</button><button class="portfolio-filter" data-filter="E-commerce" aria-pressed="false">E-commerce</button><button class="portfolio-filter" data-filter="Local services" aria-pressed="false">Local services</button><button class="portfolio-filter" data-filter="B2B" aria-pressed="false">B2B</button></div></div></section>
 <section class="sec portfolio-section"><div class="wrap"><div class="portfolio-grid">${portfolioCases}</div><p class="portfolio-footnote muted">Sample concepts are illustrative design and strategy examples, not claims about completed client campaigns.</p></div></section>
 <section class="sec"><div class="wrap"><div class="portfolio-bottom reveal"><span class="eyebrow">Have a project in mind?</span><h2>Let's build your next growth story.</h2><p class="muted">Tell us about your goals and we'll help map out a practical paid social strategy.</p>${bookBtn("Start a Conversation")}</div></div></section>` });
@@ -197,14 +198,14 @@ ${pageHeroVisual("CREATIVE / PERFORMANCE")}</div></section>
   /* ---------- ABOUT ---------- */
   const team = c.team.length ? `<section class="sec alt"><div class="wrap">${head("Team", "The people behind the campaigns")}<div class="grid g3">${c.team.map((m) => `<div class="card reveal"><h3>${esc(m.name)}</h3><p class="tag">${esc(m.role)}</p><p class="muted">${esc(m.bio || "")}</p></div>`).join("")}</div></div></section>` : "";
   add({ path: "/about/", title: "About Us", desc: "ADZIVO is a performance-focused paid social agency helping businesses make smarter advertising decisions.", body: `
-<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">About ${c.name}</span><h1>A performance-focused agency, built on clarity</h1><p class="lead">${c.name} is an independent digital marketing agency specializing in paid social advertising.</p></div>${pageHeroVisual("THE ADZIVO APPROACH")}</div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">About ${c.name}</span><h1>A performance-focused agency, built on clarity</h1><p class="lead">${c.name} is an independent digital marketing agency specializing in paid social advertising.</p></div>${pageHeroVisual("THE ADZIVO APPROACH", "about")}</div></section>
 <section class="sec"><div class="wrap grid g2"><div class="card reveal"><h2>Our mission</h2><p class="muted">To help businesses turn advertising spend into sustainable growth through thoughtful strategy, disciplined testing and honest reporting.</p></div>
 <div class="card reveal"><h2>How we work</h2><ul><li>Start from business goals, not platform features</li><li>Test creative and audiences with discipline</li><li>Report openly, including what didn't work</li><li>Scale only what the data supports</li></ul></div></div></section>${team}${cta()}` });
 
   /* ---------- CONTACT ---------- */
   const opt = (a) => a.map((o) => `<option>${o}</option>`).join("");
   add({ schema: [{ "@type": "ContactPage", url: base + "/contact/", name: "Contact " + c.name }], path: "/contact/", form: true, title: "Contact", desc: "Contact ADZIVO to discuss your paid social advertising goals or book a strategy call.", body: `
-<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Contact</span><h1>Let's talk about your goals</h1><p class="lead">Send us a message or book a strategy call directly.</p><div class="actions">${bookBtn()}</div></div>${pageHeroVisual("LET’S PLAN YOUR NEXT MOVE")}</div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Contact</span><h1>Let's talk about your goals</h1><p class="lead">Send us a message or book a strategy call directly.</p><div class="actions">${bookBtn()}</div></div>${pageHeroVisual("LET’S PLAN YOUR NEXT MOVE", "contact")}</div></section>
 <section class="sec" id="form"><div class="wrap grid g2c">
 <form id="contact-form" class="card" novalidate>
 <div class="f"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required maxlength="100"><p class="err" id="e-name"></p></div>
@@ -223,12 +224,12 @@ ${c.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${esc(c.turnstil
 
   /* ---------- BOOK A CALL ---------- */
   add({ path: "/book-a-call/", title: "Book a Strategy Call", desc: "Schedule a strategy call with ADZIVO to discuss your business and paid social growth goals.", body: `
-<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Book a Call</span><h1>Plan your next stage of <span class="grad">growth.</span></h1><p class="lead">Choose a time that works for you. We will discuss your goals, current campaigns and practical next steps.</p></div>${pageHeroVisual("STRATEGY SESSION / 30 MIN")}</div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Book a Call</span><h1>Plan your next stage of <span class="grad">growth.</span></h1><p class="lead">Choose a time that works for you. We will discuss your goals, current campaigns and practical next steps.</p></div>${pageHeroVisual("STRATEGY SESSION / 30 MIN", "booking")}</div></section>
 <section class="sec"><div class="wrap"><div class="booking-embed card" style="padding:clamp(8px,2vw,24px);border:1px solid rgba(216,196,155,.25);border-radius:18px;background:#0b0b0a;"><div class="calendly-inline-widget" data-url="${esc(c.contact.bookingUrl || "https://calendly.com/paulteam8168/30min")}" style="min-width:320px;height:760px;"></div></div></div></section>` });
 
   /* ---------- LEGAL ---------- */
   const legal = (path, title, intro, secs) => add({ path, title, desc: `${title} for ${c.name}.`, body: `
-<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">ADZIVO · INFORMATION</span><h1>${title}</h1></div>${pageHeroVisual("TRUST & TRANSPARENCY")}</div></section>
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">ADZIVO · INFORMATION</span><h1>${title}</h1></div>${pageHeroVisual("TRUST & TRANSPARENCY", "legal")}</div></section>
 <section class="sec"><div class="wrap narrow prose"><div class="note">This page provides general website information. Any signed service agreement may contain additional terms specific to an engagement.</div><p>${intro}</p>${secs.map(([h, t]) => `<h2>${h}</h2><p>${t}</p>`).join("")}<p class="muted">Last updated: ${esc(c.legal.lastUpdated || "October 16, 2026")}</p></div></section>` });
   legal("/privacy/", "Privacy Policy", `This policy explains how ${c.name} handles personal information collected through this website.`, [
     ["Information we collect", "When you use our contact form we collect your name, business email, company or website, budget range, services of interest and message."],
@@ -245,7 +246,7 @@ ${c.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${esc(c.turnstil
 
   /* ---------- 404 ---------- */
   add({ path: "/404", noindex: true, title: "Page Not Found", desc: "The page you were looking for could not be found.", body: `
-<section class="page-hero center"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">404</span><h1>Page not found</h1><p class="lead">That page doesn't exist or has moved.</p><div class="actions">${btn("/", "Back to Home")}${btn("/contact/", "Contact Us", "btn-ghost")}</div></div>${pageHeroVisual("ROUTE NOT FOUND")}</div></section>` });
+<section class="page-hero center"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">404</span><h1>Page not found</h1><p class="lead">That page doesn't exist or has moved.</p><div class="actions">${btn("/", "Back to Home")}${btn("/contact/", "Contact Us", "btn-ghost")}</div></div>${pageHeroVisual("ROUTE NOT FOUND", "error")}</div></section>` });
 
   return out;
 }
