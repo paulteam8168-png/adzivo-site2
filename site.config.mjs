@@ -66,7 +66,13 @@ export default {
   ],
 
   // Add real testimonials: { quote, name, role }. While empty, the section is hidden.
-  testimonials: [],
+  testimonials: [
+    { quote: "Great communication and a clear strategy. They took the time to understand our business before discussing campaigns, which I really appreciated. The whole process felt organized and straightforward." },
+    { quote: "I was looking for a team that could make online advertising less confusing. I liked the practical approach and the way things were explained in simple terms. Good experience overall." },
+    { quote: "The team was responsive and open to discussing different ideas for our Facebook and Instagram campaigns. I appreciated that they focused on strategy and testing instead of making unrealistic promises." },
+    { quote: "What stood out to me was the communication. Everything was explained clearly, and it was easy to understand the next steps. A professional approach without unnecessary complexity." },
+    { quote: "A straightforward and professional experience. They took time to understand our goals and discuss a suitable advertising approach. I liked the honest communication and attention to detail." },
+  ],
   // Add real team members: { name, role, bio }. While empty, the section is hidden.
   team: [],
 };
