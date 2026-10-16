@@ -166,6 +166,16 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     tiktok:'<span class="platform-icon platform-tiktok" aria-hidden="true">♪</span>',
     linkedin:'<span class="platform-icon platform-linkedin" aria-hidden="true">in</span>',
   }[type]||"");
+
+  // Shared original platform brand icons for every service card.
+  // The same vector art is used on the homepage, Services and platform strip.
+  const serviceBrandIcon = (s, fallback) => {
+    if (s.slug === "meta-ads") return '<img class="svc-brand-img svc-brand-meta" src="/visuals/logo-meta.svg" alt="" width="36" height="29" loading="lazy" decoding="async">';
+    if (s.slug === "facebook-instagram") return '<span class="svc-brand-pair"><img class="svc-brand-img svc-brand-instagram" src="/visuals/logo-instagram.svg" alt="" width="32" height="32" loading="lazy" decoding="async"><img class="svc-brand-facebook" src="/visuals/logo-facebook.svg" alt="" width="18" height="18" loading="lazy" decoding="async"></span>';
+    if (s.slug === "google-ads") return '<img class="svc-brand-img svc-brand-google" src="/visuals/logo-google.svg" alt="" width="30" height="30" loading="lazy" decoding="async">';
+    return fallback;
+  };
+
   const brandStrip = '<div class="hero-platform-strip" aria-label="Platform logos shown as design references">'
     + [["meta","Meta"],["google","Google"],["instagram","Instagram"],["tiktok","TikTok"],["linkedin","LinkedIn"]].map(([id,name])=>
       '<span class="hero-platform">'+channelMark(id)+'<span>'+name+'</span></span>').join('')
@@ -226,8 +236,8 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
         <div class="pm-capability-orbit" aria-hidden="true"><div class="pm-capability-core">✳<small>STRATEGY</small></div><span class="pm-capability-node pm-node-one">Meta Ads</span><span class="pm-capability-node pm-node-two">Google Ads</span><span class="pm-capability-node pm-node-three">Analytics</span><span class="pm-capability-node pm-node-four">Creative</span></div>
       </div>
       <div class="pm-capability-grid">
-        <a class="pm-capability-card reveal" href="/services/#meta-ads"><i>∞</i><strong>Meta Ads</strong><span>Campaign setup, audience research and optimisation.</span></a>
-        <a class="pm-capability-card reveal" href="/services/#google-ads"><i>G</i><strong>Google Ads</strong><span>High-intent search strategy and conversion tracking.</span></a>
+        <a class="pm-capability-card reveal" href="/services/#meta-ads"><i class="pm-channel-brand"><img src="/visuals/logo-meta.svg" alt="" width="34" height="28"></i><strong>Meta Ads</strong><span>Campaign setup, audience research and optimisation.</span></a>
+        <a class="pm-capability-card reveal" href="/services/#google-ads"><i class="pm-channel-brand"><img src="/visuals/logo-google.svg" alt="" width="29" height="29"></i><strong>Google Ads</strong><span>High-intent search strategy and conversion tracking.</span></a>
         <a class="pm-capability-card reveal" href="/services/#lead-generation"><i>↗</i><strong>Lead Generation</strong><span>Relevant enquiries and quality-focused funnels.</span></a>
         <a class="pm-capability-card reveal" href="/services/#conversion-optimization"><i>◉</i><strong>Conversion Optimisation</strong><span>Clearer landing pages and paths to action.</span></a>
         <a class="pm-capability-card reveal" href="/services/#creative"><i>✦</i><strong>Creative Testing</strong><span>New angles, formats and structured experiments.</span></a>
@@ -285,7 +295,7 @@ ${referenceRail}
 ${performanceSpotlight}
 
 <section class="sec"><div class="wrap">${head("Services", "Performance marketing, connected from click to conversion", "Paid search, paid social, creative, landing pages and measurement — working together.")}
-<div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><span class="svc-icon" aria-hidden="true">${["∞","◉","G","✳","✦","↗","◎","◈","▥"][c.services.indexOf(s)]||"✦"}</span><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
+<div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><span class="svc-icon" aria-hidden="true">${serviceBrandIcon(s, ["∞","◉","G","✳","✦","↗","◎","◈","▥"][c.services.indexOf(s)]||"✦")}</span><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
 ${c.showCaseStudies ? `<section class="sec alt"><div class="wrap">${head("Featured Work", "Creative concepts made to stand out", "Explore product-led creative, audience ideas and campaign planning through our concept portfolio.")}
 <div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><img class="concept-photo" src="${photoConcepts[i%photoConcepts.length].srcHd}" srcset="${photoConcepts[i%photoConcepts.length].src} 600w, ${photoConcepts[i%photoConcepts.length].srcHd} 1200w" sizes="(max-width:760px) 92vw, 390px" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><span class="concept-art-index">CREATIVE / 0${i+1}</span><span class="concept-art-category">${photoConcepts[i%photoConcepts.length].type}</span></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${photoConcepts[i%photoConcepts.length].title}</h3><p class="tag">${photoConcepts[i%photoConcepts.length].type} · Concept preview</p><p class="muted">${esc(s.summary || s.challenge)}</p>${s.demo ? conceptMetricStrip(i) : ""}<a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
@@ -309,7 +319,7 @@ ${cta()}` });
 <section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Services / Performance Marketing</span><h1>Smarter campaigns. <span class="grad">Stronger foundations.</span></h1><p class="lead">A connected approach to Meta Ads, Google Ads, creative testing, conversion journeys and reporting — built around your business goals.</p></div>${pageHeroVisual("PAID SOCIAL + SEARCH / SYSTEM 01", "services")}</div></section>
 <section class="sec services-overview"><div class="wrap">
 <div class="sec-head reveal"><span class="eyebrow">Our expertise</span><h2>A complete growth system, not disconnected tactics</h2><p class="muted">Explore paid search, paid social, creative, landing pages and measurement — built to support one clear strategy.</p></div>
-<div class="grid g3">${c.services.map((s,i) => `<a class="card svc reveal" href="#${s.slug}"><span class="service-symbol">${["∞","◎","G","✳","✦","↗","◉","◇","▥"][i] || "↗"}</span><span class="service-index">0${i+1} / SERVICE</span><h3>${esc(s.title)}</h3><p class="muted">${esc(s.short)}</p><span class="more">Explore service →</span></a>`).join("")}</div></div></section>
+<div class="grid g3">${c.services.map((s,i) => `<a class="card svc reveal" href="#${s.slug}"><span class="service-symbol">${serviceBrandIcon(s, ["∞","◎","G","✳","✦","↗","◉","◇","▥"][i] || "↗")}</span><span class="service-index">0${i+1} / SERVICE</span><h3>${esc(s.title)}</h3><p class="muted">${esc(s.short)}</p><span class="more">Explore service →</span></a>`).join("")}</div></div></section>
 <section class="sec pm-workflow-section"><div class="wrap"><div class="sec-head reveal"><span class="eyebrow">How the system works</span><h2>Four connected layers. One clear direction.</h2><p class="muted">Every channel has a job, from finding relevant people to understanding what happens after the click.</p></div>
 <div class="pm-workflow-grid">
 <div class="pm-workflow-step reveal"><span class="pm-step-no">01 / DISCOVER</span><span class="pm-step-icon">◎</span><h3>Audience &amp; intent</h3><p>Understand the right customer and where buying intent starts.</p></div>
