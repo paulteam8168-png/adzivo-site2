@@ -204,7 +204,7 @@ ${c.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${esc(c.turnstil
     ["How we use it", "We use this information to respond to your enquiry and to provide and improve our services. We do not sell your personal information."],
     ["Service providers", "Information may be processed by the website hosting, form delivery, email and scheduling providers needed to operate the site and respond to your request. These providers should handle information according to their applicable terms and privacy practices."],
     ["Your rights", "Depending on where you live, you may have rights to access, correct or delete your personal information. Contact us using the details on this site."],
-    ["Contact", "For privacy questions or requests about your enquiry, contact ${esc(c.contact.email || "the contact address published on this website")}."]]);
+    ["Contact", "For privacy questions or requests about your enquiry, contact contact@adzivo.online."]]);
   legal("/terms/", "Terms of Service", `These terms govern your use of the ${c.name} website and, together with any written agreement, our services.`, [
     ["Use of this website", "Content is provided for general information and does not constitute a guarantee of any result."],
     ["Services and fees", "Services are described in a separate written agreement. Management fees are separate from advertising spend paid to advertising platforms."],
