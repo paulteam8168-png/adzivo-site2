@@ -198,19 +198,19 @@ ${c.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${esc(c.turnstil
   /* ---------- LEGAL ---------- */
   const legal = (path, title, intro, secs) => add({ path, title, desc: `${title} for ${c.name}.`, body: `
 <section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">ADZIVO · INFORMATION</span><h1>${title}</h1></div>${pageHeroVisual("TRUST & TRANSPARENCY")}</div></section>
-<section class="sec"><div class="wrap narrow prose"><div class="note">Template for review. Have this document reviewed by a qualified legal professional and complete the bracketed details before relying on it.</div><p>${intro}</p>${secs.map(([h, t]) => `<h2>${h}</h2><p>${t}</p>`).join("")}<p class="muted">Last updated: [add date]</p></div></section>` });
+<section class="sec"><div class="wrap narrow prose"><div class="note">This page provides general website information. Any signed service agreement may contain additional terms specific to an engagement.</div><p>${intro}</p>${secs.map(([h, t]) => `<h2>${h}</h2><p>${t}</p>`).join("")}<p class="muted">Last updated: ${esc(c.legal.lastUpdated || "October 16, 2026")}</p></div></section>` });
   legal("/privacy/", "Privacy Policy", `This policy explains how ${c.name} handles personal information collected through this website.`, [
     ["Information we collect", "When you use our contact form we collect your name, business email, company or website, budget range, services of interest and message."],
     ["How we use it", "We use this information to respond to your enquiry and to provide and improve our services. We do not sell your personal information."],
-    ["Service providers", "Your submission may be processed by email, scheduling and hosting providers that help us operate the website. [List providers used.]"],
+    ["Service providers", "Information may be processed by the website hosting, form delivery, email and scheduling providers needed to operate the site and respond to your request. These providers should handle information according to their applicable terms and privacy practices."],
     ["Your rights", "Depending on where you live, you may have rights to access, correct or delete your personal information. Contact us using the details on this site."],
-    ["Contact", "[Add the business's legal name and contact email.]"]]);
+    ["Contact", "For privacy questions or requests about your enquiry, contact ${esc(c.contact.email || "the contact address published on this website")}."]]);
   legal("/terms/", "Terms of Service", `These terms govern your use of the ${c.name} website and, together with any written agreement, our services.`, [
     ["Use of this website", "Content is provided for general information and does not constitute a guarantee of any result."],
     ["Services and fees", "Services are described in a separate written agreement. Management fees are separate from advertising spend paid to advertising platforms."],
     ["No guarantee of results", "Advertising performance depends on many factors outside our control. We do not guarantee sales, leads or return on ad spend."],
     ["Independence", `${c.name} is an independent agency and is not affiliated with or endorsed by Meta. Platform names are used only to describe relevant services.`],
-    ["Governing law", "[Add governing law and jurisdiction.]"]]);
+    ["Governing law", "Any applicable law, dispute process and jurisdiction should be set out in a signed service agreement where required. Nothing on this page limits rights that cannot lawfully be excluded."]]);
 
   /* ---------- 404 ---------- */
   add({ path: "/404", noindex: true, title: "Page Not Found", desc: "The page you were looking for could not be found.", body: `
