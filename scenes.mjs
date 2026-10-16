@@ -11,9 +11,9 @@ const decorations = {
   ].join(''),
   portfolio: [
     '<div class="di-ambient"></div><div class="di-floor"></div><div class="di-ring di-ring-wide"></div>',
-    '<div class="di-project di-project-left"><div class="di-project-top"><span>01 / E-COMMERCE</span><b>✳</b></div><div class="di-product-bottle"><i></i></div><strong>Creative testing</strong><small>ILLUSTRATIVE CONCEPT</small></div>',
-    '<div class="di-project di-project-center"><div class="di-project-top"><span>02 / LOCAL SERVICES</span><b>↗</b></div><div class="di-product-arch"><i></i></div><strong>Lead quality</strong><small>ILLUSTRATIVE CONCEPT</small></div>',
-    '<div class="di-project di-project-right"><div class="di-project-top"><span>03 / B2B</span><b>✦</b></div><div class="di-project-chart"><b></b><b></b><b></b><b></b><b></b></div><strong>Demand strategy</strong><small>ILLUSTRATIVE CONCEPT</small></div>'
+    '<div class="di-project di-project-left"><div class="di-project-top"><span>01 / E-COMMERCE</span><b>✳</b></div><div class="di-product-bottle"><i></i></div><strong>Creative testing</strong><small>CREATIVE CONCEPT</small></div>',
+    '<div class="di-project di-project-center"><div class="di-project-top"><span>02 / LOCAL SERVICES</span><b>↗</b></div><div class="di-product-arch"><i></i></div><strong>Lead quality</strong><small>CREATIVE CONCEPT</small></div>',
+    '<div class="di-project di-project-right"><div class="di-project-top"><span>03 / B2B</span><b>✦</b></div><div class="di-project-chart"><b></b><b></b><b></b><b></b><b></b></div><strong>Demand strategy</strong><small>CREATIVE CONCEPT</small></div>'
   ].join(''),
   about: [
     '<div class="di-ambient"></div><div class="di-floor"></div><div class="di-ring di-ring-one"></div><div class="di-ring di-ring-two"></div>',
