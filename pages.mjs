@@ -43,6 +43,8 @@ ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" hr
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/chrome-unified.css">
+<link rel="stylesheet" href="/scenes.css">
+<link rel="stylesheet" href="/experience.css">
 ${c.contact.bookingUrl ? '<link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">' : ""}
 ${form && c.turnstileSiteKey ? '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>' : ""}
 ${noindex ? "" : `<script type="application/ld+json">${ldJson(path, title, schema)}</script>`}
