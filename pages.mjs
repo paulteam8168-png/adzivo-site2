@@ -101,7 +101,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <h1>Turn Ad Spend Into <span class="grad">Scalable Growth.</span></h1>
 <p class="lead">We help ambitious businesses build smarter paid social campaigns, generate qualified leads, and make better decisions with performance-focused advertising.</p>
 <div class="actions">${bookBtn()}${btn("/services/", "Explore Our Services", "btn-ghost")}</div></div>
-<div class="viz hero-3d-scene" role="img" aria-label="Abstract champagne-gold 3D sculpture with floating strategy panels.">
+<div class="viz hero-3d-scene" role="img" aria-label="Abstract metallic silver 3D sculpture with floating strategy panels.">
 <div class="hero-3d-stage" aria-hidden="true">
   <div class="hero-orbit orbit-one"></div>
   <div class="hero-orbit orbit-two"></div>
