@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">Sculptural furniture editorial</title><desc id="desc">Architectural premium living room with ivory lounge chair, warm walnut table, plants and luminous emerald ambience.</desc>
+<defs>
+<linearGradient id="room" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22352D"/><stop offset=".48" stop-color="#0A211B"/><stop offset="1" stop-color="#07130F"/></linearGradient>
+<linearGradient id="wall" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#263E35"/><stop offset=".5" stop-color="#344D41"/><stop offset="1" stop-color="#112E24"/></linearGradient>
+<linearGradient id="floor" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#305342"/><stop offset=".55" stop-color="#101C18"/><stop offset="1" stop-color="#070C0A"/></linearGradient>
+<linearGradient id="leather" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFDF1"/><stop offset=".4" stop-color="#D9D5C5"/><stop offset=".75" stop-color="#B6B7A7"/><stop offset="1" stop-color="#E9E9DF"/></linearGradient>
+<linearGradient id="arms" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#FFFDF2"/><stop offset=".5" stop-color="#AEB2A3"/><stop offset=".75" stop-color="#C7C8BA"/><stop offset="1" stop-color="#5F7268"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E2B37A"/><stop offset=".33" stop-color="#795536"/><stop offset=".65" stop-color="#3F2E20"/><stop offset="1" stop-color="#BF9162"/></linearGradient>
+<linearGradient id="chrome" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#144735"/><stop offset=".13" stop-color="#E9FFF7"/><stop offset=".32" stop-color="#607F72"/><stop offset=".55" stop-color="#FEFFFD"/><stop offset=".85" stop-color="#8FB09B"/><stop offset="1" stop-color="#123928"/></linearGradient>
+<radialGradient id="spot"><stop stop-color="#80FFD0" stop-opacity=".35"/><stop offset=".62" stop-color="#15A46C" stop-opacity=".09"/><stop offset="1" stop-color="#00301A" stop-opacity="0"/></radialGradient>
+<pattern id="slats" width="28" height="28" patternUnits="userSpaceOnUse"><rect width="12" height="28" fill="#D9FFE7" fill-opacity=".075"/><path d="M12 0v28" stroke="#DFFFF1" stroke-opacity=".14"/></pattern>
+<filter id="soft"><feGaussianBlur stdDeviation="22"/></filter><filter id="shadow"><feGaussianBlur stdDeviation="13"/></filter>
+</defs>
+<rect width="1200" height="760" fill="url(#room)"/>
+<rect x="329" y="49" width="806" height="561" rx="270" fill="url(#wall)" stroke="#A0F3CE" stroke-opacity=".13" stroke-width="4"/>
+<rect x="354" y="70" width="756" height="521" rx="245" fill="url(#slats)"/>
+<ellipse cx="782" cy="329" rx="493" ry="340" fill="url(#spot)"/>
+<path d="M0 567 1200 537V760H0Z" fill="url(#floor)"/>
+<path d="M0 567 1200 537" stroke="#BAFFD9" stroke-opacity=".31" stroke-width="3"/>
+<g opacity=".69">
+<path d="M0 635 1200 573M0 695 1200 623M300 570 130 760M650 561 700 760M1050 553 1200 660" stroke="#C6FFE1" stroke-opacity=".14" stroke-width="2"/>
+</g>
+<ellipse cx="749" cy="647" rx="340" ry="50" fill="#000" opacity=".55" filter="url(#shadow)"/>
+<ellipse cx="751" cy="647" rx="288" ry="42" fill="#59EAA9" opacity=".08"/>
+<!-- armchair legs and walnut base -->
+<g>
+<path d="M543 548h34l-15 112-31 9Z" fill="url(#wood)" stroke="#D1A46B" stroke-width="2"/>
+<path d="M891 539h34l24 119-28-11Z" fill="url(#wood)" stroke="#D1A46B" stroke-width="2"/>
+<path d="M503 518Q707 549 947 506l-23 65Q720 613 523 574Z" fill="#5A5B50" stroke="#CEC5A8" stroke-opacity=".75" stroke-width="3"/>
+<!-- back structure -->
+<path d="M521 211Q708 166 878 200Q940 211 951 291l8 202Q734 545 509 477l-12-192Q493 233 521 211Z" fill="#989D8E" stroke="#D9D8C9" stroke-width="5"/>
+<path d="M538 211Q719 175 865 209Q908 226 909 277l12 195Q718 510 542 452l-10-172Q525 241 538 211Z" fill="url(#leather)" stroke="#FCFBEE" stroke-width="5"/>
+<path d="M554 226Q713 193 858 225Q885 237 887 270l10 174Q721 467 559 428l-8-157Q547 242 554 226Z" fill="none" stroke="#999E90" stroke-opacity=".4" stroke-width="4"/>
+<!-- quilt seams -->
+<path d="M623 213q-16 112 13 231M715 209q-5 124 3 249M813 217q22 127 11 231" stroke="#868D7C" opacity=".34" stroke-width="4" fill="none"/>
+<path d="M555 302q176-43 348-10M559 376q169-18 352-8" stroke="#A4AB9D" opacity=".25" stroke-width="3" fill="none"/>
+<!-- armrests -->
+<path d="M479 365Q487 316 526 323l78 24Q620 358 622 396l-2 110Q611 547 570 551l-64-10Q483 535 479 499Z" fill="url(#arms)" stroke="#FAF8EB" stroke-width="4"/>
+<path d="M876 352Q890 316 928 328l43 13Q994 356 993 389l-9 116Q983 541 941 543l-68-7Q853 532 853 501Z" fill="url(#arms)" stroke="#F4F1E5" stroke-width="4"/>
+<!-- seat -->
+<path d="M564 436Q720 397 886 432Q921 438 932 480L921 528Q718 574 535 521l-16-54Q536 447 564 436Z" fill="url(#leather)" stroke="#FCF9EA" stroke-width="5"/>
+<path d="M538 497Q715 551 916 507" stroke="#9A9D90" stroke-opacity=".55" stroke-width="6" fill="none"/>
+<path d="M567 457Q706 434 855 454" stroke="#FFFDF4" stroke-opacity=".73" stroke-width="4" fill="none"/>
+</g>
+<!-- side table -->
+<g>
+<ellipse cx="1051" cy="513" rx="101" ry="17" fill="#020B09" opacity=".65" filter="url(#shadow)"/>
+<path d="M995 495h16l-16 143h-15Z" fill="url(#wood)"/><path d="M1110 493h15l19 140h-17Z" fill="url(#wood)"/>
+<ellipse cx="1060" cy="492" rx="104" ry="26" fill="url(#wood)" stroke="#F3C18A" stroke-width="4"/>
+<path d="M959 492v17q101 38 204-1v-16q-108 30-204 0Z" fill="#704B29"/>
+<rect x="1031" y="431" width="45" height="53" rx="10" fill="url(#chrome)"/><ellipse cx="1054" cy="429" rx="23" ry="9" fill="#A4F9D1"/>
+<path d="M1056 433c-36-62-47-94-29-116 29 21 37 67 29 116Z" fill="#208358"/><path d="M1055 432c17-95 56-114 77-111-5 50-25 84-77 111Z" fill="#6BC08B"/>
+</g>
+<!-- editorial copy -->
+<g font-family="Arial,sans-serif">
+<text x="70" y="80" font-size="15" letter-spacing="5" fill="#D4FAE3">ADZIVO / DESIGN STUDIO</text>
+<text x="67" y="176" font-size="72" font-weight="800" letter-spacing="-4" fill="#F9FFF9">SPACE</text>
+<text x="68" y="244" font-size="72" font-weight="800" letter-spacing="-4" fill="#A5FFDC">TO FEEL.</text>
+<path d="M71 272h266" stroke="#C0FFDF" stroke-width="2" opacity=".7"/>
+<text x="72" y="307" font-size="18" letter-spacing="2" fill="#D3E8D9">HOME &amp; LIVING / CREATIVE</text>
+<text x="70" y="700" font-size="15" letter-spacing="3" fill="#C1F3D4">02 / SCULPTURAL INTERIOR STORY</text></g>
+<path d="M1140 68v85M1098 110h85" stroke="#BEFFDD" stroke-opacity=".49" stroke-width="3"/>
+</svg>
