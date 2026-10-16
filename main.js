@@ -24,7 +24,7 @@
     const rel = (e, el) => { const r = el.getBoundingClientRect(); return [(e.clientX - r.left) / r.width - 0.5, (e.clientY - r.top) / r.height - 0.5]; };
     const hero = document.querySelector(".hero"), viz = document.querySelector(".viz");
     if (hero && viz) {
-      hero.addEventListener("pointermove", (e) => { const [x, y] = rel(e, hero); viz.style.setProperty("--ry", -12 + x * 20 + "deg"); viz.style.setProperty("--rx", 6 - y * 14 + "deg"); });
+      hero.addEventListener("pointermove", (e) => { const [x, y] = rel(e, hero); viz.style.setProperty("--ry", (-3 + x * 6).toFixed(2) + "deg"); viz.style.setProperty("--rx", (1.5 - y * 4).toFixed(2) + "deg"); });
       hero.addEventListener("pointerleave", () => { viz.style.removeProperty("--ry"); viz.style.removeProperty("--rx"); });
     }
     document.querySelectorAll(".svc, .steps li, .grid .card, .cta-box").forEach((el) => {
