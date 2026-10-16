@@ -884,3 +884,15 @@ input:not([type=checkbox]):focus,select:focus,textarea:focus{
 @media(max-width:900px){.page-hero-grid{grid-template-columns:minmax(0,1fr);gap:8px}.page-hero-copy{max-width:760px}.page-hero-visual{width:min(100%,560px);margin:0 auto;min-height:350px}.page-hero-copy h1{font-size:clamp(2.5rem,7vw,4.3rem)}}
 @media(max-width:600px){.page-hero{padding:56px 0 28px}.page-hero-visual{min-height:300px;margin-top:0}.phv-panel-main{left:4%;right:4%;top:22%;padding:14px}.phv-chart{height:62px}.phv-object{width:130px}.phv-float{font-size:10px;padding:10px}.phv-float-top{right:0;top:4%}.phv-float-bottom{left:0;bottom:4%}.phv-grid{inset:0 -10% 0}}
 @media(prefers-reduced-motion:reduce){.phv-object,.phv-orbit-a,.phv-orbit-b,.phv-float,.phv-chart b{animation:none!important}}
+
+
+/* Portfolio and conversion polish */
+.portfolio-teaser{position:relative;overflow:hidden;transform-style:preserve-3d}
+.portfolio-teaser:before{content:"";position:absolute;inset:0 0 auto;height:2px;background:linear-gradient(90deg,transparent,#bca477,transparent);opacity:.75}
+.portfolio-teaser .eyebrow{display:inline-flex;margin-bottom:12px;color:#c5b18a;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+.portfolio-teaser .tag{color:#c5b18a;font-size:.82rem}
+.portfolio-teaser .more{display:inline-block;margin-top:8px;color:#d6c49e;font-weight:650}
+.portfolio-footnote{max-width:760px;margin:24px auto 0;text-align:center;font-size:.9rem}
+#status:empty{display:none}#status.ok,#status.bad{margin-top:14px;padding:12px 14px;border-radius:10px}#status.ok{border:1px solid #55765e;background:#17231b;color:#d9f2de}#status.bad{border:1px solid #815454;background:#291919;color:#ffe0e0}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.portfolio-teaser{transform:none!important;transition:none!important}}
