@@ -967,3 +967,60 @@ input:not([type=checkbox]),select,textarea{color-scheme:dark}
  .reveal{transition:none;opacity:1;transform:none}
  .svc:before,.portfolio-card:before{transition:none}
 }
+
+
+/* ===== Monochrome silver / black direction from client's reference ===== */
+:root{
+  --bg:#050505;--bg2:#0b0b0b;--card:#101010;--line:rgba(225,232,238,.20);
+  --tx:#f5f5f5;--mu:#b8bcc1;--b:#d8dde2;--v:#f5f7f8;
+  --g:linear-gradient(125deg,#ffffff 0%,#d5d9de 48%,#858b92 100%);
+}
+body{
+  background-color:#050505;
+  background-image:radial-gradient(ellipse at 50% -10%,rgba(220,228,236,.09),transparent 42%),radial-gradient(ellipse at 100% 48%,rgba(220,228,236,.035),transparent 32%),linear-gradient(180deg,#050505,#0b0b0b 58%,#050505);
+}
+::selection{background:rgba(220,228,236,.28);color:#fff}
+.hero-copy h1 .grad{
+  background:linear-gradient(105deg,#ffffff 0%,#dfe3e8 42%,#9ea5ad 76%,#f7f8fa 100%);
+  background-size:180% auto;
+}
+.hero:before{background:radial-gradient(circle,rgba(220,228,236,.14),rgba(220,228,236,.035) 43%,transparent 70%)}
+.sec:not(.alt) .sec-head:after{background:linear-gradient(90deg,#dce1e6,transparent)}
+.strip-in span:before{color:#e2e6ea}
+.phv-aura{background:radial-gradient(ellipse,rgba(224,230,236,.18),rgba(155,164,174,.06) 42%,transparent 72%)}
+.phv-grid{background-image:linear-gradient(rgba(220,228,236,.18) 1px,transparent 1px),linear-gradient(90deg,rgba(220,228,236,.18) 1px,transparent 1px)}
+.phv-orbit{border-color:rgba(226,232,238,.42);box-shadow:0 0 26px rgba(220,228,236,.08),inset 0 0 18px rgba(220,228,236,.04)}
+.phv-orbit-b{border-color:rgba(190,198,207,.30)}
+.phv-object{
+  background:radial-gradient(ellipse at 28% 19%,#ffffff 0,#e8ebef 7%,#b6bdc5 22%,#5b6067 43%,#171819 60%,#b0b6bd 76%,#f0f2f4 81%,#41454a 100%);
+  box-shadow:inset -18px -22px 34px rgba(0,0,0,.72),inset 9px 8px 18px rgba(255,255,255,.34),0 35px 55px rgba(0,0,0,.56),0 0 48px rgba(220,228,236,.12);
+}
+.phv-object:before{border-color:rgba(255,255,255,.42);box-shadow:inset 0 0 20px rgba(255,255,255,.10)}
+.phv-object-face{border-color:rgba(255,255,255,.4);box-shadow:0 0 25px rgba(220,228,236,.12),inset 0 0 20px rgba(255,255,255,.06)}
+.phv-object-glint{background:rgba(255,255,255,.88)}
+.phv-panel{border-color:rgba(220,228,236,.25);background:linear-gradient(145deg,rgba(40,42,44,.95),rgba(12,12,13,.92));color:#f0f2f4;box-shadow:0 28px 55px -24px rgba(0,0,0,.85),inset 0 1px 0 rgba(255,255,255,.10)}
+.phv-panel-main>span,.phv-panel-main small{color:#aeb4bb}
+.phv-panel-main strong{color:#f0f2f4}
+.phv-panel-main strong i{color:#cbd1d7}
+.phv-chart{border-bottom-color:rgba(220,228,236,.18);background:repeating-linear-gradient(to bottom,transparent 0 19px,rgba(220,228,236,.06) 20px)}
+.phv-chart b{background:linear-gradient(180deg,#f2f4f6,#777f88);box-shadow:0 0 14px rgba(220,228,236,.10)}
+.phv-float{border-color:rgba(220,228,236,.24);background:linear-gradient(145deg,rgba(40,42,44,.96),rgba(14,14,15,.96));color:#e3e6e9}
+.phv-float i{color:#e7eaee}
+.portfolio-teaser:before{background:linear-gradient(90deg,transparent,#dce1e6,transparent)}
+.portfolio-teaser .eyebrow,.portfolio-teaser .tag{color:#cbd0d6}
+.portfolio-teaser .more{color:#e0e4e8}
+.portfolio-bottom{border-color:rgba(220,228,236,.26)}
+.portfolio-card:hover{border-color:rgba(220,228,236,.38);box-shadow:0 28px 65px -38px rgba(0,0,0,.9),0 0 28px rgba(220,228,236,.045)}
+.btn-primary{background:linear-gradient(125deg,#f5f6f7,#c7ccd2 52%,#8b929a);border-color:#d9dde2;color:#111}
+.btn-primary:hover{background:linear-gradient(125deg,#fff,#dce0e5 52%,#a4abb3)}
+.btn-ghost{color:#e7eaee;border-color:rgba(220,228,236,.38)}
+.btn-ghost:hover{color:#fff;background:rgba(220,228,236,.07)}
+a:hover .more:after{color:#fff}
+.svc:before,.portfolio-card:before{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(220,228,236,.09),transparent 55%)}
+#status.ok{border-color:#59645e;background:#171b19;color:#e0e9e3}
+#status.bad{border-color:#6d5b5b;background:#211a1a;color:#f2e7e7}
+.ftr{background:linear-gradient(180deg,#090909,#030303)}
+input:not([type=checkbox]),select,textarea{color-scheme:dark}
+::placeholder{color:#92979d}
+/* Keep the hero headline clean: no decorative yellow/gold underline */
+.hero-copy h1:after,.hero-copy h1 .grad:after{content:none!important;display:none!important}
