@@ -48,6 +48,31 @@
     portfolioCards.forEach((card) => { card.hidden = category !== "all" && card.dataset.category !== category; });
   }));
 
+
+  // Interactive portfolio-style demo. All values are sample data, never client claims.
+  const labChoices = {
+    ecommerce:{title:"Creative testing",labels:["Sample ROAS","Sample conversion rate","Creative variations"],values:["5.8×","3.2%","12"],
+      insight:"Compare hooks and creative formats before increasing spend.",bars:[32,47,40,69,58,81,93]},
+    local:{title:"Lead quality signals",labels:["Sample enquiries","Sample lead quality","Testing variations"],values:["64","74%","8"],
+      insight:"Review enquiry relevance and follow-up outcomes before scaling.",bars:[36,51,42,57,70,64,83]},
+    b2b:{title:"Demand strategy",labels:["Sample conversations","Sample fit rate","Message angles"],values:["27","61%","6"],
+      insight:"Connect audience hypotheses to sales conversations and pipeline feedback.",bars:[24,44,39,62,49,71,86]}
+  };
+  const lab=document.querySelector(".lab-dashboard");
+  const tabs=document.querySelectorAll("[data-lab-scenario]");
+  if(lab&&tabs.length){
+    const setText=(selector,value)=>{const e=lab.querySelector(selector);if(e)e.textContent=value};
+    tabs.forEach(tab=>tab.addEventListener("click",()=>{
+      const sample=labChoices[tab.dataset.labScenario];if(!sample)return;
+      tabs.forEach(t=>{const active=t===tab;t.classList.toggle("active",active);t.setAttribute("aria-pressed",String(active))});
+      setText("[data-lab-title]",sample.title);
+      sample.labels.forEach((value,i)=>setText("[data-lab-label-"+(i+1)+"]",value));
+      sample.values.forEach((value,i)=>setText("[data-lab-value-"+(i+1)+"]",value));
+      setText("[data-lab-insight]",sample.insight);
+      lab.querySelectorAll(".lab-chart-bars i").forEach((bar,i)=>bar.style.setProperty("--bar",sample.bars[i]+"%"));
+    }));
+  }
+
   const form = document.getElementById("contact-form");
   if (!form) return;
   const status = document.getElementById("status"), submit = document.getElementById("submit");
