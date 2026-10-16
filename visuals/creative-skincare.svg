@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">Emerald skincare campaign creative</title><desc id="desc">A sculptural frosted green skincare serum bottle, chrome cap, glass podium, tropical leaves and editorial typography.</desc>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0C302A"/><stop offset=".4" stop-color="#01110E"/><stop offset="1" stop-color="#071B17"/></linearGradient>
+<radialGradient id="aura"><stop stop-color="#5DFFD2" stop-opacity=".51"/><stop offset=".45" stop-color="#098F6B" stop-opacity=".15"/><stop offset="1" stop-color="#00110D" stop-opacity="0"/></radialGradient>
+<linearGradient id="glass" x1="0" y1=".25" x2="1" y2=".74"><stop stop-color="#0D4234"/><stop offset=".11" stop-color="#BBFFE7" stop-opacity=".92"/><stop offset=".22" stop-color="#5DCA9D" stop-opacity=".58"/><stop offset=".47" stop-color="#07291E" stop-opacity=".92"/><stop offset=".73" stop-color="#267B5B" stop-opacity=".93"/><stop offset=".88" stop-color="#D1FFF0" stop-opacity=".74"/><stop offset="1" stop-color="#134D39"/></linearGradient>
+<linearGradient id="chrome" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#21443C"/><stop offset=".12" stop-color="#F2FFFA"/><stop offset=".31" stop-color="#849E98"/><stop offset=".53" stop-color="#FDFEFE"/><stop offset=".72" stop-color="#7F9892"/><stop offset=".9" stop-color="#D7FFF0"/><stop offset="1" stop-color="#1C5340"/></linearGradient>
+<linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B6FFD5"/><stop offset=".44" stop-color="#24936A"/><stop offset="1" stop-color="#053322"/></linearGradient>
+<linearGradient id="podium" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#DFFFF4"/><stop offset=".25" stop-color="#427765"/><stop offset=".62" stop-color="#07261B"/><stop offset=".95" stop-color="#439B74"/><stop offset="1" stop-color="#A1FFDA"/></linearGradient>
+<filter id="blur"><feGaussianBlur stdDeviation="32"/></filter><filter id="shadow"><feGaussianBlur stdDeviation="19"/></filter>
+<pattern id="line" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#90FFD2" stroke-opacity=".08"/></pattern>
+</defs>
+<rect width="1200" height="760" fill="url(#bg)"/><rect width="1200" height="760" fill="url(#line)"/>
+<ellipse cx="785" cy="354" rx="456" ry="340" fill="url(#aura)"/><ellipse cx="768" cy="673" rx="405" ry="39" fill="#000" opacity=".7" filter="url(#shadow)"/>
+<path d="M0 675 1200 593V760H0Z" fill="#04110E"/><path d="M0 675 1200 593" stroke="#70DCAF" stroke-opacity=".29" stroke-width="2"/>
+<g opacity=".94">
+<path d="M263 683C166 470 143 288 220 196c90 77 104 244 43 487Z" fill="url(#leaf)"/><path d="M257 658C244 446 317 254 448 204c5 188-77 350-191 454Z" fill="url(#leaf)"/><path d="M263 680C311 459 419 349 523 345c-29 173-148 290-260 335Z" fill="url(#leaf)"/>
+<path d="M246 653C168 490 93 440 34 441c26 122 97 182 212 212Z" fill="#0E624A"/><path d="M266 650C279 448 322 324 410 242M264 650C231 454 216 315 220 220M264 653C327 478 413 392 496 358" stroke="#D1FFE6" stroke-opacity=".41" stroke-width="3" fill="none"/>
+</g>
+<g transform="translate(600 0)">
+<path d="M85 110c68-32 107-48 159-39-48 63-81 81-159 39Z" fill="#2A855C"/><path d="M244 72C182 163 180 229 218 293c69-61 89-147 26-221Z" fill="url(#leaf)"/><path d="M231 88c-31 94-24 139-7 189" stroke="#C6FFE0" stroke-width="3" stroke-opacity=".65"/>
+</g>
+<ellipse cx="804" cy="626" rx="309" ry="69" fill="url(#chrome)" stroke="#BBFFE7" stroke-width="4"/>
+<path d="M495 625c0 32 132 69 309 69s309-37 309-69v39c0 34-132 62-309 62s-309-28-309-62Z" fill="url(#podium)" stroke="#A9FFE0" stroke-opacity=".6" stroke-width="3"/>
+<ellipse cx="804" cy="625" rx="276" ry="54" fill="#081C16" stroke="#9EFFD9" stroke-opacity=".75" stroke-width="3"/>
+<g transform="translate(647 132)">
+<rect x="36" y="134" width="250" height="385" rx="37" fill="#031911" opacity=".76" transform="translate(24 16)" filter="url(#shadow)"/>
+<rect x="31" y="130" width="250" height="385" rx="33" fill="url(#glass)" stroke="#D0FFF0" stroke-width="4"/>
+<rect x="47" y="151" width="35" height="339" rx="15" fill="#D9FFF3" opacity=".15"/>
+<rect x="240" y="151" width="19" height="339" rx="8" fill="#E7FFF7" opacity=".44"/>
+<ellipse cx="155" cy="143" rx="105" ry="14" fill="#E7FFF5" opacity=".16"/>
+<rect x="107" y="20" width="94" height="134" rx="18" fill="url(#chrome)" stroke="#D9FFF0" stroke-width="3"/>
+<rect x="111" y="19" width="86" height="15" rx="5" fill="#EFFCF6" opacity=".55"/>
+<rect x="99" y="121" width="111" height="29" rx="7" fill="url(#chrome)"/>
+<path d="M64 291h186v112H64Z" fill="#092419" opacity=".67" stroke="#D5FFF0" stroke-opacity=".58" stroke-width="2"/>
+<text x="158" y="320" fill="#BAFCE1" font-family="Arial,sans-serif" font-size="14" letter-spacing="6" text-anchor="middle">ADZIVO</text>
+<text x="158" y="364" fill="#F1FFF9" font-family="Georgia,serif" font-size="30" letter-spacing="2" text-anchor="middle">SERUM</text>
+<text x="158" y="386" fill="#ABF2D4" font-family="Arial,sans-serif" font-size="10" letter-spacing="3" text-anchor="middle">CREATIVE CONCEPT</text>
+<path d="M65 455h182" stroke="#C7FFF0" stroke-opacity=".35"/>
+</g>
+<g font-family="Arial,sans-serif"><text x="70" y="80" font-size="15" letter-spacing="5" fill="#B3F7D8">ADZIVO / VISUAL STUDIO</text>
+<text x="70" y="170" font-size="76" font-weight="800" letter-spacing="-4" fill="#F5FFF9">RITUAL</text>
+<text x="70" y="236" font-size="76" font-weight="800" letter-spacing="-4" fill="#85FFCD">IN FORM.</text>
+<text x="72" y="279" font-size="18" letter-spacing="2" fill="#C3E6D4">SKINCARE • E-COMMERCE</text>
+<text x="71" y="708" font-size="14" letter-spacing="3" fill="#C1F9DF">01 / LUXURY PRODUCT STORYTELLING</text></g>
+<path d="M61 308h294" stroke="#74F6BC" stroke-opacity=".7" stroke-width="2"/>
+<circle cx="1037" cy="110" r="61" fill="none" stroke="#B2FFE0" stroke-opacity=".36" stroke-width="2"/><circle cx="1037" cy="110" r="33" fill="none" stroke="#B2FFE0" stroke-opacity=".55" stroke-width="2"/><circle cx="1037" cy="110" r="7" fill="#76F9C0"/>
+</svg>
