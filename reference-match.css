@@ -203,7 +203,7 @@
 
 /* The original chrome monogram from the same approved preview appears on About. */
 .scene-about .di-emblem{
-  background:url("/visuals/about-emblem.webp") center / contain no-repeat;
+  background:url("/visuals/about-emblem-hd.webp") center / contain no-repeat;
   left:14%!important;top:20%!important;width:74%!important;height:58%!important;
   border-radius:22px;filter:drop-shadow(0 26px 33px rgba(0,0,0,.6)) drop-shadow(0 0 19px rgba(36,251,168,.2))!important;
 }
