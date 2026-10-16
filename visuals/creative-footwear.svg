@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+<title id="title">Futuristic athletic footwear advertising creative</title><desc id="desc">A dynamic floating silver and emerald running shoe with illuminated sole, layered motion trails and dark teal architectural graphics.</desc>
+<defs>
+<linearGradient id="night" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#051E22"/><stop offset=".41" stop-color="#020F13"/><stop offset="1" stop-color="#103334"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#4DFFE1" stop-opacity=".42"/><stop offset=".44" stop-color="#00BFB4" stop-opacity=".14"/><stop offset="1" stop-color="#002E29" stop-opacity="0"/></radialGradient>
+<linearGradient id="upper" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#EFFEF8"/><stop offset=".23" stop-color="#C9DAD7"/><stop offset=".52" stop-color="#78969B"/><stop offset=".71" stop-color="#E5FBF3"/><stop offset="1" stop-color="#30454C"/></linearGradient>
+<linearGradient id="mesh" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#142C33"/><stop offset=".28" stop-color="#438B83"/><stop offset=".53" stop-color="#C1E0DA"/><stop offset=".78" stop-color="#1D3C44"/><stop offset="1" stop-color="#091E25"/></linearGradient>
+<linearGradient id="sole" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#144C4A"/><stop offset=".21" stop-color="#AFFFF0"/><stop offset=".46" stop-color="#326E70"/><stop offset=".64" stop-color="#EEFFFC"/><stop offset=".85" stop-color="#5EE8CD"/><stop offset="1" stop-color="#144C4A"/></linearGradient>
+<linearGradient id="black" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#143B3C"/><stop offset=".6" stop-color="#031317"/><stop offset="1" stop-color="#081B20"/></linearGradient>
+<linearGradient id="pulse" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#43FFF2" stop-opacity="0"/><stop offset=".46" stop-color="#7DFFDB"/><stop offset="1" stop-color="#34CDCF" stop-opacity="0"/></linearGradient>
+<filter id="shadow"><feGaussianBlur stdDeviation="17"/></filter><filter id="glowB"><feGaussianBlur stdDeviation="9"/></filter>
+<pattern id="grid" width="58" height="58" patternUnits="userSpaceOnUse"><path d="M58 0H0V58" fill="none" stroke="#8CFFF1" stroke-opacity=".09"/></pattern>
+<pattern id="shoeMesh" width="14" height="14" patternUnits="userSpaceOnUse"><path d="m0 0 14 14M14 0 0 14" stroke="#DFFFFA" stroke-opacity=".15" stroke-width=".8"/></pattern>
+</defs>
+<rect width="1200" height="760" fill="url(#night)"/><rect width="1200" height="760" fill="url(#grid)" transform="skewY(-8)"/>
+<ellipse cx="698" cy="356" rx="514" ry="322" fill="url(#glow)"/>
+<path d="M0 638 1200 478" stroke="#7BFFF0" stroke-opacity=".19" stroke-width="2"/><path d="M0 693 1200 533" stroke="#7BFFF0" stroke-opacity=".12" stroke-width="2"/>
+<path d="M370 689 1160 113" stroke="url(#pulse)" stroke-width="28" opacity=".48" filter="url(#glowB)"/>
+<path d="M445 713 1159 190M324 666 1044 145M248 593 979 61" stroke="url(#pulse)" stroke-width="6" opacity=".5"/>
+<ellipse cx="782" cy="632" rx="360" ry="34" fill="#020908" opacity=".76" filter="url(#shadow)"/>
+<g transform="translate(39,-17) rotate(-11 744 400)">
+<!-- shoe sole underside -->
+<path d="M347 488Q443 482 527 484L708 502Q872 511 1026 448Q1063 438 1092 467Q1107 498 1090 526Q990 585 819 601Q630 602 468 560L347 536Q316 524 319 504Z" fill="url(#black)" stroke="#ADFFF1" stroke-width="5"/>
+<path d="M334 494Q451 493 521 503L714 519Q874 523 1030 457Q1073 437 1094 467L1095 499Q999 555 822 568Q659 564 475 542L332 518Z" fill="url(#sole)" stroke="#E4FFFB" stroke-width="3"/>
+<path d="M344 508Q493 510 629 538M673 546Q813 566 946 536M980 518l104-37" fill="none" stroke="#DFFFF7" stroke-opacity=".65" stroke-width="5"/>
+<path d="M355 530Q457 542 504 555M550 562Q643 587 743 591M795 593Q937 583 1033 548" fill="none" stroke="#52D9CB" stroke-opacity=".9" stroke-width="4"/>
+<!-- toe, midfoot and angular silhouette -->
+<path d="M340 462Q383 418 456 398Q532 389 598 361L687 280Q722 259 757 278L852 346Q918 359 992 384L1050 423Q1072 437 1057 456Q951 503 806 515L609 491L416 487Q359 487 340 462Z" fill="url(#upper)" stroke="#F4FFF9" stroke-width="5"/>
+<path d="M402 445Q477 414 570 409Q658 410 765 429Q856 443 943 426L1001 433Q939 484 803 489L612 467L444 471Z" fill="url(#mesh)"/>
+<path d="M402 445Q477 414 570 409Q658 410 765 429Q856 443 943 426L1001 433Q939 484 803 489L612 467L444 471Z" fill="url(#shoeMesh)"/>
+<path d="M592 359 685 289Q718 268 748 292L821 353 767 437Q680 415 582 412Z" fill="url(#black)" stroke="#BBFFE7" stroke-width="3"/>
+<path d="M655 330Q708 354 768 361" stroke="#E2FFFC" stroke-width="7" stroke-linecap="round"/>
+<path d="M635 352Q694 374 747 383M619 371Q675 396 731 407M602 393Q659 416 709 426" stroke="#C6FFF1" stroke-width="6" stroke-linecap="round" fill="none"/>
+<path d="M585 410Q680 432 761 441" stroke="#7DFFF1" stroke-opacity=".75" stroke-width="5"/>
+<path d="M490 414Q521 407 557 411M783 371Q816 367 855 386M855 387Q899 389 942 408" stroke="#F9FFFB" stroke-opacity=".57" stroke-width="6" stroke-linecap="round"/>
+<!-- dynamic brandless arrow element -->
+<path d="M741 428Q825 399 941 431L889 448 938 450Q845 486 747 468L804 454Z" fill="url(#sole)" stroke="#DDFFFA" stroke-width="2"/>
+<path d="M373 463Q406 440 468 431" stroke="#FFFFFF" stroke-opacity=".7" stroke-width="5" fill="none" stroke-linecap="round"/>
+<ellipse cx="1038" cy="444" rx="14" ry="6" fill="#ABFFF3" opacity=".7"/>
+</g>
+<!-- floating analytics slab -->
+<g transform="translate(893 151) rotate(8)">
+<rect x="0" y="0" width="221" height="127" rx="15" fill="#0C2E30" stroke="#9BFFF3" stroke-opacity=".65" stroke-width="3"/>
+<text x="19" y="28" font-family="Arial,sans-serif" font-size="12" letter-spacing="2" fill="#9CFFE2">CREATIVE SIGNAL</text>
+<path d="M22 89 69 67 102 80 148 39 193 28" stroke="#73FFCF" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#BCFFF1"><circle cx="22" cy="89" r="5"/><circle cx="69" cy="67" r="5"/><circle cx="102" cy="80" r="5"/><circle cx="148" cy="39" r="5"/><circle cx="193" cy="28" r="5"/></g>
+</g>
+<g font-family="Arial,sans-serif">
+<text x="70" y="82" font-size="15" letter-spacing="5" fill="#AFFCF0">ADZIVO / MOTION STUDIO</text>
+<text x="68" y="170" font-size="83" font-weight="900" letter-spacing="-5" fill="#F5FFFC">BUILT TO</text>
+<text x="69" y="249" font-size="83" font-weight="900" letter-spacing="-5" fill="#77FFE3">MOVE.</text>
+<path d="M73 277h350" stroke="#76FFED" stroke-width="3" opacity=".74"/>
+<text x="73" y="309" font-size="17" letter-spacing="3" fill="#CAF5E9">FOOTWEAR • FASHION / CREATIVE</text>
+<text x="72" y="699" font-size="15" letter-spacing="3" fill="#BAF9E9">03 / ATHLETIC PRODUCT STORYTELLING</text>
+</g>
+<circle cx="1081" cy="636" r="55" fill="none" stroke="#A3FFF2" stroke-opacity=".36" stroke-width="2"/><circle cx="1081" cy="636" r="25" fill="none" stroke="#A3FFF2" stroke-opacity=".64" stroke-width="2"/>
+</svg>
