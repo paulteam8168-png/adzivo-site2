@@ -1024,3 +1024,66 @@ input:not([type=checkbox]),select,textarea{color-scheme:dark}
 ::placeholder{color:#92979d}
 /* Keep the hero headline clean: no decorative yellow/gold underline */
 .hero-copy h1:after,.hero-copy h1 .grad:after{content:none!important;display:none!important}
+
+
+/* ===== Full-site chrome / liquid-metal visual system ===== */
+:root{color-scheme:dark;--silver:#e8edf2;--chrome:#aeb6bf;--steel:#707984;--metal-glow:rgba(222,231,239,.16)}
+html{scroll-behavior:smooth}
+body{color:#f4f6f8;background-color:#050608}
+a{transition:color .22s ease}
+:where(header,.nav,.navbar,.site-header,.ftr,.footer){border-color:rgba(215,224,233,.16)}
+:where(.nav a,.navbar a,.site-header a):hover{color:#fff}
+:where(.eyebrow,.kicker,.label,.tag,.subtle-label){color:#c5cbd2}
+:where(h1,h2,h3,h4){text-wrap:balance}
+:where(.grad,.gradient-text,.text-gradient,.hero-copy h1 .grad){
+ background:linear-gradient(105deg,#fff 0%,#dce2e8 38%,#929ba5 68%,#f9fbfd 88%,#c3cbd3 100%);
+ -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent
+}
+:where(.card,.svc,.service-card,.portfolio-card,.portfolio-teaser,.faq,.step,.testimonial,.quote-card,.contact-card,.cta-box){
+ border-color:rgba(208,218,228,.18);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 20px 55px -42px rgba(0,0,0,.95)
+}
+:where(.card,.svc,.service-card,.portfolio-card,.portfolio-teaser,.faq,.step,.testimonial,.quote-card,.contact-card){
+ background-image:linear-gradient(145deg,rgba(255,255,255,.035),transparent 40%,rgba(180,192,204,.018));
+}
+:where(.card:hover,.svc:hover,.service-card:hover,.portfolio-card:hover,.portfolio-teaser:hover){
+ border-color:rgba(225,233,241,.36);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 26px 70px -42px rgba(0,0,0,.95),0 0 28px rgba(220,230,240,.055)
+}
+:where(.btn,.button,.btn-primary,button[type=submit],.cta-box a){
+ border-color:rgba(242,246,250,.6)
+}
+:where(.btn-primary,.button-primary,button[type=submit]){
+ color:#101215;background:linear-gradient(120deg,#fff 0%,#d9dfe5 34%,#929ba5 70%,#f4f6f8 100%);
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 8px 26px rgba(205,216,226,.13)
+}
+:where(.btn-primary:hover,.button-primary:hover,button[type=submit]:hover){
+ color:#050608;background:linear-gradient(120deg,#fff,#e8edf2 48%,#b9c1c9);box-shadow:0 10px 34px rgba(220,230,240,.2)
+}
+:where(.btn-ghost,.button-secondary,.btn-secondary){
+ color:#edf1f5;border-color:rgba(205,216,227,.38);background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(255,255,255,.005))
+}
+:where(.btn-ghost:hover,.button-secondary:hover,.btn-secondary:hover){border-color:rgba(245,248,252,.72);background:rgba(220,230,240,.07)}
+:where(.hero,.page-hero,.portfolio-hero,.cta-box){isolation:isolate}
+:where(.hero,.page-hero,.portfolio-hero):before{
+ background:radial-gradient(ellipse at 68% 42%,rgba(220,229,238,.12),transparent 48%),radial-gradient(ellipse at 18% 12%,rgba(160,172,185,.07),transparent 44%)
+}
+:where(.hero,.page-hero,.portfolio-hero):after{
+ background:linear-gradient(125deg,transparent 25%,rgba(224,232,240,.045) 48%,transparent 67%)
+}
+:where(.hero-3d-scene,.hero-art,.hero-visual,.portfolio-art,.art-window,.page-hero-visual){filter:drop-shadow(0 22px 38px rgba(0,0,0,.34))}
+:where(.hero-3d-scene,.hero-art,.hero-visual,.portfolio-art) :where(.orb,.sphere,.ring,.platform,.object,.shape){
+ border-color:rgba(220,229,238,.35)
+}
+:where(.sec-head,.section-heading) h2:after{background:linear-gradient(90deg,#e7edf3,rgba(150,161,172,.15),transparent)}
+:where(.sec:not(.alt) .sec-head:after){background:linear-gradient(90deg,#e3e9ef,transparent)}
+:where(.more,.portfolio-info a,.portfolio-bottom,.link-arrow){color:#e2e8ee}
+:where(.faq summary,.accordion summary){color:#f0f3f6}
+:where(input:not([type=checkbox]),select,textarea){
+ background-color:rgba(255,255,255,.035);border-color:rgba(205,216,227,.24);color:#f3f5f7
+}
+:where(input:not([type=checkbox]),select,textarea):focus{outline:1px solid rgba(232,239,246,.6);border-color:#dce3e9}
+:where(.ftr,.footer){border-top:1px solid rgba(220,230,240,.13)}
+:where(.ftr a,.footer a){color:#bfc7d0}
+:where(.ftr a:hover,.footer a:hover){color:#fff}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
