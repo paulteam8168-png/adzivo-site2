@@ -5,7 +5,7 @@ export function pages(c, base) {
   const bookExt = c.contact.bookingUrl ? ' target="_blank" rel="noopener noreferrer" data-calendly-popup="true"' : "";
   const nav = [["/services/", "Services"], ["/case-studies/", "Portfolio"], ["/about/", "About"], ["/contact/", "Contact"]];
 
-  const logo = `<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a98c5b"/><stop offset="1" stop-color="#d8c49b"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M8 23 16 8l8 15h-4.2L16 15.6 12.2 23z" fill="#fff"/></svg>`;
+  const logo = `<svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#8995a2"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M8 23 16 8l8 15h-4.2L16 15.6 12.2 23z" fill="#fff"/></svg>`;
   const btn = (href, text, cls = "btn-primary", extra = "") => `<a class="btn ${cls}" href="${href}"${extra}>${text}</a>`;
   const bookBtn = (text = "Book a Strategy Call", cls = "btn-primary") => btn(book, text, cls, bookExt);
 
