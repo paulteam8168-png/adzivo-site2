@@ -350,10 +350,10 @@ ${portfolioShowroom}</div></section>
 
   /* ---------- CONTACT ---------- */
   const opt = (a) => a.map((o) => `<option>${o}</option>`).join("");
-  add({ schema: [{ "@type": "ContactPage", url: base + "/contact/", name: "Contact " + c.name }], path: "/contact/", form: true, title: "Contact", desc: "Contact ADZIVO to discuss your paid social advertising goals or book a strategy call.", body: `
-<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Contact</span><h1>Let's talk about your goals</h1><p class="lead">Send us a message or book a strategy call directly.</p><div class="actions">${bookBtn()}</div></div>${pageHeroVisual("LET’S PLAN YOUR NEXT MOVE", "contact")}</div></section>
-<section class="sec" id="form"><div class="wrap grid g2c">
-<form id="contact-form" class="card" novalidate>
+  add({ schema: [{ "@type": "ContactPage", url: base + "/contact/", name: "Contact " + c.name }], path: "/contact/", form: true, title: "Contact", desc: "Get in touch with ADZIVO about Meta Ads, Google Ads, performance marketing, lead generation and creative strategy.", body: `
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Contact / Start a Conversation</span><h1>Let's build something <span class="grad">meaningful.</span></h1><p class="lead">Tell us about your business, Meta or Google Ads goals and the marketing challenges you want to solve.</p><div class="actions">${bookBtn()}</div></div>${pageHeroVisual("LET’S PLAN YOUR NEXT MOVE", "contact")}</div></section>
+<section class="sec pm-contact-section" id="form"><div class="wrap"><div class="pm-contact-intro reveal"><span class="eyebrow">Tell us about your project</span><h2>Share a little. We'll take it from there.</h2><p class="muted">Your enquiry goes directly to the ADZIVO team. We'll discuss fit, timing and sensible next steps.</p></div><div class="grid g2c">
+<form id="contact-form" class="card pm-contact-form" novalidate><div class="pm-form-heading"><span class="eyebrow">Project enquiry</span><h3>What would you like to work on?</h3></div>
 <div class="f"><label for="name">Full name *</label><input id="name" name="name" autocomplete="name" required maxlength="100"><p class="err" id="e-name"></p></div>
 <div class="f"><label for="email">Business email *</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="150"><p class="err" id="e-email"></p></div>
 <div class="f"><label for="company">Company or website</label><input id="company" name="company" maxlength="150"></div>
@@ -365,7 +365,7 @@ ${portfolioShowroom}</div></section>
 ${c.turnstileSiteKey ? `<div class="cf-turnstile" data-sitekey="${esc(c.turnstileSiteKey)}"></div>` : ""}
 <button class="btn btn-primary" type="submit" id="submit">Send Message</button>
 <div id="status" role="status" aria-live="polite"></div></form>
-<aside class="card"><h2>Other ways to reach us</h2>${contactLines.length ? `<ul class="plain">${contactLines.join("")}</ul>` : '<p class="muted">Use the form or book a strategy call. We\'ll reply to the email address you provide.</p>'}<p class="muted">We don't make guarantees about specific results, and we'll always be upfront about whether we're a good fit.</p></aside></div></section>` });
+<aside class="card pm-contact-aside"><span class="eyebrow">Contact ADZIVO</span><h2>Start with a clear conversation.</h2><p class="muted">Bring your questions, existing campaigns or a new idea. We can explore the channels and next steps together.</p><div class="pm-contact-steps"><div><i>01</i><span><strong>Tell us the goal</strong><small>What are you trying to achieve?</small></span></div><div><i>02</i><span><strong>Explore the options</strong><small>Meta Ads, Google Ads, creative or conversion.</small></span></div><div><i>03</i><span><strong>Agree on next steps</strong><small>A practical approach suited to your business.</small></span></div></div><div class="pm-contact-direct"><h3>Other ways to reach us</h3>${contactLines.length ? `<ul class="plain">${contactLines.join("")}</ul>` : '<p class="muted">Use the form or book a strategy call. We\'ll reply to the email address you provide.</p>'}<p class="muted">We can discuss available options and whether the fit looks right.</p></div><a class="btn btn-ghost" href="/book-a-call/">Book a Strategy Call ↗</a></aside></div></div></section>` });
 
 
   /* ---------- BOOK A CALL ---------- */
