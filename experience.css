@@ -125,3 +125,43 @@
   .lab-chart{height:120px}
 }
 @media(prefers-reduced-motion:reduce){.lab-chart-bars i,.mini-sculpture{animation:none!important}}
+
+/* Sample performance-style cards: decorative values with persistent honest disclosure. */
+.concept-metric-strip{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;margin:20px 0 3px;padding:15px 5px;
+  border-top:1px solid rgba(124,255,210,.22);
+  border-bottom:1px solid rgba(124,255,210,.15);
+}
+.concept-metric-strip>div{min-width:0;text-align:center;padding:0 5px}
+.concept-metric-strip>div+div{border-left:1px solid rgba(121,255,209,.16)}
+.concept-metric-strip strong{
+  display:block;color:#eafff7;font-size:clamp(1.05rem,1.65vw,1.55rem);
+  font-weight:850;letter-spacing:-.05em;line-height:1.2;
+}
+.concept-metric-strip span{display:block;color:#a3dfc1;font-size:.64rem;line-height:1.45;margin-top:5px}
+.concept-metric-note{margin:8px 0 15px!important;color:#82bf9d!important;font-size:.68rem!important;letter-spacing:.01em}
+.portfolio-info .concept-metric-strip{margin-top:4px}
+.portfolio-info .concept-metric-note{margin-bottom:16px!important}
+.portfolio-art .art-window{
+  position:absolute!important;left:17%!important;right:17%!important;top:24%!important;bottom:14%!important;
+  transform:perspective(800px) rotateY(-8deg) rotateX(3deg)!important;
+}
+.portfolio-art .art-orbit{
+  position:absolute!important;left:50%;top:51%;
+  transform:translate(-50%,-50%) rotate(-28deg)!important;
+}
+.portfolio-art .art-top{position:absolute!important;top:16px;left:18px;right:18px}
+.portfolio-art .art-index{position:absolute!important;right:20px;bottom:9px}
+.portfolio-card:hover .art-window{transform:perspective(800px) rotateY(-2deg) rotateX(1deg) translateY(-3px)!important}
+.portfolio-art .art-demo-stamp{font-size:.51rem}
+@media(max-width:760px){
+  .concept-metric-strip strong{font-size:1.2rem}
+  .concept-metric-strip span{font-size:.6rem}
+}
+@media(max-width:410px){
+  .concept-metric-strip>div{padding:0 2px}
+  .concept-metric-strip strong{font-size:1.05rem}
+  .concept-metric-strip span{font-size:.54rem}
+  .portfolio-art .art-window{left:12%!important;right:12%!important}
+}
