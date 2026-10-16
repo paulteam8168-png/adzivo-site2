@@ -153,9 +153,9 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 
   // Cropped directly from the approved reference preview: visual concepts, not real client work.
   const photoConcepts = [
-    {src:"/visuals/skincare-concept.webp",title:"Skincare Creative",type:"E-commerce",alt:"Emerald-lit skincare product creative concept"},
-    {src:"/visuals/furniture-concept.webp",title:"Furniture Creative",type:"Home & Living",alt:"Premium furniture advertising creative concept"},
-    {src:"/visuals/shoe-concept.webp",title:"Footwear Creative",type:"Fashion",alt:"Sneaker and footwear advertising creative concept"},
+    {src:"/visuals/skincare-concept.webp",srcHd:"/visuals/skincare-concept-hd.webp",title:"Skincare Creative",type:"E-commerce",alt:"Emerald-lit skincare product creative concept"},
+    {src:"/visuals/furniture-concept.webp",srcHd:"/visuals/furniture-concept-hd.webp",title:"Furniture Creative",type:"Home & Living",alt:"Premium furniture advertising creative concept"},
+    {src:"/visuals/shoe-concept.webp",srcHd:"/visuals/shoe-concept-hd.webp",title:"Footwear Creative",type:"Fashion",alt:"Sneaker and footwear advertising creative concept"},
   ];
   const channelMark = (type) => ({
     meta:'<span class="platform-icon platform-meta" aria-hidden="true">∞</span>',
@@ -173,7 +173,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     <p>Explore how premium products and creative thinking can stand out in an ad.</p>
     <div class="hero-rail-projects">${photoConcepts.map((p,i)=>`
       <a class="hero-rail-card" href="/case-studies/#creative-showcase" aria-label="${p.title} visual concept">
-        <img src="${p.src}" alt="${p.alt}" loading="lazy" decoding="async">
+        <img src="${p.srcHd}" srcset="${p.src} 600w, ${p.srcHd} 1200w" sizes="(max-width:470px) 92vw, (max-width:1180px) 31vw, 400px" alt="${p.alt}" loading="lazy" decoding="async">
         <span class="hero-rail-demo"><strong>${["+420%","+210%","+350%"][i]}</strong><small>DEMO VALUE</small></span><span class="hero-rail-meta"><strong>${p.title}</strong><small>${p.type} · Visual concept</small></span>
         <span class="hero-rail-arrow" aria-hidden="true">↗</span>
       </a>`).join("")}</div>
@@ -182,7 +182,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
   // The original chrome crop supplies metallic lighting; HTML layers keep dashboards and logos sharp.
   const referenceHeroArt = `<div class="viz hero-3d-scene hero-reference-visual" role="img" aria-label="Emerald-lit metallic growth sculpture and floating decorative platform icon tiles. Campaign numbers are fictional examples.">
     <div class="reference-art-glow" aria-hidden="true"></div>
-    <img class="reference-hero-art" src="/visuals/hero-emerald-clean.webp" alt="" width="1020" height="544" fetchpriority="high" loading="eager" decoding="async">
+    <img class="reference-hero-art" src="/visuals/hero-emerald-clean-hd.webp" srcset="/visuals/hero-emerald-clean.webp 1020w, /visuals/hero-emerald-clean-hd.webp 2040w" sizes="(max-width:1050px) 92vw, 710px" alt="" width="2040" height="1088" fetchpriority="high" loading="eager" decoding="async">
     <div class="reference-clear-dashboard" aria-hidden="true">
       <span class="clear-kicker"><i></i> DEMO PERFORMANCE / 01</span>
       <div class="clear-statline"><strong>5.8<span>×</span></strong><span>Sample ROAS /<br>not real results</span></div>
@@ -248,7 +248,7 @@ ${referenceRail}
 <div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><span class="svc-icon" aria-hidden="true">${["∞","◎","✦","↗","◉","▥"][c.services.indexOf(s)]||"✦"}</span><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
 ${c.showCaseStudies ? `<section class="sec alt"><div class="wrap">${head("Featured Work", "Creative concepts made to stand out", "Explore product-led advertising visuals and the strategy behind our sample campaigns. These are design demonstrations—not completed client projects or verified results.")}
-<div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><img class="concept-photo" src="${photoConcepts[i%photoConcepts.length].src}" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><span class="concept-art-index">CREATIVE / 0${i+1}</span><span class="concept-art-category">${photoConcepts[i%photoConcepts.length].type}</span></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${photoConcepts[i%photoConcepts.length].title}</h3><p class="tag">${photoConcepts[i%photoConcepts.length].type} · Concept preview</p><p class="muted">${esc(s.summary || s.challenge)}</p>${s.demo ? conceptMetricStrip(i) : ""}<a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
+<div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><img class="concept-photo" src="${photoConcepts[i%photoConcepts.length].srcHd}" srcset="${photoConcepts[i%photoConcepts.length].src} 600w, ${photoConcepts[i%photoConcepts.length].srcHd} 1200w" sizes="(max-width:760px) 92vw, 390px" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><span class="concept-art-index">CREATIVE / 0${i+1}</span><span class="concept-art-category">${photoConcepts[i%photoConcepts.length].type}</span></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${photoConcepts[i%photoConcepts.length].title}</h3><p class="tag">${photoConcepts[i%photoConcepts.length].type} · Concept preview</p><p class="muted">${esc(s.summary || s.challenge)}</p>${s.demo ? conceptMetricStrip(i) : ""}<a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
 
 <section class="sec"><div class="wrap">${head("Our Process", "Four stages from idea to scale")}
 <ol class="steps">${[["Discover", "Understand business goals, audience, offer, and economics."], ["Strategize", "Build campaign strategy, creative direction, and tracking plans."], ["Launch & Optimize", "Test, monitor, and improve campaigns."], ["Scale", "Expand what works with transparent reporting."]].map(([t, d], i) => `<li class="card reveal"><span class="num">0${i + 1}</span><h3>${t}</h3><p class="muted">${d}</p></li>`).join("")}</ol></div></section>
@@ -278,7 +278,7 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
 
   /* ---------- CASE STUDIES / PORTFOLIO ---------- */
   const portfolioCases = c.caseStudies.map((s, i) => `<article class="portfolio-card reveal" data-category="${esc(s.industry)}">
-    <div class="portfolio-art art-${esc(s.cover || "ecom")}"><img class="portfolio-photo" src="${photoConcepts[i%photoConcepts.length].src}" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><div class="art-top">ADZIVO / PROJECT ${String(i+1).padStart(2,"0")} <span>✳</span></div><div class="art-orbit"></div>
+    <div class="portfolio-art art-${esc(s.cover || "ecom")}"><img class="portfolio-photo" src="${photoConcepts[i%photoConcepts.length].srcHd}" srcset="${photoConcepts[i%photoConcepts.length].src} 600w, ${photoConcepts[i%photoConcepts.length].srcHd} 1200w" sizes="(max-width:650px) 92vw, 620px" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><div class="art-top">ADZIVO / PROJECT ${String(i+1).padStart(2,"0")} <span>✳</span></div><div class="art-orbit"></div>
       <div class="art-window"><span class="art-demo-stamp">Visual example</span><div class="art-window-head"><i></i><i></i><i></i><span>${esc(s.cover==="local"?"Lead overview":s.cover==="b2b"?"Pipeline analytics":"Campaign performance")}</span></div><div class="art-metrics"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="art-line"><i></i><i></i><i></i></div></div><strong class="art-index">0${i+1}</strong></div>
     <div class="portfolio-info"><div class="portfolio-meta"><span>${esc(s.industry)}</span><span>${s.demo?"Concept preview":esc(s.timeframe)}</span></div><h2>${esc(s.client)}</h2><p>${esc(s.summary || s.challenge)}</p>
     <div class="portfolio-tags">${(s.services||[]).slice(0,3).map(v=>`<span>${esc(v)}</span>`).join("")}</div>
@@ -290,7 +290,7 @@ ${pageHeroVisual("CREATIVE / PERFORMANCE", "portfolio")}</div></section>
 <section class="sec portfolio-creative-showcase" id="creative-showcase"><div class="wrap">
   <div class="sec-head reveal"><span class="eyebrow">ADZIVO / Design concepts</span><h2>Product creatives that stop the scroll.</h2><p class="muted">Three 3D-inspired visual directions based on the ADZIVO reference design. These examples are not real client advertisements or performance claims.</p></div>
   <div class="reference-creative-grid">${photoConcepts.map((p,i)=>`<article class="reference-creative-card reveal">
-    <div class="reference-creative-media"><img src="${p.src}" alt="${p.alt}" loading="lazy" decoding="async"><span>CONCEPT 0${i+1}</span></div>
+    <div class="reference-creative-media"><img src="${p.srcHd}" srcset="${p.src} 600w, ${p.srcHd} 1200w" sizes="(max-width:470px) 92vw, (max-width:1180px) 31vw, 400px" alt="${p.alt}" loading="lazy" decoding="async"><span>CONCEPT 0${i+1}</span></div>
     <div class="reference-creative-detail"><span class="eyebrow">${p.type}</span><h3>${p.title}</h3><p>Product-focused visual storytelling for a memorable campaign.</p></div>
   </article>`).join("")}</div></div></section>
 <section class="portfolio-controls"><div class="wrap portfolio-controls-in"><div><span class="eyebrow">The portfolio</span><h2>Ideas built around business goals</h2></div><div class="portfolio-filters" role="group" aria-label="Filter portfolio projects"><button class="portfolio-filter active" data-filter="all" aria-pressed="true">All work</button><button class="portfolio-filter" data-filter="E-commerce" aria-pressed="false">E-commerce</button><button class="portfolio-filter" data-filter="Local services" aria-pressed="false">Local services</button><button class="portfolio-filter" data-filter="B2B" aria-pressed="false">B2B</button></div></div></section>
