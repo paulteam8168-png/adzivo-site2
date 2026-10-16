@@ -173,7 +173,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     <div class="hero-rail-projects">${photoConcepts.map((p,i)=>`
       <a class="hero-rail-card" href="/case-studies/#creative-showcase" aria-label="${p.title} visual concept">
         <img src="${p.src}" alt="${p.alt}" loading="lazy" decoding="async">
-        <span class="hero-rail-meta"><strong>${p.title}</strong><small>${p.type} · Visual concept</small></span>
+        <span class="hero-rail-demo"><strong>${["+420%","+210%","+350%"][i]}</strong><small>DEMO VALUE</small></span><span class="hero-rail-meta"><strong>${p.title}</strong><small>${p.type} · Visual concept</small></span>
         <span class="hero-rail-arrow" aria-hidden="true">↗</span>
       </a>`).join("")}</div>
     <small class="hero-rail-note">Illustrative designs · no client performance claims</small>
