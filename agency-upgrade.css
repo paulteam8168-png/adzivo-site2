@@ -529,3 +529,7 @@ body{overflow-x:hidden}
   .pm-show-card,.pm-capability-card,.pm-workflow-step,.pm-about-belief{transition:none!important}
   html{scroll-behavior:auto!important}
 }
+
+/* Portfolio filter feedback remains readable when categories wrap. */
+.pm-filter-count{display:block;flex:1 0 100%;margin-top:3px;color:#a7d9bd;font-size:.72rem;letter-spacing:.015em;text-align:right;line-height:1.5}
+@media(max-width:760px){.pm-filter-count{text-align:left}}
