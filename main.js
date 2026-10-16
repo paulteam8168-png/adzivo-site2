@@ -45,7 +45,7 @@
   portfolioFilters.forEach((button) => button.addEventListener("click", () => {
     const category = button.dataset.filter;
     portfolioFilters.forEach((item) => { const active = item === button; item.classList.toggle("active", active); item.setAttribute("aria-pressed", String(active)); });
-    portfolioCards.forEach((card) => { card.hidden = category !== "all" && card.dataset.category !== category; });
+    portfolioCards.forEach((card) => { const industry = card.dataset.category || ""; const services = (card.dataset.services || "").toLowerCase(); card.hidden = category !== "all" && industry !== category && !services.includes(category.toLowerCase()); });
   }));
 
 
