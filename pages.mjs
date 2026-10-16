@@ -148,6 +148,41 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     + (conceptDemoMetrics[i % conceptDemoMetrics.length]).map(([value, name]) => '<div><strong>'+value+'</strong><span>'+name+'</span></div>').join('')
     + '</div><p class="concept-metric-note">Sample data · Not actual client performance</p>';
 
+
+  // Cropped directly from the approved reference preview: visual concepts, not real client work.
+  const photoConcepts = [
+    {src:"/visuals/skincare-concept.webp",title:"Skincare Creative",type:"E-commerce",alt:"Emerald-lit skincare product creative concept"},
+    {src:"/visuals/furniture-concept.webp",title:"Furniture Creative",type:"Home & Living",alt:"Premium furniture advertising creative concept"},
+    {src:"/visuals/shoe-concept.webp",title:"Footwear Creative",type:"Fashion",alt:"Sneaker and footwear advertising creative concept"},
+  ];
+  const channelMark = (type) => ({
+    meta:'<span class="platform-icon platform-meta" aria-hidden="true">∞</span>',
+    google:'<span class="platform-icon platform-google" aria-hidden="true">G</span>',
+    tiktok:'<span class="platform-icon platform-tiktok" aria-hidden="true">♪</span>',
+    linkedin:'<span class="platform-icon platform-linkedin" aria-hidden="true">in</span>',
+  }[type]||"");
+  const brandStrip = '<div class="hero-platform-strip" aria-label="Platform logos shown as design references">'
+    + [["meta","Meta"],["google","Google"],["tiktok","TikTok"],["linkedin","LinkedIn"]].map(([id,name])=>
+      '<span class="hero-platform">'+channelMark(id)+'<span>'+name+'</span></span>').join('')
+    +'</div>';
+  const referenceRail = `<aside class="hero-reference-rail" aria-label="Creative advertising concept showcase">
+    <span class="eyebrow">Concept showcase</span>
+    <h2>Work that gets <span class="grad">noticed.</span></h2>
+    <p>Explore how premium products and creative thinking can stand out in an ad.</p>
+    <div class="hero-rail-projects">${photoConcepts.map((p,i)=>`
+      <a class="hero-rail-card" href="/case-studies/#creative-showcase" aria-label="${p.title} visual concept">
+        <img src="${p.src}" alt="${p.alt}" loading="lazy" decoding="async">
+        <span class="hero-rail-meta"><strong>${p.title}</strong><small>${p.type} · Visual concept</small></span>
+        <span class="hero-rail-arrow" aria-hidden="true">↗</span>
+      </a>`).join("")}</div>
+    <small class="hero-rail-note">Illustrative designs · no client performance claims</small>
+  </aside>`;
+  const referenceHeroArt = `<div class="viz hero-3d-scene hero-reference-visual" role="img" aria-label="Emerald-lit silver chrome 3D growth sculpture with floating Meta, Google, TikTok and LinkedIn platform icon panels. Fictional metrics are part of a decorative concept illustration.">
+    <div class="reference-art-glow" aria-hidden="true"></div>
+    <img class="reference-hero-art" src="/visuals/hero-emerald-clean.webp" alt="" fetchpriority="high" loading="eager" decoding="async">
+    <span class="reference-demo-stamp">3D DESIGN CONCEPT · SAMPLE NUMBERS</span>
+  </div>`;
+
   /* ---------- HOME ---------- */
   const approach = c.testimonials.length
     ? `<section class="sec"><div class="wrap">${head("Testimonials", "What clients say")}<div class="grid g3">${c.testimonials.map((t) => `<figure class="card reveal"><blockquote>“${esc(t.quote)}”</blockquote><figcaption>${esc(t.name || "ADZIVO Client")}${t.role ? `, ${esc(t.role)}` : ""}</figcaption></figure>`).join("")}</div></div></section>`
@@ -158,8 +193,9 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <div class="hero-copy"><span class="eyebrow">Paid Social Advertising Agency</span>
 <h1>Turn Ad Spend Into <span class="grad">Scalable Growth.</span></h1>
 <p class="lead">We help ambitious businesses build smarter paid social campaigns, generate qualified leads, and make better decisions with performance-focused advertising.</p>
-<div class="actions">${bookBtn()}${btn("/services/", "Explore Our Services", "btn-ghost")}</div></div>
-<div class="viz hero-3d-scene" role="img" aria-label="Decorative chrome growth chart with emerald-green lighting">${chromeScene("PERFORMANCE / SYSTEM 01")}</div>
+<div class="actions">${bookBtn()}${btn("/services/", "Explore Our Services", "btn-ghost")}</div>${brandStrip}</div>
+${referenceHeroArt}
+${referenceRail}
 </div></section>
 
 <section class="strip"><div class="wrap strip-in"><span>Independent agency</span><span>Transparent reporting</span><span>No guaranteed-result promises</span><span>You keep control of your ad account</span></div></section>
@@ -194,10 +230,10 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 </div></section>
 
 <section class="sec"><div class="wrap">${head("Services", "Everything paid social needs, in one team", "From strategy and creative to tracking and reporting.")}
-<div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
+<div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><span class="svc-icon" aria-hidden="true">${["∞","◎","✦","↗","◉","▥"][c.services.indexOf(s)]||"✦"}</span><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
-${c.showCaseStudies ? `<section class="sec alt"><div class="wrap">${head("Portfolio", "Strategy before spend", "Explore illustrative campaign concepts showing how ADZIVO approaches creative testing, lead generation and measurement. These are concept previews, not client case studies or performance claims.")}
-<div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><span>CONCEPT / 0${i + 1}</span><div class="mini-sculpture"><i></i></div></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${esc(s.client)}</h3><p class="tag">${esc(s.industry)} · Illustrative strategy</p><p class="muted">${esc(s.summary || s.challenge)}</p>${s.demo ? conceptMetricStrip(i) : ""}<a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
+${c.showCaseStudies ? `<section class="sec alt"><div class="wrap">${head("Featured Work", "Creative concepts made to stand out", "Explore product-led advertising visuals and the strategy behind our sample campaigns. These are design demonstrations—not completed client projects or verified results.")}
+<div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><img class="concept-photo" src="${photoConcepts[i%photoConcepts.length].src}" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><span class="concept-art-index">CREATIVE / 0${i+1}</span><span class="concept-art-category">${photoConcepts[i%photoConcepts.length].type}</span></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${photoConcepts[i%photoConcepts.length].title}</h3><p class="tag">${photoConcepts[i%photoConcepts.length].type} · Concept preview</p><p class="muted">${esc(s.summary || s.challenge)}</p>${s.demo ? conceptMetricStrip(i) : ""}<a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
 
 <section class="sec"><div class="wrap">${head("Our Process", "Four stages from idea to scale")}
 <ol class="steps">${[["Discover", "Understand business goals, audience, offer, and economics."], ["Strategize", "Build campaign strategy, creative direction, and tracking plans."], ["Launch & Optimize", "Test, monitor, and improve campaigns."], ["Scale", "Expand what works with transparent reporting."]].map(([t, d], i) => `<li class="card reveal"><span class="num">0${i + 1}</span><h3>${t}</h3><p class="muted">${d}</p></li>`).join("")}</ol></div></section>
@@ -227,7 +263,7 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
 
   /* ---------- CASE STUDIES / PORTFOLIO ---------- */
   const portfolioCases = c.caseStudies.map((s, i) => `<article class="portfolio-card reveal" data-category="${esc(s.industry)}">
-    <div class="portfolio-art art-${esc(s.cover || "ecom")}"><div class="art-top">ADZIVO / PROJECT ${String(i+1).padStart(2,"0")} <span>✳</span></div><div class="art-orbit"></div>
+    <div class="portfolio-art art-${esc(s.cover || "ecom")}"><img class="portfolio-photo" src="${photoConcepts[i%photoConcepts.length].src}" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><div class="art-top">ADZIVO / PROJECT ${String(i+1).padStart(2,"0")} <span>✳</span></div><div class="art-orbit"></div>
       <div class="art-window"><span class="art-demo-stamp">Visual example</span><div class="art-window-head"><i></i><i></i><i></i><span>${esc(s.cover==="local"?"Lead overview":s.cover==="b2b"?"Pipeline analytics":"Campaign performance")}</span></div><div class="art-metrics"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="art-line"><i></i><i></i><i></i></div></div><strong class="art-index">0${i+1}</strong></div>
     <div class="portfolio-info"><div class="portfolio-meta"><span>${esc(s.industry)}</span><span>${s.demo?"Concept preview":esc(s.timeframe)}</span></div><h2>${esc(s.client)}</h2><p>${esc(s.summary || s.challenge)}</p>
     <div class="portfolio-tags">${(s.services||[]).slice(0,3).map(v=>`<span>${esc(v)}</span>`).join("")}</div>
@@ -236,6 +272,12 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
   add({ path: "/case-studies/", title: "Portfolio", desc: "Explore ADZIVO campaign concepts, strategy and project approach.", body: `
 <section class="portfolio-hero"><div class="wrap portfolio-hero-grid"><div><span class="eyebrow">Selected Work · ADZIVO</span><h1>Strategy that makes <span class="grad">every campaign</span> count.</h1><p class="lead">Explore our approach to creative testing, lead generation and paid social growth. Concept previews are clearly labelled; verified client results are shared transparently.</p><div class="portfolio-hero-pills"><span>Meta Ads</span><span>Creative Strategy</span><span>Lead Generation</span><span>Measurement</span></div></div>
 ${pageHeroVisual("CREATIVE / PERFORMANCE", "portfolio")}</div></section>
+<section class="sec portfolio-creative-showcase" id="creative-showcase"><div class="wrap">
+  <div class="sec-head reveal"><span class="eyebrow">ADZIVO / Design concepts</span><h2>Product creatives that stop the scroll.</h2><p class="muted">Three 3D-inspired visual directions based on the ADZIVO reference design. These examples are not real client advertisements or performance claims.</p></div>
+  <div class="reference-creative-grid">${photoConcepts.map((p,i)=>`<article class="reference-creative-card reveal">
+    <div class="reference-creative-media"><img src="${p.src}" alt="${p.alt}" loading="lazy" decoding="async"><span>CONCEPT 0${i+1}</span></div>
+    <div class="reference-creative-detail"><span class="eyebrow">${p.type}</span><h3>${p.title}</h3><p>Product-focused visual storytelling for a memorable campaign.</p></div>
+  </article>`).join("")}</div></div></section>
 <section class="portfolio-controls"><div class="wrap portfolio-controls-in"><div><span class="eyebrow">The portfolio</span><h2>Ideas built around business goals</h2></div><div class="portfolio-filters" role="group" aria-label="Filter portfolio projects"><button class="portfolio-filter active" data-filter="all" aria-pressed="true">All work</button><button class="portfolio-filter" data-filter="E-commerce" aria-pressed="false">E-commerce</button><button class="portfolio-filter" data-filter="Local services" aria-pressed="false">Local services</button><button class="portfolio-filter" data-filter="B2B" aria-pressed="false">B2B</button></div></div></section>
 <section class="sec portfolio-section"><div class="wrap"><div class="portfolio-grid">${portfolioCases}</div><p class="portfolio-footnote muted">Sample concepts are illustrative design and strategy examples, not claims about completed client campaigns.</p></div></section>
 <section class="sec"><div class="wrap"><div class="portfolio-bottom reveal"><span class="eyebrow">Have a project in mind?</span><h2>Let's build your next growth story.</h2><p class="muted">Tell us about your goals and we'll help map out a practical paid social strategy.</p>${bookBtn("Start a Conversation")}</div></div></section>` });
