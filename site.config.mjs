@@ -7,7 +7,7 @@ export default {
 
   // Leave blank to hide. Nothing is invented: fill in only real details.
   contact: { email: "contact@adzivo.online", phone: "", location: "", bookingUrl: "https://calendly.com/paulteam8168/30min" }, // bookingUrl: paste your Calendly / Cal.com link
-  showCaseStudies: false, // enable only when real, client-approved case studies are ready
+  showCaseStudies: true, // show clearly labelled concept previews until real client-approved case studies are available
   googleVerification: "", // Google Search Console HTML-tag code (only the content value)
   legal: { legalName: "", jurisdiction: "", lastUpdated: "October 14, 2026" }, // legalName / jurisdiction: fill only when known; blank = line is omitted
   turnstileSiteKey: "", // optional Cloudflare Turnstile PUBLIC site key
@@ -46,14 +46,23 @@ export default {
       process: ["Audit tracking", "Fix and extend measurement", "Report on a schedule", "Turn data into actions"] },
   ],
 
-  // Demo content only. Set demo:false once a case study is real and approved by the client.
+  // Illustrative portfolio concepts only — not completed client work or measured results.
   caseStudies: [
-    { demo: true, client: "Example E-commerce Brand", industry: "E-commerce", timeframe: "[Add timeframe]",
-      challenge: "[Describe the client's challenge]", strategy: "[Describe the strategy used]", results: "[Add verified, client-approved results]" },
-    { demo: true, client: "Example Local Service Business", industry: "Local services", timeframe: "[Add timeframe]",
-      challenge: "[Describe the client's challenge]", strategy: "[Describe the strategy used]", results: "[Add verified, client-approved results]" },
-    { demo: true, client: "Example B2B Company", industry: "B2B", timeframe: "[Add timeframe]",
-      challenge: "[Describe the client's challenge]", strategy: "[Describe the strategy used]", results: "[Add verified, client-approved results]" },
+    { demo: true, client: "E-commerce Creative Testing Plan", industry: "E-commerce", cover: "ecom", timeframe: "Concept preview",
+      summary: "A structured framework for testing product hooks, creative formats and audience signals before increasing spend.",
+      challenge: "An online store needs to understand which product angles and creative formats deserve more budget without relying on assumptions.",
+      strategy: "Map customer objections, develop distinct creative angles, test a controlled set of hooks and formats, and review purchase events alongside landing-page behaviour.",
+      services: ["Meta Ads", "Creative testing", "Analytics"] },
+    { demo: true, client: "Local Service Lead Funnel", industry: "Local services", cover: "local", timeframe: "Concept preview",
+      summary: "A lead-generation concept focused on enquiry quality, clear follow-up and useful measurement.",
+      challenge: "A service business wants enquiries from people who match its service area and are ready to discuss the offer.",
+      strategy: "Clarify the offer and service area, align the ad with a concise lead form, define lead-quality feedback, and track qualified enquiries rather than form volume alone.",
+      services: ["Lead generation", "Retargeting", "Reporting"] },
+    { demo: true, client: "B2B Demand Generation Framework", industry: "B2B", cover: "b2b", timeframe: "Concept preview",
+      summary: "A practical paid-social framework that connects audience testing to qualified conversations and pipeline feedback.",
+      challenge: "A B2B team needs to test messaging with a defined buyer group and avoid optimising only for inexpensive clicks.",
+      strategy: "Build audience and message hypotheses, test educational and problem-led creative, capture fit criteria, and connect campaign reporting to sales feedback.",
+      services: ["Audience strategy", "Lead generation", "Measurement"] },
   ],
 
   // Add real testimonials: { quote, name, role }. While empty, the section is hidden.
