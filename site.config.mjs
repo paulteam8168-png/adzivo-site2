@@ -7,7 +7,7 @@ export default {
 
   // Leave blank to hide. Nothing is invented: fill in only real details.
   contact: { email: "contact@adzivo.online", phone: "", location: "", bookingUrl: "https://calendly.com/paulteam8168/30min" }, // bookingUrl: paste your Calendly / Cal.com link
-  showCaseStudies: true, // show clearly labelled concept previews until real client-approved case studies are available
+  showCaseStudies: true, // show concept portfolio items until client-approved case studies are available
   googleVerification: "", // Google Search Console HTML-tag code (only the content value)
   legal: { legalName: "", jurisdiction: "", lastUpdated: "October 14, 2026" }, // legalName / jurisdiction: fill only when known; blank = line is omitted
   turnstileSiteKey: "", // optional Cloudflare Turnstile PUBLIC site key
@@ -24,6 +24,16 @@ export default {
       ideal: "Brands whose customers are active on Facebook and Instagram.",
       deliverables: ["Placement-specific campaign setup", "Ad format planning (feed, Stories, Reels)", "Audience testing plan", "Campaign documentation"],
       process: ["Define audiences", "Match formats to placements", "Launch tests", "Scale what works"] },
+    { slug: "google-ads", title: "Google Ads Management",
+      short: "Search-led Google Ads campaigns that capture relevant demand with clear intent and measurement.",
+      ideal: "Businesses looking to reach people already searching for their products or services.",
+      deliverables: ["Search intent and keyword research", "Search campaign architecture and ad copy", "Conversion tracking and search-term review", "Budget, bid and landing-page recommendations"],
+      process: ["Research customer search intent", "Build targeted campaigns", "Track leads or purchase events", "Review queries and optimise"] },
+    { slug: "performance-marketing", title: "Performance Marketing Strategy",
+      short: "Connect paid social, search, creative testing and conversion insights into one accountable growth plan.",
+      ideal: "Businesses needing coordinated acquisition across channels instead of disconnected campaigns.",
+      deliverables: ["Cross-channel media and funnel roadmap", "Audience and intent segmentation", "Channel-specific creative and offer direction", "Measurement and optimisation priorities"],
+      process: ["Map business outcomes", "Choose appropriate acquisition channels", "Build an experimentation roadmap", "Review performance and next steps"] },
     { slug: "creative", title: "Creative Strategy & Testing",
       short: "Structured creative experimentation so decisions come from evidence, not guesswork.",
       ideal: "Advertisers who need a steady pipeline of ad concepts and clear learnings.",
@@ -39,6 +49,11 @@ export default {
       ideal: "Businesses with existing traffic or audiences that are not converting enough.",
       deliverables: ["Full-funnel campaign map", "Retargeting audience setup", "Landing-page and funnel recommendations", "Conversion step analysis"],
       process: ["Map the funnel", "Segment audiences", "Launch retargeting", "Optimize drop-offs"] },
+    { slug: "conversion-optimization", title: "Landing Page & Conversion Optimization",
+      short: "Find and reduce friction between ad clicks, enquiries and completed purchases.",
+      ideal: "Businesses already investing in traffic but looking for a clearer path to conversion.",
+      deliverables: ["Landing page and conversion journey review", "Offer, message and CTA recommendations", "Form and mobile experience improvements", "Testing priorities tied to meaningful actions"],
+      process: ["Audit the conversion path", "Identify points of friction", "Prioritise changes", "Measure and refine"] },
     { slug: "analytics", title: "Tracking, Analytics & Reporting",
       short: "Reliable measurement and plain-English reporting so you know what is working.",
       ideal: "Teams that want trustworthy data behind every advertising decision.",
@@ -46,7 +61,7 @@ export default {
       process: ["Audit tracking", "Fix and extend measurement", "Report on a schedule", "Turn data into actions"] },
   ],
 
-  // Illustrative portfolio concepts only — not completed client work or measured results.
+  // Creative strategy portfolio concepts; do not present unverified results as completed work.
   caseStudies: [
     { demo: true, client: "E-commerce Creative Testing Plan", industry: "E-commerce", cover: "ecom", timeframe: "Concept preview",
       summary: "A structured framework for testing product hooks, creative formats and audience signals before increasing spend.",
@@ -62,7 +77,7 @@ export default {
       summary: "A practical paid-social framework that connects audience testing to qualified conversations and pipeline feedback.",
       challenge: "A B2B team needs to test messaging with a defined buyer group and avoid optimising only for inexpensive clicks.",
       strategy: "Build audience and message hypotheses, test educational and problem-led creative, capture fit criteria, and connect campaign reporting to sales feedback.",
-      services: ["Audience strategy", "Lead generation", "Measurement"] },
+      services: ["Google Ads planning", "Performance marketing", "Lead generation"] },
   ],
 
   // Add real testimonials: { quote, name, role }. While empty, the section is hidden.
