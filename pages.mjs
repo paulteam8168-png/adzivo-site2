@@ -323,9 +323,45 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
 <div><h3>Ideal client</h3><p class="muted">${s.ideal}</p></div></div>${bookBtn("Discuss This Service", "btn-ghost")}</article>`).join("")}</div></section>${cta()}` });
 
   /* ---------- CASE STUDIES / PORTFOLIO ---------- */
+  // Three distinct CSS/SVG campaign dioramas; individual case cards never reuse
+  // the product photography shown in the hero or creative gallery.
+  const caseVisuals = {
+    ecom: `<div class="case-stage case-stage-beauty" aria-hidden="true">
+      <div class="case-stage-aura"></div><div class="case-stage-orbit"></div>
+      <div class="case-beauty-platform"></div>
+      <div class="case-beauty-bottle"><div class="case-beauty-cap"></div><span class="case-beauty-label">ADZIVO<br><b>BEAUTY</b><small>CREATIVE</small></span></div>
+      <div class="case-beauty-floating case-beauty-floating-a"><span>CREATIVE / 01</span><strong>New angles</strong><i>✦</i></div>
+      <div class="case-beauty-floating case-beauty-floating-b"><span>PRODUCT STORY</span><strong>Test &amp; learn ↗</strong><div class="case-beauty-lines"><b></b><b></b><b></b></div></div>
+      <span class="case-scene-index">ECOMMERCE / CREATIVE LAB</span>
+    </div>`,
+    local: `<div class="case-stage case-stage-local" aria-hidden="true">
+      <div class="case-local-globe"></div>
+      <div class="case-local-map"><svg viewBox="0 0 480 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-10 63C99 74 119 36 224 62c100 26 125-7 270-23M-15 170C83 133 168 166 221 149c88-30 166 19 274 4M-11 256C96 269 155 236 255 264c82 23 153-23 250-2" stroke="#9DFFE0" stroke-opacity=".16" stroke-width="17"/>
+        <path d="M73-10c35 121-15 232 36 368M234-10c-31 103 57 210 31 369M390-10c-23 89 25 225 16 371" stroke="#ACFFDF" stroke-opacity=".14" stroke-width="16"/>
+        <path d="M65 267 150 208 221 246 328 122 414 95" stroke="#8AFFD6" stroke-width="4" stroke-dasharray="8 13"/>
+        <circle cx="150" cy="208" r="13" fill="#0C3D2C" stroke="#BBFFE4" stroke-width="5"/><circle cx="221" cy="246" r="13" fill="#0C3D2C" stroke="#BBFFE4" stroke-width="5"/><circle cx="328" cy="122" r="17" fill="#6AFFC8" stroke="#E1FFF2" stroke-width="5"/>
+        <circle cx="328" cy="122" r="33" stroke="#76FFCD" stroke-opacity=".44" stroke-width="3"/>
+      </svg></div>
+      <div class="case-local-enquiry"><small>LOCAL / ENQUIRY</small><b>New conversation</b><span>Relevant service area <i>✓</i></span><span>Clear next step <i>✓</i></span></div>
+      <div class="case-local-phone"><div class="case-phone-top">✳ &nbsp; ADZIVO</div><div class="case-phone-title">Let’s connect.</div><div class="case-phone-input"></div><div class="case-phone-input short"></div><div class="case-phone-button">Start enquiry ↗</div></div>
+      <span class="case-scene-index">LOCAL SERVICES / LEAD FUNNEL</span>
+    </div>`,
+    b2b: `<div class="case-stage case-stage-b2b" aria-hidden="true">
+      <div class="case-stage-aura"></div><div class="case-b2b-grid"></div>
+      <div class="case-b2b-stage case-b2b-first"><span>01 / DISCOVER</span><strong>High-intent<br>search</strong><img src="/visuals/logo-google.svg" alt="" width="36" height="36"></div>
+      <div class="case-b2b-connector case-b2b-connector-one">↗</div>
+      <div class="case-b2b-stage case-b2b-second"><span>02 / QUALIFY</span><strong>Right-fit<br>leads</strong><b class="case-b2b-orb">✦</b></div>
+      <div class="case-b2b-connector case-b2b-connector-two">↗</div>
+      <div class="case-b2b-stage case-b2b-third"><span>03 / CONVERT</span><strong>Pipeline<br>clarity</strong><div class="case-b2b-bars"><i></i><i></i><i></i><i></i></div></div>
+      <div class="case-b2b-floating"><span>PERFORMANCE SYSTEM</span><strong>Signals → Strategy</strong></div>
+      <span class="case-scene-index">B2B / DEMAND GENERATION</span>
+    </div>`
+  };
+  const caseVisual = (cover) => caseVisuals[cover] || caseVisuals.ecom;
+
   const portfolioCases = c.caseStudies.map((s, i) => `<article class="portfolio-card reveal" data-category="${esc(s.industry)}" data-services="${esc((s.services||[]).join(" ").toLowerCase())}">
-    <div class="portfolio-art art-${esc(s.cover || "ecom")}"><img class="portfolio-photo" src="${photoConcepts[i%photoConcepts.length].srcHd}" srcset="${photoConcepts[i%photoConcepts.length].src} 600w, ${photoConcepts[i%photoConcepts.length].srcHd} 1200w" sizes="(max-width:650px) 92vw, 620px" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><div class="art-top">ADZIVO / PROJECT ${String(i+1).padStart(2,"0")} <span>✳</span></div><div class="art-orbit"></div>
-      <div class="art-window"><div class="art-window-head"><i></i><i></i><i></i><span>${esc(s.cover==="local"?"Lead overview":s.cover==="b2b"?"Pipeline analytics":"Campaign performance")}</span></div><div class="art-metrics"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div class="art-line"><i></i><i></i><i></i></div></div><strong class="art-index">0${i+1}</strong></div>
+    <div class="portfolio-art art-${esc(s.cover || "ecom")} case-art-workshop" role="img" aria-label="3D ${esc(s.industry)} campaign strategy concept">${caseVisual(s.cover || "ecom")}</div>
     <div class="portfolio-info"><div class="portfolio-meta"><span>${esc(s.industry)}</span><span>${s.demo?"Concept preview":esc(s.timeframe)}</span></div><h2>${esc(s.client)}</h2><p>${esc(s.summary || s.challenge)}</p>
     <div class="portfolio-tags">${(s.services||[]).slice(0,3).map(v=>`<span>${esc(v)}</span>`).join("")}</div>
     ${s.demo ? conceptMetricStrip(i) : ""}
