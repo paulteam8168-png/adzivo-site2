@@ -196,6 +196,42 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     </div>
   </div>`;
 
+  // Crisp, layered portfolio artwork: distinct from the existing home hero.
+  // The product images are creative concepts, not client campaign results.
+  const portfolioShowroom = `<div class="pm-showroom" role="img" aria-label="3D emerald chrome creative showroom featuring skincare, furniture and footwear advertising concepts">
+    <div class="pm-showroom-aura"></div><div class="pm-showroom-floor"></div>
+    <div class="pm-holo-ring pm-ring-a"></div><div class="pm-holo-ring pm-ring-b"></div>
+    <svg class="pm-chrome-arrow" viewBox="0 0 420 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><linearGradient id="pmArrowMetal" x1="0" y1="0" x2="1" y2=".85"><stop stop-color="#1d5147"/><stop offset=".18" stop-color="#eafff8"/><stop offset=".38" stop-color="#7faca0"/><stop offset=".57" stop-color="#fdfffe"/><stop offset=".76" stop-color="#438877"/><stop offset="1" stop-color="#cffff1"/></linearGradient><linearGradient id="pmArrowSide" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#61e7bb"/><stop offset=".65" stop-color="#092e27"/><stop offset="1" stop-color="#071612"/></linearGradient></defs>
+      <ellipse cx="210" cy="308" rx="176" ry="39" fill="#22c98c" opacity=".14"/>
+      <path d="M60 286 C115 284 155 244 202 218 C270 181 305 123 341 82" stroke="#021712" stroke-width="42" stroke-linecap="round"/>
+      <path d="M60 278 C115 276 155 236 202 210 C270 173 305 115 341 74" stroke="url(#pmArrowMetal)" stroke-width="29" stroke-linecap="round"/>
+      <path d="M61 270 C116 268 155 228 203 202 C271 165 305 107 341 66" stroke="#f4fffb" stroke-opacity=".7" stroke-width="4" stroke-linecap="round"/>
+      <path d="M301 72 376 42 366 126 341 95 322 119 295 103Z" fill="url(#pmArrowMetal)" stroke="#d2fff0" stroke-width="3"/>
+      <path d="M376 42 388 54 377 139 366 126Z" fill="url(#pmArrowSide)"/>
+    </svg>
+    <a class="pm-show-card pm-show-skin" href="#creative-showcase" aria-label="Explore skincare visual concept"><img src="/visuals/skincare-concept-hd.webp" width="1200" height="700" alt="" loading="eager" decoding="async"><span class="pm-show-label"><small>01 / E-COMMERCE</small><strong>Skincare creative</strong></span></a>
+    <a class="pm-show-card pm-show-furniture" href="#creative-showcase" aria-label="Explore furniture visual concept"><img src="/visuals/furniture-concept-hd.webp" width="1200" height="700" alt="" loading="eager" decoding="async"><span class="pm-show-label"><small>02 / HOME & LIVING</small><strong>Furniture creative</strong></span></a>
+    <a class="pm-show-card pm-show-shoe" href="#creative-showcase" aria-label="Explore sneaker visual concept"><img src="/visuals/shoe-concept-hd.webp" width="1200" height="700" alt="" loading="eager" decoding="async"><span class="pm-show-label"><small>03 / FASHION</small><strong>Footwear creative</strong></span></a>
+    <div class="pm-show-console" aria-hidden="true"><span class="pm-console-eyebrow">ADZIVO / CAMPAIGN STUDIO</span><div class="pm-console-line"><b>Creative ↗</b><i></i></div><div class="pm-console-bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="pm-console-foot">META / GOOGLE / PERFORMANCE</span></div>
+  </div>`;
+
+  const performanceSpotlight = `<section class="sec performance-spotlight" id="performance-marketing">
+    <div class="wrap performance-spotlight-layout">
+      <div class="performance-intro reveal"><span class="eyebrow">Performance marketing / ADZIVO</span><h2>Search, social and creative. <span class="grad">One growth system.</span></h2><p class="lead">From Meta Ads and Google Ads to conversion journeys and actionable reporting, we connect the right channels with the right business goals.</p><div class="performance-intro-actions"><a class="btn btn-primary" href="/services/#performance-marketing">Explore Performance Marketing ↗</a><a class="btn btn-ghost" href="/case-studies/">See Creative Work</a></div>
+        <div class="pm-capability-orbit" aria-hidden="true"><div class="pm-capability-core">✳<small>STRATEGY</small></div><span class="pm-capability-node pm-node-one">Meta Ads</span><span class="pm-capability-node pm-node-two">Google Ads</span><span class="pm-capability-node pm-node-three">Analytics</span><span class="pm-capability-node pm-node-four">Creative</span></div>
+      </div>
+      <div class="pm-capability-grid">
+        <a class="pm-capability-card reveal" href="/services/#meta-ads"><i>∞</i><strong>Meta Ads</strong><span>Campaign setup, audience research and optimisation.</span></a>
+        <a class="pm-capability-card reveal" href="/services/#google-ads"><i>G</i><strong>Google Ads</strong><span>High-intent search strategy and conversion tracking.</span></a>
+        <a class="pm-capability-card reveal" href="/services/#lead-generation"><i>↗</i><strong>Lead Generation</strong><span>Relevant enquiries and quality-focused funnels.</span></a>
+        <a class="pm-capability-card reveal" href="/services/#conversion-optimization"><i>◉</i><strong>Conversion Optimisation</strong><span>Clearer landing pages and paths to action.</span></a>
+        <a class="pm-capability-card reveal" href="/services/#creative"><i>✦</i><strong>Creative Testing</strong><span>New angles, formats and structured experiments.</span></a>
+        <a class="pm-capability-card reveal" href="/services/#analytics"><i>▥</i><strong>Measurement</strong><span>Tracking, attribution and readable reporting.</span></a>
+      </div>
+    </div>
+  </section>`;
+
   /* ---------- HOME ---------- */
   const approach = c.testimonials.length
     ? `<section class="sec"><div class="wrap">${head("Testimonials", "What clients say")}<div class="grid g3">${c.testimonials.map((t) => `<figure class="card reveal"><blockquote>“${esc(t.quote)}”</blockquote><figcaption>${esc(t.name || "ADZIVO Client")}${t.role ? `, ${esc(t.role)}` : ""}</figcaption></figure>`).join("")}</div></div></section>`
