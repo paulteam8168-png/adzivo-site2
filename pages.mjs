@@ -60,7 +60,7 @@ ${noindex ? "" : `<script type="application/ld+json">${ldJson(path, title, schem
 </div></header>
 <main id="main">${body}</main>
 <footer class="ftr"><div class="wrap ftr-grid">
-<div><a class="brand" href="/">${logo}<span>${c.name}</span></a><p class="muted">Performance marketing built around your business goals. ${c.name} is an independent agency and is not affiliated with or endorsed by Meta.</p>${contactLines.length ? `<ul class="plain">${contactLines.join("")}</ul>` : ""}</div>
+<div><a class="brand" href="/">${logo}<span>${c.name}</span></a><p class="muted">Performance marketing built around your business goals. ${c.name} is independent and is not affiliated with or endorsed by Meta or Google.</p>${contactLines.length ? `<ul class="plain">${contactLines.join("")}</ul>` : ""}</div>
 <div><h3>Services</h3><ul class="plain">${c.services.map((s) => `<li><a href="/services/#${s.slug}">${s.title}</a></li>`).join("")}</ul></div>
 <div><h3>Company</h3><ul class="plain"><li><a href="/">Home</a></li>${nav.map(([h, t]) => `<li><a href="${h}">${t}</a></li>`).join("")}<li><a href="/privacy/">Privacy Policy</a></li><li><a href="/terms/">Terms of Service</a></li><li><a href="/book-a-call/">Booking Page</a></li></ul></div>
 </div><div class="wrap copy">© <span data-year>${new Date().getFullYear()}</span> ${c.name}. All rights reserved.</div></footer>
@@ -70,7 +70,7 @@ ${c.contact.bookingUrl ? '<script src="https://assets.calendly.com/assets/extern
   };
 
   const cta = (h = "Ready to Make Your Marketing Work Harder?", t = "Let's Talk About Your Goals") =>
-    `<section class="sec"><div class="wrap"><div class="cta-box reveal"><h2>${h}</h2><p class="muted">Tell us about your business and goals. We'll tell you honestly whether paid social is a good fit.</p>${bookBtn(t)}</div></div></section>`;
+    `<section class="sec"><div class="wrap"><div class="cta-box reveal"><h2>${h}</h2><p class="muted">Tell us about your goals, and we'll help assess whether paid social, search or a broader performance marketing plan makes sense.</p>${bookBtn(t)}</div></div></section>`;
 
   const head = (eyebrow, h, p = "") => `<div class="sec-head reveal"><span class="eyebrow">${eyebrow}</span><h2>${h}</h2>${p ? `<p class="muted">${p}</p>` : ""}</div>`;
 
@@ -127,12 +127,12 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <dl><dt>Challenge</dt><dd>${esc(s.challenge)}</dd><dt>Strategy</dt><dd>${esc(s.strategy)}</dd><dt>Results</dt><dd>${esc(s.results)}</dd></dl></article>`).join("");
 
   const faqs = [
-    ["What services does ADZIVO offer?", "We manage paid social advertising on Meta platforms, including Facebook and Instagram campaigns, creative strategy and testing, lead generation, retargeting and funnel optimization, plus tracking, analytics and reporting."],
+    ["What services does ADZIVO offer?", "We support performance marketing across Meta and Google Ads, including search and social campaign strategy, creative testing, lead generation, conversion optimisation, retargeting and measurement."],
     ["Which businesses are a good fit?", "Businesses with a clear offer, a defined customer and the ability to follow up on leads or fulfil orders. E-commerce, local service, professional service and B2B companies can all be a fit; we'll tell you honestly on the first call if paid social isn't right for you yet."],
     ["What is the minimum advertising budget?", c.minBudgetNote || "It depends on your goals, market and offer. Your budget should be enough to gather meaningful data. We'll discuss a realistic range on your strategy call."],
     ["How do you measure campaign success?", "We agree on goals up front, such as cost per qualified lead or cost per acquisition, and track them through reporting we explain in plain language. We focus on business outcomes, not vanity metrics."],
     ["How long does it take to launch campaigns?", "Timelines depend on how ready your tracking, creative and landing pages are. We'll give a realistic schedule after discovery."],
-    ["Do clients pay advertising spend directly to Meta?", "Typically yes. Ads run in your own ad account and you pay the platform directly. Our management fee is separate from your advertising spend."],
+    ["Do clients pay advertising spend directly to ad platforms?", "Typically yes. Campaigns run through your business-owned ad accounts on supported platforms, and platform media spend is separate from our management fee."],
     ["Do you provide creative and landing-page support?", "We provide creative strategy, concepts and testing, and recommendations for landing pages and funnels. The exact scope is confirmed during onboarding."],
     ["How can I book a consultation?", "Use the Book a Strategy Call button on any page, or send us a message through the contact form."],
   ];
@@ -237,11 +237,11 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     ? `<section class="sec"><div class="wrap">${head("Testimonials", "What clients say")}<div class="grid g3">${c.testimonials.map((t) => `<figure class="card reveal"><blockquote>“${esc(t.quote)}”</blockquote><figcaption>${esc(t.name || "ADZIVO Client")}${t.role ? `, ${esc(t.role)}` : ""}</figcaption></figure>`).join("")}</div></div></section>`
     : `<section class="sec alt"><div class="wrap">${head("Our Approach", "Clear thinking before ad spend", "We keep things simple: understand the business, test with discipline, report honestly and invest more only where the data supports it.")}</div></section>`;
 
-  add({ schema: [{ "@type": "FAQPage", mainEntity: faqs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }], path: "/", title: `${c.name} — ${c.tagline}`, desc: "ADZIVO helps ambitious businesses build smarter paid social campaigns, generate qualified leads and make better decisions with performance-focused advertising.", body: `
+  add({ schema: [{ "@type": "FAQPage", mainEntity: faqs.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) }], path: "/", title: `${c.name} — ${c.tagline}`, desc: "ADZIVO offers performance marketing, Meta Ads, Google Ads, lead generation, creative testing and conversion strategy for growing businesses.", body: `
 <section class="hero"><div class="wrap hero-in">
-<div class="hero-copy"><span class="eyebrow">Paid Social Advertising Agency</span>
+<div class="hero-copy"><span class="eyebrow">Performance Marketing / Paid Social &amp; Search</span>
 <h1>Turn Ad Spend Into <span class="grad">Scalable Growth.</span></h1>
-<p class="lead">We help ambitious businesses build smarter paid social campaigns, generate qualified leads, and make better decisions with performance-focused advertising.</p>
+<p class="lead">We connect Meta Ads, Google Ads, creative strategy and measurement to help businesses reach the right people and make smarter advertising decisions.</p>
 <div class="actions">${bookBtn()}${btn("/services/", "Explore Our Services", "btn-ghost")}</div>${brandStrip}</div>
 ${referenceHeroArt}
 ${referenceRail}
@@ -278,8 +278,10 @@ ${referenceRail}
   </div>
 </div></section>
 
-<section class="sec"><div class="wrap">${head("Services", "Everything paid social needs, in one team", "From strategy and creative to tracking and reporting.")}
-<div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><span class="svc-icon" aria-hidden="true">${["∞","◎","✦","↗","◉","▥"][c.services.indexOf(s)]||"✦"}</span><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
+${performanceSpotlight}
+
+<section class="sec"><div class="wrap">${head("Services", "Performance marketing, connected from click to conversion", "Paid search, paid social, creative, landing pages and measurement — working together.")}
+<div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><span class="svc-icon" aria-hidden="true">${["∞","◉","G","✳","✦","↗","◎","◈","▥"][c.services.indexOf(s)]||"✦"}</span><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
 ${c.showCaseStudies ? `<section class="sec alt"><div class="wrap">${head("Featured Work", "Creative concepts made to stand out", "Explore product-led creative, audience ideas and campaign planning through our concept portfolio.")}
 <div class="grid g3">${c.caseStudies.slice(0, 3).map((s, i) => `<article class="card reveal portfolio-teaser"><div class="project-mini-art mini-${esc(s.cover || "ecom")}"><img class="concept-photo" src="${photoConcepts[i%photoConcepts.length].srcHd}" srcset="${photoConcepts[i%photoConcepts.length].src} 600w, ${photoConcepts[i%photoConcepts.length].srcHd} 1200w" sizes="(max-width:760px) 92vw, 390px" alt="${photoConcepts[i%photoConcepts.length].alt}" loading="lazy" decoding="async"><span class="concept-art-index">CREATIVE / 0${i+1}</span><span class="concept-art-category">${photoConcepts[i%photoConcepts.length].type}</span></div><span class="eyebrow">Concept preview · 0${i + 1}</span><h3>${photoConcepts[i%photoConcepts.length].title}</h3><p class="tag">${photoConcepts[i%photoConcepts.length].type} · Concept preview</p><p class="muted">${esc(s.summary || s.challenge)}</p>${s.demo ? conceptMetricStrip(i) : ""}<a class="more" href="/case-studies/">Explore approach →</a></article>`).join("")}</div><p class="center">${btn("/case-studies/", "Explore Portfolio", "btn-ghost")}</p></div></section>` : ""}
@@ -299,12 +301,19 @@ ${approach}
 ${cta()}` });
 
   /* ---------- SERVICES ---------- */
-  add({ schema: [{ "@type": "ItemList", itemListElement: c.services.map((s, i) => ({ "@type": "ListItem", position: i + 1, item: { "@type": "Service", name: s.title, description: s.short, url: `${base}/services/#${s.slug}`, provider: { "@id": base + "/#org" } } })) }], path: "/services/", title: "Services", desc: "Meta Ads management, Facebook and Instagram campaigns, creative testing, lead generation, retargeting and analytics from ADZIVO.", body: `
-<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Services</span><h1>Paid social services built around your goals</h1><p class="lead">Every engagement starts with understanding your business. We don't promise specific sales, leads or return on ad spend, because results depend on your offer, market and budget.</p></div>${pageHeroVisual("PAID SOCIAL / SYSTEM 01", "services")}</div></section>
+  add({ schema: [{ "@type": "ItemList", itemListElement: c.services.map((s, i) => ({ "@type": "ListItem", position: i + 1, item: { "@type": "Service", name: s.title, description: s.short, url: `${base}/services/#${s.slug}`, provider: { "@id": base + "/#org" } } })) }], path: "/services/", title: "Services", desc: "ADZIVO performance marketing services: Google Ads, Meta Ads, lead generation, conversion optimisation, creative strategy and reporting.", body: `
+<section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Services / Performance Marketing</span><h1>Smarter campaigns. <span class="grad">Stronger foundations.</span></h1><p class="lead">A connected approach to Meta Ads, Google Ads, creative testing, conversion journeys and reporting — built around your business goals.</p></div>${pageHeroVisual("PAID SOCIAL + SEARCH / SYSTEM 01", "services")}</div></section>
 <section class="sec services-overview"><div class="wrap">
-<div class="sec-head reveal"><span class="eyebrow">Our expertise</span><h2>A complete growth system, not disconnected tactics</h2><p class="muted">Explore how every element of paid social fits into one connected strategy.</p></div>
-<div class="grid g3">${c.services.map((s,i) => `<a class="card svc reveal" href="#${s.slug}"><span class="service-symbol">${["✳","◉","✦","↗","◎","▥"][i] || "↗"}</span><span class="service-index">0${i+1} / SERVICE</span><h3>${esc(s.title)}</h3><p class="muted">${esc(s.short)}</p><span class="more">Explore service →</span></a>`).join("")}</div></div></section>
-<section class="sec"><div class="wrap"><div class="note">Our management fee and your advertising spend are separate. Ad spend is paid to the advertising platform from your own ad account; our fee covers strategy, management and reporting.</div>
+<div class="sec-head reveal"><span class="eyebrow">Our expertise</span><h2>A complete growth system, not disconnected tactics</h2><p class="muted">Explore paid search, paid social, creative, landing pages and measurement — built to support one clear strategy.</p></div>
+<div class="grid g3">${c.services.map((s,i) => `<a class="card svc reveal" href="#${s.slug}"><span class="service-symbol">${["∞","◎","G","✳","✦","↗","◉","◇","▥"][i] || "↗"}</span><span class="service-index">0${i+1} / SERVICE</span><h3>${esc(s.title)}</h3><p class="muted">${esc(s.short)}</p><span class="more">Explore service →</span></a>`).join("")}</div></div></section>
+<section class="sec pm-workflow-section"><div class="wrap"><div class="sec-head reveal"><span class="eyebrow">How the system works</span><h2>Four connected layers. One clear direction.</h2><p class="muted">Every channel has a job, from finding relevant people to understanding what happens after the click.</p></div>
+<div class="pm-workflow-grid">
+<div class="pm-workflow-step reveal"><span class="pm-step-no">01 / DISCOVER</span><span class="pm-step-icon">◎</span><h3>Audience &amp; intent</h3><p>Understand the right customer and where buying intent starts.</p></div>
+<div class="pm-workflow-step reveal"><span class="pm-step-no">02 / CREATE</span><span class="pm-step-icon">✦</span><h3>Search &amp; social</h3><p>Choose relevant channels, messaging and creative formats.</p></div>
+<div class="pm-workflow-step reveal"><span class="pm-step-no">03 / CONVERT</span><span class="pm-step-icon">↗</span><h3>Conversion journeys</h3><p>Make the path from ad to enquiry or purchase easier to follow.</p></div>
+<div class="pm-workflow-step reveal"><span class="pm-step-no">04 / LEARN</span><span class="pm-step-icon">▥</span><h3>Measurement</h3><p>Review meaningful signals, document learnings and improve.</p></div>
+</div></div></section>
+<section class="sec pm-detail-section"><div class="wrap"><div class="note">Our management fee and your advertising spend are separate. Ad spend is paid to the advertising platform from your own ad account; our fee covers strategy, management and reporting.</div>
 ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}"><h2>${s.title}</h2><p class="muted">${s.short}</p>
 <div class="cols"><div><h3>Deliverables</h3><ul>${s.deliverables.map((d) => `<li>${d}</li>`).join("")}</ul></div>
 <div><h3>Process</h3><ol>${s.process.map((d) => `<li>${d}</li>`).join("")}</ol></div>
@@ -329,7 +338,7 @@ ${pageHeroVisual("CREATIVE / PERFORMANCE", "portfolio")}</div></section>
   </article>`).join("")}</div></div></section>
 <section class="portfolio-controls"><div class="wrap portfolio-controls-in"><div><span class="eyebrow">The portfolio</span><h2>Ideas built around business goals</h2></div><div class="portfolio-filters" role="group" aria-label="Filter portfolio projects"><button class="portfolio-filter active" data-filter="all" aria-pressed="true">All work</button><button class="portfolio-filter" data-filter="E-commerce" aria-pressed="false">E-commerce</button><button class="portfolio-filter" data-filter="Local services" aria-pressed="false">Local services</button><button class="portfolio-filter" data-filter="B2B" aria-pressed="false">B2B</button></div></div></section>
 <section class="sec portfolio-section"><div class="wrap"><div class="portfolio-grid">${portfolioCases}</div></div></section>
-<section class="sec"><div class="wrap"><div class="portfolio-bottom reveal"><span class="eyebrow">Have a project in mind?</span><h2>Let's build your next growth story.</h2><p class="muted">Tell us about your goals and we'll help map out a practical paid social strategy.</p>${bookBtn("Start a Conversation")}</div></div></section>` });
+<section class="sec"><div class="wrap"><div class="portfolio-bottom reveal"><span class="eyebrow">Have a project in mind?</span><h2>Let's build your next growth story.</h2><p class="muted">Tell us about your goals and we'll help shape a practical search, social and creative strategy.</p>${bookBtn("Start a Conversation")}</div></div></section>` });
 
   /* ---------- ABOUT ---------- */
   const team = c.team.length ? `<section class="sec alt"><div class="wrap">${head("Team", "The people behind the campaigns")}<div class="grid g3">${c.team.map((m) => `<div class="card reveal"><h3>${esc(m.name)}</h3><p class="tag">${esc(m.role)}</p><p class="muted">${esc(m.bio || "")}</p></div>`).join("")}</div></div></section>` : "";
