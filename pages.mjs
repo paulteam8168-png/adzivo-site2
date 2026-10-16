@@ -152,6 +152,35 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 
 <section class="strip"><div class="wrap strip-in"><span>Independent agency</span><span>Transparent reporting</span><span>No guaranteed-result promises</span><span>You keep control of your ad account</span></div></section>
 
+<section class="sec campaign-lab-section" id="campaign-lab"><div class="wrap campaign-lab-grid">
+  <div class="lab-copy reveal"><span class="eyebrow">The ADZIVO campaign lab</span>
+    <h2>Campaign insights, <span class="grad">beautifully clear.</span></h2>
+    <p class="lead">Explore how creative tests, audience signals and reporting can be organised for different types of businesses. This is an interactive example.</p>
+    <div class="lab-tabs" role="group" aria-label="Choose an illustrative campaign scenario">
+      <button type="button" class="lab-tab active" data-lab-scenario="ecommerce" aria-pressed="true">E-commerce</button>
+      <button type="button" class="lab-tab" data-lab-scenario="local" aria-pressed="false">Local services</button>
+      <button type="button" class="lab-tab" data-lab-scenario="b2b" aria-pressed="false">B2B</button>
+    </div>
+    <p class="lab-disclaimer"><strong>Demo only.</strong> Sample metrics are fictional and do not represent real clients, campaign results, or guaranteed outcomes.</p>
+    <a class="btn btn-ghost" href="/services/">Discover Our Approach</a>
+  </div>
+  <div class="lab-dashboard reveal" role="group" aria-label="Interactive campaign analytics demonstration containing fictional numbers">
+    <div class="lab-dashboard-top"><span class="lab-live-dot"></span><span>ADZIVO / SAMPLE CAMPAIGN</span><span class="lab-demo-badge">DEMO DATA</span></div>
+    <div class="lab-dashboard-title"><div><span>Scenario visualisation</span><h3 data-lab-title>Creative testing</h3></div><span class="lab-arrow">↗</span></div>
+    <div class="lab-stat-grid">
+      <div><small data-lab-label-1>Sample ROAS</small><strong data-lab-value-1>5.8×</strong><span>ILLUSTRATIVE</span></div>
+      <div><small data-lab-label-2>Sample conversion rate</small><strong data-lab-value-2>3.2%</strong><span>ILLUSTRATIVE</span></div>
+      <div><small data-lab-label-3>Creative variations</small><strong data-lab-value-3>12</strong><span>ILLUSTRATIVE</span></div>
+    </div>
+    <div class="lab-chart-top"><span>Campaign learning signals</span><small>VISUAL EXAMPLE · NOT REAL DATA</small></div>
+    <div class="lab-chart" aria-hidden="true"><div class="lab-chart-bars">
+      <i style="--bar:32%"></i><i style="--bar:47%"></i><i style="--bar:40%"></i><i style="--bar:69%"></i><i style="--bar:58%"></i><i style="--bar:81%"></i><i style="--bar:93%"></i>
+    </div><div class="lab-chart-line"></div></div>
+    <div class="lab-insight"><span class="lab-insight-icon">✦</span><div><small>EXAMPLE NEXT STEP</small><p data-lab-insight>Compare hooks and creative formats before increasing spend.</p></div></div>
+    <div class="lab-dashboard-footer"><span>STRATEGY</span><span>CREATIVE</span><span>MEASUREMENT</span></div>
+  </div>
+</div></section>
+
 <section class="sec"><div class="wrap">${head("Services", "Everything paid social needs, in one team", "From strategy and creative to tracking and reporting.")}
 <div class="grid g3">${c.services.map((s) => `<a class="card svc reveal" href="/services/#${s.slug}"><h3>${s.title}</h3><p class="muted">${s.short}</p><span class="more">Learn more →</span></a>`).join("")}</div></div></section>
 
@@ -175,6 +204,9 @@ ${cta()}` });
   /* ---------- SERVICES ---------- */
   add({ schema: [{ "@type": "ItemList", itemListElement: c.services.map((s, i) => ({ "@type": "ListItem", position: i + 1, item: { "@type": "Service", name: s.title, description: s.short, url: `${base}/services/#${s.slug}`, provider: { "@id": base + "/#org" } } })) }], path: "/services/", title: "Services", desc: "Meta Ads management, Facebook and Instagram campaigns, creative testing, lead generation, retargeting and analytics from ADZIVO.", body: `
 <section class="page-hero"><div class="wrap page-hero-grid"><div class="page-hero-copy"><span class="eyebrow">Services</span><h1>Paid social services built around your goals</h1><p class="lead">Every engagement starts with understanding your business. We don't promise specific sales, leads or return on ad spend, because results depend on your offer, market and budget.</p></div>${pageHeroVisual("PAID SOCIAL / SYSTEM 01", "services")}</div></section>
+<section class="sec services-overview"><div class="wrap">
+<div class="sec-head reveal"><span class="eyebrow">Our expertise</span><h2>A complete growth system, not disconnected tactics</h2><p class="muted">Explore how every element of paid social fits into one connected strategy.</p></div>
+<div class="grid g3">${c.services.map((s,i) => `<a class="card svc reveal" href="#${s.slug}"><span class="service-symbol">${["✳","◉","✦","↗","◎","▥"][i] || "↗"}</span><span class="service-index">0${i+1} / SERVICE</span><h3>${esc(s.title)}</h3><p class="muted">${esc(s.short)}</p><span class="more">Explore service →</span></a>`).join("")}</div></div></section>
 <section class="sec"><div class="wrap"><div class="note">Our management fee and your advertising spend are separate. Ad spend is paid to the advertising platform from your own ad account; our fee covers strategy, management and reporting.</div>
 ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}"><h2>${s.title}</h2><p class="muted">${s.short}</p>
 <div class="cols"><div><h3>Deliverables</h3><ul>${s.deliverables.map((d) => `<li>${d}</li>`).join("")}</ul></div>
