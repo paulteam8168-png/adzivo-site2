@@ -34,7 +34,7 @@ export function pages(c, base) {
 <title>${esc(full)}</title>
 <meta name="description" content="${esc(desc)}">
 ${noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url}">`}
-<meta name="theme-color" content="#080807">
+<meta name="theme-color" content="#041714">
 <meta property="og:type" content="website"><meta property="og:site_name" content="${c.name}">
 <meta property="og:title" content="${esc(full)}"><meta property="og:description" content="${esc(desc)}">
 <meta property="og:url" content="${url}"><meta property="og:image" content="${base}/og.png">
@@ -68,8 +68,52 @@ ${c.contact.bookingUrl ? '<script src="https://assets.calendly.com/assets/extern
 
   const head = (eyebrow, h, p = "") => `<div class="sec-head reveal"><span class="eyebrow">${eyebrow}</span><h2>${h}</h2>${p ? `<p class="muted">${p}</p>` : ""}</div>`;
 
-  // Shared visible 3D artwork for interior page heroes.
-  const pageHeroVisual = (label = "GROWTH SYSTEM / ADZIVO") => `<div class="page-hero-visual" aria-hidden="true"><div class="phv-aura"></div><div class="phv-grid"></div><div class="phv-orbit phv-orbit-a"></div><div class="phv-orbit phv-orbit-b"></div><div class="phv-object"><div class="phv-object-face"></div><div class="phv-object-glint"></div></div><div class="phv-panel phv-panel-main"><span>${label}</span><strong>ADZIVO <i>✳</i></strong><div class="phv-chart"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><small>STRATEGY · CREATIVE · GROWTH</small></div><div class="phv-float phv-float-top"><i>✦</i> Precision targeting</div><div class="phv-float phv-float-bottom"><i>↗</i> Better decisions</div></div>`;
+  // Reusable chrome growth sculpture. Purely illustrative artwork, not a performance claim.
+  const chromeScene = (label = "GROWTH / IN MOTION") => `<div class="chrome-scene" aria-hidden="true">
+    <div class="chrome-halo"></div><div class="chrome-light chrome-light-a"></div><div class="chrome-light chrome-light-b"></div>
+    <div class="chrome-rock chrome-rock-left"></div><div class="chrome-rock chrome-rock-right"></div>
+    <svg class="chrome-sculpture" viewBox="0 0 680 520" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="sc-chrome" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#29363b"/><stop offset=".15" stop-color="#efffff"/><stop offset=".33" stop-color="#677881"/><stop offset=".51" stop-color="#ffffff"/><stop offset=".7" stop-color="#74898c"/><stop offset=".86" stop-color="#e4fffa"/><stop offset="1" stop-color="#25383b"/></linearGradient>
+        <linearGradient id="sc-face" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#aaffeb"/><stop offset=".2" stop-color="#ecfffd"/><stop offset=".43" stop-color="#3a6462"/><stop offset=".67" stop-color="#0b2425"/><stop offset="1" stop-color="#9afbe1"/></linearGradient>
+        <linearGradient id="sc-side" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#90c9ba"/><stop offset=".19" stop-color="#152c30"/><stop offset=".63" stop-color="#061112"/><stop offset=".9" stop-color="#347569"/><stop offset="1" stop-color="#b1ffe9"/></linearGradient>
+        <linearGradient id="sc-mint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d1fff5"/><stop offset=".35" stop-color="#66ffcf"/><stop offset=".66" stop-color="#00af90"/><stop offset="1" stop-color="#75fff1"/></linearGradient>
+        <radialGradient id="sc-floor"><stop stop-color="#03ac81" stop-opacity=".28"/><stop offset=".55" stop-color="#035947" stop-opacity=".09"/><stop offset="1" stop-color="#02100e" stop-opacity="0"/></radialGradient>
+        <filter id="sc-glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="9"/></filter>
+        <filter id="sc-shadow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="12"/></filter>
+      </defs>
+      <ellipse cx="343" cy="458" rx="309" ry="64" fill="url(#sc-floor)"/>
+      <ellipse cx="345" cy="463" rx="231" ry="28" fill="#000" opacity=".65" filter="url(#sc-shadow)"/>
+      <path d="M119 397 Q345 459 572 397 L572 447 Q345 508 119 447 Z" fill="url(#sc-side)" stroke="#3c8f7d" stroke-width="2"/>
+      <ellipse cx="345" cy="398" rx="226" ry="57" fill="url(#sc-chrome)" stroke="#c6fff0" stroke-opacity=".82" stroke-width="2"/>
+      <ellipse cx="345" cy="393" rx="196" ry="42" fill="#0d1e20" stroke="#57e7c2" stroke-opacity=".75" stroke-width="2"/>
+      <ellipse cx="345" cy="393" rx="181" ry="35" fill="#061113" stroke="#a6ffec" stroke-opacity=".23"/>
+      <g class="chrome-chart-bars" stroke="#b9fff0" stroke-opacity=".48" stroke-width="1">
+        <path d="M210 350 L226 340 L252 340 L236 350 Z" fill="url(#sc-chrome)"/><path d="M236 350 L252 340 V376 L236 386 Z" fill="url(#sc-side)"/><rect x="210" y="350" width="26" height="36" fill="url(#sc-face)"/>
+        <path d="M255 319 L271 309 H297 L281 319 Z" fill="url(#sc-chrome)"/><path d="M281 319 L297 309 V376 L281 386 Z" fill="url(#sc-side)"/><rect x="255" y="319" width="26" height="67" fill="url(#sc-face)"/>
+        <path d="M300 291 L316 281 H342 L326 291 Z" fill="url(#sc-chrome)"/><path d="M326 291 L342 281 V376 L326 386 Z" fill="url(#sc-side)"/><rect x="300" y="291" width="26" height="95" fill="url(#sc-face)"/>
+        <path d="M345 261 L361 251 H387 L371 261 Z" fill="url(#sc-chrome)"/><path d="M371 261 L387 251 V376 L371 386 Z" fill="url(#sc-side)"/><rect x="345" y="261" width="26" height="125" fill="url(#sc-face)"/>
+        <path d="M390 226 L406 216 H432 L416 226 Z" fill="url(#sc-chrome)"/><path d="M416 226 L432 216 V376 L416 386 Z" fill="url(#sc-side)"/><rect x="390" y="226" width="26" height="160" fill="url(#sc-face)"/>
+        <path d="M435 194 L451 184 H477 L461 194 Z" fill="url(#sc-chrome)"/><path d="M461 194 L477 184 V376 L461 386 Z" fill="url(#sc-side)"/><rect x="435" y="194" width="26" height="192" fill="url(#sc-face)"/>
+      </g>
+      <path d="M167 319 C241 315 286 269 333 241 C381 212 416 160 456 121" stroke="#4bffcc" stroke-opacity=".6" stroke-width="42" filter="url(#sc-glow)"/>
+      <path d="M167 319 C241 315 286 269 333 241 C381 212 416 160 456 121" stroke="#072629" stroke-width="30" stroke-linecap="round"/>
+      <path d="M167 319 C241 315 286 269 333 241 C381 212 416 160 456 121" stroke="url(#sc-chrome)" stroke-width="23" stroke-linecap="round"/>
+      <path d="M167 313 C241 309 286 263 333 235 C381 206 416 154 456 115" stroke="#e8fffb" stroke-opacity=".75" stroke-width="4" stroke-linecap="round"/>
+      <path d="M420 108 L481 74 L480 148 L462 125 L439 151 Z" fill="url(#sc-chrome)" stroke="#c8ffed" stroke-width="3"/>
+      <path d="M481 74 L495 83 L494 157 L480 148 Z" fill="url(#sc-side)"/><path d="M420 108 L434 118 L495 83 L481 74 Z" fill="url(#sc-face)"/>
+      <ellipse cx="345" cy="449" rx="220" ry="43" stroke="#84ffe0" stroke-opacity=".8" stroke-width="2"/>
+      <path d="M132 452 Q345 505 558 452" stroke="#8ffff0" stroke-opacity=".5" stroke-width="3"/>
+      <path d="M136 435 Q345 490 554 435" stroke="#8ffff0" stroke-opacity=".25" stroke-width="2"/>
+    </svg>
+    <div class="chrome-float chrome-float-a"><span class="float-label">STRATEGY / CREATIVE</span><strong>Built for clarity <b>↗</b></strong><div class="float-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+    <div class="chrome-float chrome-float-b"><span class="float-label">PERFORMANCE SYSTEM</span><strong>Smarter decisions <b>✦</b></strong><div class="float-rule"></div></div>
+    <div class="chrome-float chrome-float-c"><span class="float-label">${label}</span><strong>ADZIVO <b>✳</b></strong></div>
+    <div class="chrome-scene-label">ILLUSTRATIVE 3D ARTWORK · NOT CLIENT RESULTS</div>
+  </div>`;
+
+  // Identical sculptural language is shared by interior pages, not substituted with a different theme.
+  const pageHeroVisual = (label = "GROWTH / ADZIVO") => `<div class="page-hero-visual" role="img" aria-label="Decorative chrome three-dimensional growth chart with emerald lighting">${chromeScene(label)}</div>`;
 
   const caseCards = (list) => list.filter((s) => !s.demo).map((s) => `<article class="card case reveal">
 ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>' : ""}
@@ -102,21 +146,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 <h1>Turn Ad Spend Into <span class="grad">Scalable Growth.</span></h1>
 <p class="lead">We help ambitious businesses build smarter paid social campaigns, generate qualified leads, and make better decisions with performance-focused advertising.</p>
 <div class="actions">${bookBtn()}${btn("/services/", "Explore Our Services", "btn-ghost")}</div></div>
-<div class="viz hero-3d-scene" role="img" aria-label="Abstract metallic silver 3D sculpture with floating strategy panels.">
-<div class="hero-3d-stage" aria-hidden="true">
-  <div class="hero-orbit orbit-one"></div>
-  <div class="hero-orbit orbit-two"></div>
-  <div class="hero-orbit orbit-three"></div>
-  <div class="hero-core"><div class="hero-core-shine"></div></div>
-  <span class="hero-particle particle-one"></span><span class="hero-particle particle-two"></span><span class="hero-particle particle-three"></span><span class="hero-particle particle-four"></span>
-</div>
-<div class="vcard main"><div class="vhead"><i></i><i></i><i></i><span>Campaign overview</span></div>
-<div class="bars">${[40, 62, 48, 78, 58, 90, 70].map((h, i) => `<b style="--h:${h}%;--d:${i * 0.12}s"></b>`).join("")}</div>
-<svg class="line" viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 50 C40 45 60 30 100 34 S170 14 210 20 270 4 300 6" /></svg></div>
-<div class="vcard fl f1"><small>Creative strategy</small><div class="pills"><span></span><span class="on"></span><span></span></div></div>
-<div class="vcard fl f2"><small>Lead quality</small><div class="dotline"><u></u><em></em></div></div>
-<div class="vcard fl f3"><small>Performance insights</small><div class="check">✓</div></div>
-</div>
+<div class="viz hero-3d-scene" role="img" aria-label="Decorative chrome growth chart with emerald-green lighting">${chromeScene("PERFORMANCE / SYSTEM 01")}</div>
 </div></section>
 
 <section class="strip"><div class="wrap strip-in"><span>Independent agency</span><span>Transparent reporting</span><span>No guaranteed-result promises</span><span>You keep control of your ad account</span></div></section>
@@ -159,7 +189,7 @@ ${c.services.map((s) => `<article class="svc-detail card reveal" id="${s.slug}">
     <details class="portfolio-details"><summary>Explore project approach <span>↗</span></summary><div class="portfolio-detail-body"><h3>Challenge</h3><p>${esc(s.challenge)}</p><h3>Strategy</h3><p>${esc(s.strategy)}</p>${s.demo?'<p class="concept-note">Illustrative concept only — not a real client result.</p>':`<h3>Results</h3><p>${esc(s.results)}</p>`}${btn("/contact/","Discuss a Similar Project","btn-ghost btn-sm")}</div></details></div></article>`).join("");
   add({ path: "/case-studies/", title: "Portfolio", desc: "Explore ADZIVO campaign concepts, strategy and project approach.", body: `
 <section class="portfolio-hero"><div class="wrap portfolio-hero-grid"><div><span class="eyebrow">Selected Work · ADZIVO</span><h1>Strategy that makes <span class="grad">every campaign</span> count.</h1><p class="lead">Explore our approach to creative testing, lead generation and paid social growth. Concept previews are clearly labelled; verified client results are shared transparently.</p><div class="portfolio-hero-pills"><span>Meta Ads</span><span>Creative Strategy</span><span>Lead Generation</span><span>Measurement</span></div></div>
-<div class="portfolio-hero-visual" aria-hidden="true"><div class="hero-ring"></div><div class="hero-dashboard"><span>PAID SOCIAL / CREATIVE SYSTEM</span><strong>Clarity.<br>Creative.<br><em>Conversion.</em></strong><div class="hero-sparkline"></div><small>PAID SOCIAL · CREATIVE · STRATEGY</small></div><div class="hero-floating float-a">Creative testing <b>↗</b></div><div class="hero-floating float-b">Signal over noise <b>✦</b></div></div></div></section>
+${pageHeroVisual("CREATIVE / PERFORMANCE")}</div></section>
 <section class="portfolio-controls"><div class="wrap portfolio-controls-in"><div><span class="eyebrow">The portfolio</span><h2>Ideas built around business goals</h2></div><div class="portfolio-filters" role="group" aria-label="Filter portfolio projects"><button class="portfolio-filter active" data-filter="all" aria-pressed="true">All work</button><button class="portfolio-filter" data-filter="E-commerce" aria-pressed="false">E-commerce</button><button class="portfolio-filter" data-filter="Local services" aria-pressed="false">Local services</button><button class="portfolio-filter" data-filter="B2B" aria-pressed="false">B2B</button></div></div></section>
 <section class="sec portfolio-section"><div class="wrap"><div class="portfolio-grid">${portfolioCases}</div><p class="portfolio-footnote muted">Sample concepts are illustrative design and strategy examples, not claims about completed client campaigns.</p></div></section>
 <section class="sec"><div class="wrap"><div class="portfolio-bottom reveal"><span class="eyebrow">Have a project in mind?</span><h2>Let's build your next growth story.</h2><p class="muted">Tell us about your goals and we'll help map out a practical paid social strategy.</p>${bookBtn("Start a Conversation")}</div></div></section>` });
