@@ -420,3 +420,261 @@
   .case-beauty-bottle{animation:none!important}
   .portfolio-creative-showcase .reference-creative-card{transition:none!important}
 }
+
+
+/* 2026-10 — Precise brand alignment and readable category labels.
+   Deliberately last in the final stylesheet: old visual layers contain
+   individual perspective offsets and tiny tags that are overridden here. */
+
+/* Match icon centre and text baseline in the narrow home hero channel row. */
+.hero .hero-platform-strip{
+  display:flex!important;align-items:center!important;
+  flex-wrap:wrap!important;gap:11px 17px!important;
+}
+.hero .hero-platform{
+  display:inline-flex!important;align-items:center!important;
+  justify-content:flex-start!important;gap:7px!important;
+  line-height:1.35!important;font-size:.79rem!important;
+  white-space:nowrap;color:#E7FFF4!important;
+  font-weight:700!important;letter-spacing:0!important;
+  vertical-align:middle;
+}
+.hero .hero-platform .platform-mark-logo,
+.hero .hero-platform img.platform-mark-logo{
+  display:block!important;flex:0 0 auto!important;
+  width:22px!important;height:22px!important;
+  max-width:none!important;object-fit:contain!important;
+  object-position:center!important;
+  margin:0!important;padding:0!important;
+  border:0!important;filter:none!important;
+  image-rendering:auto!important;transform:none!important;
+  vertical-align:middle!important;
+}
+.hero .hero-platform .platform-mark-meta,
+.hero .hero-platform img.platform-mark-meta{
+  width:29px!important;height:22px!important;
+}
+.hero .hero-platform .platform-mark-instagram,
+.hero .hero-platform img.platform-mark-instagram{
+  width:23px!important;height:23px!important;
+  border-radius:6px!important;
+  box-shadow:0 0 0 1px rgba(245,255,248,.17),0 0 15px rgba(219,48,133,.08);
+}
+.hero .hero-platform>span:last-child{
+  display:inline-flex;align-items:center;min-height:24px;
+}
+
+/* Top hero: all platform tiles use the same 3D plane.
+   Meta icon uses a centred SVG instead of the shifted infinity character. */
+.hero .reference-clear-platforms{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  align-items:stretch!important;justify-items:stretch!important;
+  top:32%!important;right:1.5%!important;width:29%!important;
+  gap:7px!important;
+  transform:perspective(900px) rotateY(-5deg) rotateX(2deg)!important;
+  transform-origin:center!important;
+}
+.hero .reference-clear-platforms .clear-platform,
+.hero .reference-clear-platforms .clear-platform.clear-meta,
+.hero .reference-clear-platforms .clear-platform.clear-google,
+.hero .reference-clear-platforms .clear-platform.clear-instagram,
+.hero .reference-clear-platforms .clear-platform.clear-tiktok,
+.hero .reference-clear-platforms .clear-platform.clear-linkedin,
+.hero .reference-clear-platforms .clear-platform:nth-child(2),
+.hero .reference-clear-platforms .clear-platform:nth-child(3),
+.hero .reference-clear-platforms .clear-platform:nth-child(4){
+  transform:none!important;translate:none!important;
+  display:flex!important;flex-direction:column!important;
+  align-items:center!important;justify-content:center!important;
+  gap:3px!important;min-width:0!important;
+  min-height:68px;
+  padding:6px 3px!important;
+  box-sizing:border-box!important;
+}
+.hero .reference-clear-platforms .clear-platform.clear-linkedin{
+  grid-column:1/span 2!important;justify-self:center!important;
+  width:47%!important;min-height:52px!important;
+}
+.hero .reference-clear-platforms .clear-platform .hero-logo-img,
+.hero .reference-clear-platforms .clear-platform .hero-meta-logo{
+  display:block!important;position:relative!important;
+  width:39px!important;height:37px!important;max-width:86%!important;
+  object-fit:contain!important;object-position:center!important;
+  margin:0 auto!important;padding:0!important;
+  filter:none!important;transform:none!important;
+  image-rendering:auto!important;
+}
+.hero .reference-clear-platforms .clear-platform .hero-meta-logo{
+  width:47px!important;height:37px!important;
+}
+.hero .reference-clear-platforms .clear-platform small{
+  display:block!important;width:100%!important;
+  font-size:.61rem!important;line-height:1.2!important;
+  font-weight:750!important;letter-spacing:0!important;
+  text-align:center!important;color:#F4FFF9!important;
+  margin:0!important;padding:0!important;
+  white-space:nowrap!important;
+  text-shadow:0 2px 3px rgba(0,0,0,.5);
+}
+.hero .reference-clear-platforms .clear-meta .platform-emblem{
+  transform:none!important;letter-spacing:0!important;
+}
+.hero .reference-clear-platforms .clear-linkedin .platform-emblem{
+  line-height:1.1!important;letter-spacing:0!important;
+}
+
+/* Labels are real HTML, never tiny blurred text inside the old image. */
+.hero .hero-rail-card{
+  position:relative!important;
+}
+.hero .hero-rail-category{
+  position:absolute!important;z-index:5!important;
+  left:10px!important;top:9px!important;
+  display:inline-flex!important;align-items:center!important;
+  max-width:calc(100% - 20px)!important;
+  padding:6px 10px!important;
+  border:1px solid rgba(191,255,223,.51)!important;
+  border-radius:8px!important;
+  color:#F6FFF9!important;
+  background:#073528!important;
+  box-shadow:0 5px 14px rgba(0,0,0,.5)!important;
+  font-size:.7rem!important;line-height:1.15!important;
+  font-weight:850!important;letter-spacing:.085em!important;
+  white-space:nowrap!important;
+  text-shadow:none!important;
+  pointer-events:none;
+}
+.hero .hero-rail-card .hero-rail-meta{
+  position:relative!important;z-index:4!important;
+  padding:53px 8px 12px 11px!important;
+  min-width:0!important;align-self:end!important;
+}
+.hero .hero-rail-card .hero-rail-meta strong{
+  color:#FFFFFF!important;font-size:.88rem!important;
+  line-height:1.22!important;letter-spacing:-.01em!important;
+  font-weight:850!important;
+  text-shadow:0 2px 9px rgba(0,0,0,.76)!important;
+}
+.hero .hero-rail-card .hero-rail-meta small{
+  display:block;color:#E1FDEA!important;
+  font-size:.69rem!important;line-height:1.34!important;
+  font-weight:650!important;letter-spacing:0!important;
+  background:transparent!important;border:0!important;
+  padding:0!important;border-radius:0!important;
+  text-shadow:0 2px 7px rgba(0,0,0,.8)!important;
+  margin-top:4px!important;
+}
+
+/* Case Studies hero: opaque floating labels improve contrast on the imagery. */
+.portfolio-hero .pm-show-card::after{
+  background:linear-gradient(180deg,rgba(1,15,9,.12) 0%,transparent 29%,rgba(0,18,10,.39) 55%,rgba(0,12,8,.98) 100%)!important;
+}
+.portfolio-hero .pm-show-label{
+  left:9px!important;right:9px!important;bottom:9px!important;
+  z-index:8!important;
+  display:flex!important;flex-direction:column!important;gap:4px!important;
+  background:rgba(2,24,16,.94)!important;
+  border:1px solid rgba(166,255,212,.47)!important;
+  border-radius:9px!important;padding:9px 10px!important;
+  box-shadow:0 8px 18px rgba(0,0,0,.45)!important;
+}
+.portfolio-hero .pm-show-label small{
+  display:block!important;
+  font-size:.71rem!important;line-height:1.25!important;
+  font-weight:850!important;letter-spacing:.08em!important;
+  color:#C2FFE4!important;text-shadow:none!important;
+}
+.portfolio-hero .pm-show-label strong{
+  display:block!important;font-size:.88rem!important;
+  font-weight:790!important;line-height:1.24!important;
+  color:#FFFFFF!important;text-shadow:none!important;
+}
+
+/* Case Studies gallery: clear category chip on each crisp SVG composition. */
+.portfolio-creative-showcase .reference-creative-media>span.reference-category-chip{
+  left:auto!important;right:13px!important;top:12px!important;
+  z-index:6!important;
+  display:inline-flex!important;align-items:center!important;
+  padding:8px 12px!important;min-height:30px!important;
+  border-radius:8px!important;
+  border:1px solid rgba(186,255,219,.62)!important;
+  background:#06291F!important;color:#F3FFF9!important;
+  font-size:.76rem!important;line-height:1.1!important;
+  font-weight:850!important;letter-spacing:.09em!important;
+  text-shadow:none!important;box-shadow:0 8px 20px rgba(0,0,0,.42);
+}
+.portfolio-creative-showcase .reference-creative-detail .eyebrow{
+  display:block!important;color:#B3FFDB!important;
+  font-weight:780!important;letter-spacing:.095em!important;
+  font-size:.7rem!important;line-height:1.5!important;
+}
+/* The tiny 3D console platform icons are actual logos too. */
+.pm-channel-icons img[src$="/logo-meta.svg"]{
+  display:block!important;object-fit:contain!important;
+  padding:5px!important;filter:none!important;
+}
+
+@media(max-width:1100px){
+  .hero .reference-clear-platforms{top:34%!important;right:2%!important;width:30%!important}
+  .hero .reference-clear-platforms .clear-platform small{font-size:.57rem!important}
+  .portfolio-hero .pm-show-label small{font-size:.65rem!important}
+}
+@media(max-width:780px){
+  .hero .reference-clear-platforms{top:35%!important;width:27%!important}
+  .hero .reference-clear-platforms .clear-platform{
+    min-height:53px!important;padding:5px 2px!important;gap:2px!important
+  }
+  .hero .reference-clear-platforms .clear-platform .hero-logo-img{
+    width:30px!important;height:28px!important
+  }
+  .hero .reference-clear-platforms .clear-platform .hero-meta-logo{
+    width:35px!important;height:29px!important
+  }
+  .hero .reference-clear-platforms .clear-platform small{font-size:.48rem!important}
+  .hero .reference-clear-platforms .clear-platform.clear-linkedin{min-height:42px!important}
+  .hero .hero-rail-category{font-size:.65rem!important;padding:6px 9px!important}
+}
+@media(max-width:550px){
+  .hero .reference-clear-platforms{
+    top:37%!important;right:0!important;width:31%!important;gap:3px!important;
+    transform:none!important;
+  }
+  .hero .reference-clear-platforms .clear-platform{
+    min-height:42px!important;padding:3px 1px!important;gap:1px!important;
+    border-radius:8px!important;
+  }
+  .hero .reference-clear-platforms .clear-platform .hero-logo-img{
+    width:23px!important;height:21px!important
+  }
+  .hero .reference-clear-platforms .clear-platform .hero-meta-logo{
+    width:27px!important;height:23px!important
+  }
+  .hero .reference-clear-platforms .clear-platform small{font-size:.375rem!important}
+  .hero .reference-clear-platforms .clear-platform.clear-linkedin{
+    width:48%!important;min-height:33px!important
+  }
+  .hero .hero-platform{font-size:.72rem!important;gap:6px!important}
+  .hero .hero-platform .platform-mark-instagram{width:23px!important;height:23px!important}
+  .hero .hero-platform .platform-mark-meta{width:28px!important;height:21px!important}
+  .hero .hero-rail-category{font-size:.69rem!important}
+  .portfolio-hero .pm-show-label{
+    left:5px!important;right:5px!important;bottom:5px!important;
+    padding:5px 6px!important;border-radius:6px!important;gap:2px!important;
+  }
+  .portfolio-hero .pm-show-label small{font-size:.53rem!important}
+  .portfolio-hero .pm-show-label strong{font-size:.65rem!important}
+  .portfolio-creative-showcase .reference-creative-media>span.reference-category-chip{
+    font-size:.65rem!important;top:9px!important;right:9px!important;
+    min-height:26px!important;padding:6px 9px!important;
+  }
+}
+@media(max-width:390px){
+  .hero .reference-clear-platforms{top:40%!important}
+  .hero .reference-clear-platforms .clear-platform{min-height:35px!important}
+  .hero .reference-clear-platforms .clear-platform small{font-size:.34rem!important}
+  .hero .reference-clear-platforms .clear-platform .hero-logo-img{width:18px!important;height:17px!important}
+  .hero .reference-clear-platforms .clear-platform .hero-meta-logo{width:22px!important;height:18px!important}
+  .hero .hero-rail-category{font-size:.65rem!important;left:8px!important;top:8px!important}
+  .portfolio-hero .pm-show-label small{font-size:.46rem!important}
+  .portfolio-hero .pm-show-label strong{font-size:.54rem!important}
+}
