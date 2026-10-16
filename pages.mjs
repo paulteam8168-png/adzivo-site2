@@ -178,10 +178,23 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
       </a>`).join("")}</div>
     <small class="hero-rail-note">Illustrative designs · no client performance claims</small>
   </aside>`;
-  const referenceHeroArt = `<div class="viz hero-3d-scene hero-reference-visual" role="img" aria-label="Emerald-lit silver chrome 3D growth sculpture with floating Meta, Google, TikTok and LinkedIn platform icon panels. Fictional metrics are part of a decorative concept illustration.">
+  // The original chrome crop supplies metallic lighting; HTML layers keep dashboards and logos sharp.
+  const referenceHeroArt = `<div class="viz hero-3d-scene hero-reference-visual" role="img" aria-label="Emerald-lit metallic growth sculpture and floating decorative platform icon tiles. Campaign numbers are fictional examples.">
     <div class="reference-art-glow" aria-hidden="true"></div>
-    <img class="reference-hero-art" src="/visuals/hero-emerald-clean.webp" alt="" fetchpriority="high" loading="eager" decoding="async">
-    <span class="reference-demo-stamp">3D DESIGN CONCEPT · SAMPLE NUMBERS</span>
+    <img class="reference-hero-art" src="/visuals/hero-emerald-clean.webp" alt="" width="1020" height="544" fetchpriority="high" loading="eager" decoding="async">
+    <div class="reference-clear-dashboard" aria-hidden="true">
+      <span class="clear-kicker"><i></i> DEMO PERFORMANCE / 01</span>
+      <div class="clear-statline"><strong>5.8<span>×</span></strong><span>Sample ROAS /<br>not real results</span></div>
+      <div class="clear-spark-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="clear-panel-foot"><b>↗</b><span>STRATEGY / MEASUREMENT</span></div>
+    </div>
+    <div class="reference-clear-platforms" aria-hidden="true">
+      <div class="clear-platform clear-meta"><span class="platform-emblem">∞</span><small>Meta</small></div>
+      <div class="clear-platform clear-google"><span class="platform-emblem">G</span><small>Google</small></div>
+      <div class="clear-platform clear-tiktok"><span class="platform-emblem">♪</span><small>TikTok</small></div>
+      <div class="clear-platform clear-linkedin"><span class="platform-emblem">in</span><small>LinkedIn</small></div>
+    </div>
+    <span class="reference-demo-stamp">3D CREATIVE CONCEPT · ALL NUMBERS ARE SAMPLES</span>
   </div>`;
 
   /* ---------- HOME ---------- */
