@@ -275,3 +275,44 @@
   .reference-hero-art,.reference-art-glow{animation:none!important}
   .hero-rail-card,.reference-creative-card,.concept-photo,.reference-creative-media img{transition:none!important}
 }
+
+/* Final reference-fit refinements */
+@media(min-width:1280px){
+  .hero .hero-in{width:min(1540px,95%)!important}
+}
+.hero-rail-demo{
+  position:absolute;top:9px;left:11px;z-index:2;
+  display:flex;align-items:baseline;gap:7px;
+  padding:5px 7px;border-radius:8px;
+  background:rgba(1,22,13,.66);border:1px solid rgba(146,255,208,.35);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.hero-rail-demo strong{color:#f7fff9;font-weight:850;font-size:clamp(.84rem,1.15vw,1.2rem);line-height:1.12}
+.hero-rail-demo small{font-size:.47rem;color:#a2ffdd;letter-spacing:.095em;font-weight:760}
+.svc-icon{
+  display:inline-grid;place-items:center;width:48px;height:48px;
+  border:1px solid rgba(148,255,209,.34);border-radius:14px;
+  background:linear-gradient(145deg,#155c41,#042316);
+  color:#aaffdd;font-size:2rem;line-height:1;
+  box-shadow:inset 0 1px 0 rgba(225,255,242,.19),0 11px 23px rgba(0,0,0,.22),0 0 24px rgba(45,247,172,.06);
+  transition:transform .3s ease,box-shadow .3s;
+}
+.svc:hover .svc-icon{transform:translateY(-3px) rotateY(9deg);box-shadow:0 15px 29px rgba(0,0,0,.24),0 0 28px rgba(48,250,166,.16)}
+.svc:nth-child(1) .svc-icon{color:#138fff;font-size:2.65rem;background:linear-gradient(145deg,#0f3d3c,#031719)}
+.svc:nth-child(2) .svc-icon{color:#fd7ea8;font-size:2.35rem;text-shadow:1px -1px #ffca54,-2px 2px #766aff}
+.svc:nth-child(3) .svc-icon{font-size:2.2rem;color:#c4fff2}
+.svc:nth-child(4) .svc-icon{color:#a4ffe0}
+.svc:nth-child(5) .svc-icon{font-size:2.1rem;color:#d2ffea}
+.svc:nth-child(6) .svc-icon{font-size:2rem;color:#6affcb}
+@media(max-width:1180px){
+  .hero-rail-card .hero-rail-demo{top:9px;left:9px}
+}
+@media(max-width:760px){
+  .hero-rail-demo{padding:4px 6px}
+  .hero-rail-demo strong{font-size:.88rem}
+  .hero-rail-demo small{font-size:.43rem}
+}
+@media(max-width:470px){
+  .hero-rail-demo strong{font-size:1.05rem}
+  .hero-rail-demo small{font-size:.54rem}
+}
