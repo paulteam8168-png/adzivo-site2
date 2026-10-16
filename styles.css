@@ -1383,3 +1383,40 @@ body{
 @media(prefers-reduced-motion:reduce){
  :where(*, *::before, *::after){scroll-behavior:auto!important}
 }
+
+
+/* ===== FINAL OVERRIDE: REMOVE GOLD / BRASS ACCENTS SITE-WIDE ===== */
+:root{
+ --gold:#dce3ea!important;
+ --golden:#dce3ea!important;
+ --champagne:#e8edf2!important;
+ --accent:#dce3ea!important;
+ --accent-color:#dce3ea!important;
+ --primary:#dce3ea!important;
+ --highlight:#f7f9fc!important;
+}
+:where([class*="gold"],[class*="Gold"],[class*="golden"],[class*="champagne"],[class*="brass"]){
+ color:#dce3ea!important;
+ border-color:rgba(220,229,238,.42)!important;
+}
+:where(.gold,.golden,.champagne,.gold-text,.golden-text,.text-gold,.text-golden,.accent-gold,.gold-gradient,.champagne-gold){
+ background-image:linear-gradient(108deg,#fff 0%,#dce3ea 35%,#98a4b0 65%,#f7f9fc 100%)!important;
+ -webkit-background-clip:text!important;background-clip:text!important;
+ -webkit-text-fill-color:transparent!important;
+}
+:where(.btn,.button,.btn-primary,.button-primary,button[type="submit"],.cta-box a,[class*="gold-btn"],[class*="gold-button"]){
+ background:linear-gradient(120deg,#fff 0%,#e0e6ec 36%,#a2acb7 70%,#f7f9fc 100%)!important;
+ color:#101317!important;
+ border-color:#dfe6ed!important;
+}
+:where(svg [fill="#D4AF37"],svg [fill="#d4af37"],svg [fill="#C9A227"],svg [fill="#c9a227"],svg [fill="#CFB53B"],svg [fill="#cfb53b"],svg [stroke="#D4AF37"],svg [stroke="#d4af37"],svg [stroke="#C9A227"],svg [stroke="#c9a227"]){
+ fill:#dce3ea!important;stroke:#dce3ea!important;
+}
+:where(.hero,.page-hero,.portfolio-hero,.sec,.section,.services,.portfolio,.about,.process,.faq-section,.contact-section)::selection{
+ background:rgba(211,223,235,.3)!important;color:#fff!important;
+}
+/* Preserve cinematic chrome highlights while suppressing warm gold/brown shadows. */
+:where(.hero,.page-hero,.portfolio-hero,.hero-visual,.hero-art,.hero-3d-scene,.portfolio-art,.page-hero-visual){
+ --accent:#dce3ea!important;
+ filter:drop-shadow(0 26px 42px rgba(0,0,0,.58)) drop-shadow(0 0 24px rgba(205,220,235,.12));
+}
