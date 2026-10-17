@@ -155,9 +155,9 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
 
   // Cropped directly from the approved reference preview: visual concepts, not real client work.
   const photoConcepts = [
-    {src:"/visuals/skincare-concept.webp",srcHd:"/visuals/skincare-concept-hd.webp",title:"Skincare Creative",type:"E-commerce",alt:"Emerald-lit skincare product creative concept",svg:"/visuals/creative-skincare.svg",key:"skincare",segment:"E-COMMERCE"},
-    {src:"/visuals/furniture-concept.webp",srcHd:"/visuals/furniture-concept-hd.webp",title:"Furniture Creative",type:"Home & Living",alt:"Premium furniture advertising creative concept",svg:"/visuals/creative-furniture.svg",key:"furniture",segment:"DTC"},
-    {src:"/visuals/shoe-concept.webp",srcHd:"/visuals/shoe-concept-hd.webp",title:"Footwear Creative",type:"Fashion",alt:"Sneaker and footwear advertising creative concept",svg:"/visuals/creative-footwear.svg",key:"footwear",segment:"LIFESTYLE"},
+    {src:"/visuals/skincare-concept.webp",srcHd:"/visuals/skincare-concept-hd.webp",heroSrc:"/visuals/hero-product-skincare-2026.webp",title:"Skincare Creative",type:"E-commerce",alt:"Emerald-lit skincare product creative concept",svg:"/visuals/creative-skincare.svg",key:"skincare",segment:"E-COMMERCE"},
+    {src:"/visuals/furniture-concept.webp",srcHd:"/visuals/furniture-concept-hd.webp",heroSrc:"/visuals/hero-product-furniture-2026.webp",title:"Furniture Creative",type:"Home & Living",alt:"Premium furniture advertising creative concept",svg:"/visuals/creative-furniture.svg",key:"furniture",segment:"DTC"},
+    {src:"/visuals/shoe-concept.webp",srcHd:"/visuals/shoe-concept-hd.webp",heroSrc:"/visuals/hero-product-sneaker-2026.webp",title:"Footwear Creative",type:"Fashion",alt:"Sneaker and footwear advertising creative concept",svg:"/visuals/creative-footwear.svg",key:"footwear",segment:"LIFESTYLE"},
   ];
   const channelMark = (type) => ({
     meta:'<img class="platform-mark-logo platform-mark-meta" src="/visuals/logo-meta.svg" width="29" height="22" alt="" aria-hidden="true">',
@@ -186,7 +186,7 @@ ${s.demo ? '<span class="demo">Demo Content — Replace Before Publishing</span>
     <p>Explore how premium products and creative thinking can stand out in an ad.</p>
     <div class="hero-rail-projects">${photoConcepts.map((p,i)=>`
       <a class="hero-rail-card" href="/case-studies/#creative-showcase" aria-label="${p.title} visual concept">
-        <img src="${p.srcHd}" srcset="${p.src} 600w, ${p.srcHd} 1200w" sizes="(max-width:470px) 92vw, (max-width:1180px) 31vw, 400px" alt="${p.alt}" loading="lazy" decoding="async">
+        <img class="hero-product-photo hero-product-${p.key}" src="${p.heroSrc}" width="1440" height="810" alt="${p.alt}" loading="lazy" decoding="async">
         <span class="hero-rail-category">${esc(p.segment)}</span><span class="hero-rail-meta"><strong>${p.title}</strong><small>${p.type} · Visual concept</small></span>
         <span class="hero-rail-arrow" aria-hidden="true">↗</span>
       </a>`).join("")}</div>
